@@ -1,0 +1,123 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
+<link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
+<link rel="stylesheet" href="{% static 'styles/text.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology & Genetics Hub</title>
+</head>
+<body>
+<div class="content-wrapper">
+    <!-- Include Navbar -->
+    <div id="navbar">
+    {% include 'Navbar.html' %}
+    </div>
+
+     <section class="hero">
+        <h2>Classical genetics</h2>
+    </section>
+
+<!-- White Box (formerly About Section) -->
+<section class="white-box">
+    <h3>Genetics subdivisions</h3>
+    <p> Genetics is divided in 4 big subcategories  which will be presented below:
+    </p>
+    <ol>
+        <li> Classical genetics</li>
+        <li> Molecular genetics</li>
+        <li> Population genetics</li>
+        <li> Quantitative genetics</li>
+    </ol>
+     <h3>Classical genetics</h3>
+    <p> Classical genetics focuses on how traits (phenotypes) are passed down and how they work, without
+        needing to know the specific details about the genes, proteins, or other molecules involved. It's like figuring
+        out how something works by observing what you can see (like physical traits or behaviors) without needing to
+        understand the inner workings or the exact parts that make it happen.
+    </p>
+ <div class="word-box-container">
+    <div class="word-box-item">
+        <div class="word-box-header">
+            <i class="fas fa-bookmark"></i> <!-- Icon added here -->
+            <h3>Phenotype</h3>
+        </div>
+        <div class="word-box-description">
+            <p>Phenotype is what you can see or measure in an organism, like its eye color, height, or how it behaves.
+                It's how the genes and environment together make the organism look or act.
+            </p>
+        </div>
+    </div>
+</div>
+        <h4>Cell biology</h4>
+
+        <p>Even though it is not necessary to understand cell biology to be able to understand classical genetics,
+            this would be a great start in order to have a deeper understanding of the subject.
+        <p>There are two big groups of organisms:</p>
+        <p><strong>Prokaryotes:</strong> These are the organisms whose cells do not have a nucleus.
+            Because of that, their DNA floats freely cell's cytoplasm.</p>
+        <p><strong>Eukaryotes:</strong> On the other hand as you may already know, eukaryotes are organisms
+            that have a nucleus which where the DNA is located.</p>
+
+        <h4>Eukaryotic cells</h4>
+        <div class="img-right-container">
+            <img src="{% static 'Images/Introduction to genetics/Clasical genetics/1.jpg' %}" width="400" height="400" alt="Eukaryotic cells">
+            <div class="img-text">
+                <h3>Eukaryotic cells</h3>
+                <p>Source: <a href="https://www.freepik.com/free-vector/human-cell-anatomy-infographics-with-realistic-
+                educational-chart-labelled-parts-white-background-vector-illustration_26764349.htm#fromView=search&page
+                =1&position=6&uuid=e6009d7a-7566-4a61-843d-a6b7eabf0a79" target="_blank">Freepik</a></p>
+            </div>
+        </div>
+        <p>
+            One of the most important aspects which differentiats them from prokaryotes is the presens of the nucleaus which holds the
+            genetic materials and which is considered one of the biggest organel in most of the human cells
+            (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4600468/" target="_blank">READ MORE HERE NCBI</a>).
+
+
+            The role of the nucleus in these cells is to both protect and store the genetic material
+            as well as the having the roll to control gene expression as most of the processes take place here with one
+            exception which is the gene translation (process which takes place in the cytoplasm)
+            (<a href="https://www.ncbi.nlm.nih.gov/books/NBK9845/#:~:text=The%20presence%20of%20a%20nucleus,as%20the%20cell's%20control%20center." target="_blank">NCBI</a>).</p>
+        </p>
+        <p> One other important aspect is the presence of types of group cells which are:
+            <ol>
+        <li> Somatic cells: Somatic cells are produced by cell division called mitosis, which in multicellular organisms are
+            differentiated into specialized cell types. </li>
+        <li> Sex cells: Sex cells are specialized cells used for reproduction, aspect valid only for organisms that use sexual reproduction.
+            The process is called meiosis and will be discussed later. For example all mammales reproduce sexually, while
+            in some reptile and fish species parthenogenesis can occur.
+            In plants the sexual cells are referred to as gametes.
+        </li>
+    </ol>
+        </p>
+
+
+    <h4>Chromosomes</h4>
+<p>
+    </p>
+
+    <p>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+</div>
+    <!-- Include Footer -->
+    {% include 'Footer.html' %}
+
+
+</body>
+</html>

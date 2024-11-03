@@ -1,0 +1,112 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology & Genetics Hub</title>
+</head>
+<body>
+
+    <!-- Include Navbar -->
+    <div id="navbar">
+        {% include 'Navbar.html' %}
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Discover the World of Biology & Genetics</h2>
+        <p>Explore the latest insights, research, and resources in the life sciences.</p>
+        <a href="#" class="hero-button">Explore Now</a>
+    </section>
+
+    <!-- White Box (formerly About Section) -->
+    <section class="white-box">
+        <h3>About Us</h3>
+        <p>Our platform is dedicated to providing comprehensive resources and knowledge in the fields of biology and genetics.
+            We aim to foster a community of learners, researchers, and enthusiasts who are passionate about understanding the living world.
+            Snooker is a cue sport played on a rectangular billiards table covered with a green cloth called baize, with six pockets.
+            First played by British Army officers stationed in India circa 1875, the game uses twenty-two balls (pictured) – a white cue ball,
+            fifteen red balls, and six other balls collectively called "the colours". Using a snooker cue, individual players (or teams)
+            take turns to strike the cue ball to pot the other balls in a predefined sequence, accumulating points for each successful
+            pot and for each foul committed by the opposing player/team. An individual frame of snooker is won by the player or team
+            that has scored the most points. A snooker match ends when a player/team has won a predetermined number of frames.
+            The standard rules of snooker were first established in 1919. As a professional sport, snooker is governed by the
+            World Professional Billiards and Snooker Association. Top players of many nationalities compete in regular tournaments
+            around the world, earning millions of pounds on the World Snooker Tour.</p>
+    </section>
+
+    <!-- Blue Box (formerly Services Section) -->
+    <section class="blue-box">
+        <h3>Our Services</h3>
+        <div class="blue-box-container">
+            <div class="blue-box-item">
+                <h4>Educational Resources</h4>
+                <p>Our platform is dedicated to providing comprehensive resources and knowledge in the fields of biology and genetics.
+            We aim to foster a community of learners, researchers, and enthusiasts who are passionate about understanding the living world.
+            Snooker is a cue sport played on a rectangular billiards table covered with a green cloth called baize, with six pockets.
+            First played by British Army officers stationed in India circa 1875, the game uses twenty-two balls (pictured) – a white cue ball,
+            fifteen red balls, and six other balls collectively called "the colours". Using a snooker cue, individual players (or teams)
+            take turns to strike the cue ball to pot the other balls in a predefined sequence, accumulating points for each successful
+            pot and for each foul committed by the opposing player/team. An individual frame of snooker is won by the player or team
+            that has scored the most points. A snooker match ends when a player/team has won a predetermined number of frames.
+            The standard rules of snooker were first established in 1919. As a professional sport, snooker is governed by the
+            World Professional Billiards and Snooker Association. Top players of many nationalities compete in regular tournaments
+            around the world, earning millions of pounds on the World Snooker Tour.</p>
+            </div>
+            <div class="blue-box-item">
+                <h4>Research Tools</h4>
+                <p>Utilize cutting-edge tools and databases to support your research and discoveries in the life sciences.</p>
+            </div>
+            <div class="blue-box-item">
+                <h4>Community Support</h4>
+                <p>Join a community of like-minded individuals to share ideas, collaborate on projects, and advance your knowledge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dark Blue Box (formerly Testimonials Section) -->
+    <section class="dark-blue-box">
+        <h3>What Our Users Say</h3>
+        <div class="dark-blue-box-container">
+            <div class="dark-blue-box-item">
+                <p>"This platform has been an invaluable resource in my studies. The tools and community support have helped me excel in my research."</p>
+            </div>
+            <div class="dark-blue-box-item">
+                <p>"As a biology enthusiast, I’ve found the articles and courses offered here to be incredibly insightful and well-structured."</p>
+            </div>
+            <div class="dark-blue-box-item">
+                <p>"The user-friendly interface and comprehensive resources have made learning about genetics a truly enjoyable experience."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yellow Box (formerly Blog Section) -->
+    <section class="yellow-box">
+        <h3>Latest Blog Posts</h3>
+        <div class="yellow-box-container">
+            <div class="yellow-box-item">
+                <h4>The Future of Genetic Research</h4>
+                <p>Explore the emerging trends and technologies shaping the future of genetics.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="yellow-box-item">
+                <h4>Understanding CRISPR Technology</h4>
+                <p>A deep dive into CRISPR, the revolutionary gene-editing tool.</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="yellow-box-item">
+                <h4>The Role of Genetics in Medicine</h4>
+                <p>Learn about the critical role genetics plays in personalized medicine.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include 'Footer.html' %}
+
+</body>
+</html>

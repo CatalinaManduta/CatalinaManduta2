@@ -1,0 +1,125 @@
+/* Contact Container */
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 50px auto;
+    max-width: 1200px;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    opacity: 0;
+}
+
+.contact-container.show {
+    opacity: 1;
+    transform: none;
+}
+
+.contact-left, .contact-right {
+    flex: 1;
+    min-width: 350px;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.contact-left {
+    background-color: #ffffff;
+}
+
+.contact-right {
+    background-color: #15688A;
+    color: #ffffff;
+}
+
+.contact-left h2, .contact-right h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-left p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #2F4F4F;
+    text-align: left;
+}
+
+.contact-left p:last-child {
+    font-weight: bold;
+    color: #1BA5BF;
+}
+
+.contact-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-right label {
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+}
+
+.contact-right input, .contact-right textarea {
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    color: #2F4F4F;
+    background-color: #F5F5F5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-right input:focus, .contact-right textarea:focus {
+    outline: none;
+    background-color: #E2E1D2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-right button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    background-color: #1BA5BF;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-right button:hover {
+    background-color: #138CA2;
+    transform: scale(1.05);
+}
+
+.contact-right button:active {
+    transform: scale(0.95);
+}
+
+/* Transition Effects */
+.contact-left {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.contact-right {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+.show .contact-left, .show .contact-right {
+    transform: none;
+    opacity: 1;
+}

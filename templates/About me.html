@@ -1,0 +1,266 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'styles/AboutMe.css' %}">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalina Manduta CV</title>
+</head>
+<body>
+    <div class="content-wrapper">
+    <!-- Include Navbar -->
+    <div id="navbar">
+        {% include 'Base_files/Navbar.html' %}
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="{% static 'images/Profile_img1.jpg' %}" class="circular-frame" alt="Profile Picture">
+            <div class="hero-text">
+                <h2>Meet Catalina Manduta</h2>
+                <p>A Data Analyst with a passion for translating data into actionable insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Carousel with Bubbles -->
+    <section class="carousel-container skills-section">
+        <h3 style="font-size: 1.8rem; line-height: 1.5; text-align: center;">Skills & Expertise</h3>
+        <div class="carousel-slide active">
+            <div class="bubble-container">
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fab fa-python"></i>
+                    <b>Python</b> Advanced <br>(NumPy, Pandas, Scikit-learn)
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fab fa-r-project"></i>
+                    <b>RStudio</b> Intermediate <br>(Data analysis and statistical modeling)
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-database"></i>
+                    <b>SQL</b> Intermediate <br>(Database management)
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-chart-line"></i>
+                    <b>Power BI</b> Intermediate <br>(Data visualization)
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-file-excel"></i>
+                    <b>Microsoft Excel</b> Intermediate
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-file-word"></i>
+                    <b>Microsoft Word</b> Advanced
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-presentation"></i>
+                    <b>Microsoft PowerPoint</b> Advanced
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="bubble-container">
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-chart-pie"></i>
+                    <b>Basic Epidemiology</b> in Biomedicine
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-music"></i>
+                    <b>Bioacoustics</b> Basic <br>(Using MATLAB)
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-dna"></i>
+                    <b>Bioinformatics</b> Intermediate
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-flask"></i>
+                    <b>Biostatistics</b> Intermediate
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-vial"></i>
+                    <b>Next-Gen Sequencing</b> Data Analysis
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-database"></i>
+                    <b>OMICS Data Mining</b> Methods
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="bubble-container">
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-language"></i>
+                    <b>Fluent in</b> English and Romanian
+                </div>
+                <div class="bubble" style="margin-top: 0;">
+                    <i class="fas fa-globe-europe"></i>
+                    <b>Proficient in</b> Danish
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-comments"></i>
+                    <b>Presentation & Communication</b> Skills
+                </div>
+                <div class="bubble" style="margin-top: 30px;">
+                    <i class="fas fa-handshake"></i>
+                    <b>Global Cultural Competence</b>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons for Skills Carousel -->
+        <button class="prev" onclick="plusSlides(-1, 'skills')">❮</button>
+        <button class="next" onclick="plusSlides(1, 'skills')">❯</button>
+    </section>
+
+    <!-- Education Carousel -->
+    <section class="carousel-container education-section">
+        <h3 style="font-size: 1.8rem; line-height: 1.5; text-align: center;">My Educational Journey</h3>
+        <div class="carousel-slide active">
+            <div class="education-item">
+                <div class="education-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;"> Marketing Management</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">Dania University of Applied Science, Viborg, Denmark | 2018 - 2020</h5>
+                    <p style="color: #2F4F4F; font-size: 1.2rem;">
+                        Relocating to Denmark opened a new chapter in my life. I pursued Marketing Management,
+                        merging International Sales and Marketing into my studies. This decision broadened my horizons,
+                        introducing me to economics, project management, and the global market—skills that continue to shape my professional journey.
+                    </p>
+                </div>
+                <img src="{% static 'images/Dania.jpg' %}" class="circular-frame" alt="Dania University of Applied Science">
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="education-item">
+                <div class="education-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Bachelor's in Biology</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">West University of Timisoara, Romania | Graduation Year: 2021</h5>
+                    <p style="color: #2F4F4F; font-size: 1.2rem;">
+                        Though I enjoyed marketing, my passion for biology never faded. I returned to studies, diving
+                        into plant physiology, genetics, ecology, and beyond. My studies took me from the microcosm of
+                        viruses and bacteria to the broader fields of zoology and environmental science.
+                    </p>
+                </div>
+                <img src="{% static 'images/Vest.jpg' %}" class="circular-frame" alt="West University of Timisoara">
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="education-item">
+                <div class="education-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Blending Disciplines: Master's in Computational Biomedicine</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">University of Southern Denmark, Odense | Graduation Year: 2023</h5>
+                    <p style="color: #2F4F4F; font-size: 1.2rem;">
+                        To bridge my interests in biology and technology, I pursued a Master’s in Computational Biomedicine.
+                        Here, I studied epidemiology, bioinformatics, and protein modeling, while honing my skills in Python and R.
+                        I chose this path not only to deepen my knowledge but also to open doors to diverse career opportunities.
+                    </p>
+                </div>
+                <img src="{% static 'images/SDU.jpg' %}" class="circular-frame" alt="University of Southern Denmark">
+            </div>
+        </div>
+
+        <!-- Navigation Buttons for Education Carousel -->
+        <button class="prev" onclick="plusSlides(-1, 'education')">❮</button>
+        <button class="next" onclick="plusSlides(1, 'education')">❯</button>
+    </section>
+
+    <!-- Professional Journey Carousel -->
+    <section class="carousel-container experience-section">
+        <h3 style="font-size: 1.8rem; line-height: 1.5; text-align: center;">Professional Journey</h3>
+        <div class="carousel-slide active">
+            <div class="experience-item">
+                <div class="experience-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Software Technical Support</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">Umbraco, Odense, Denmark | 08/2023 - Present</h5>
+                    <ul>
+                        <li>Debugging and troubleshooting technical issues for global users.</li>
+                        <li>Collaborating with the development team to enhance user experience.</li>
+                        <li>Leading the creation of an internal process playbook.</li>
+                        <li>Mentoring new hires and working with international teams.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="experience-item">
+                <div class="experience-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Student Assistant</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">University of Southern Denmark, Odense | 11/2022 - 12/2022</h5>
+                    <ul>
+                        <li>Supporting professors with data manipulation and statistical analysis.</li>
+                        <li>Ensuring smooth operation of administrative tasks.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="experience-item">
+                <div class="experience-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Marketing Assistant</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">Transaris Lucas Srl, Resita, Romania | 07/2019 - 10/2019</h5>
+                    <ul>
+                        <li>Increased sales by 30% through effective customer outreach.</li>
+                        <li>Enhanced customer relationship management using Mailchimp.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-slide">
+            <div class="experience-item">
+                <div class="experience-item-text">
+                    <h4 style="color: #15688A; font-size: 1.5rem;">Marketing Assistant</h4>
+                    <h5 style="color: #1BA5BF; font-size: 1.3rem;">Lookfit Aps, Viborg, Denmark | 01/2018 - 04/2018</h5>
+                    <ul>
+                        <li>Conducted market research to boost event participation.</li>
+                        <li>Designed promotional materials for fitness center events.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons for Experience Carousel -->
+        <button class="prev" onclick="plusSlides(-1, 'experience')">❮</button>
+        <button class="next" onclick="plusSlides(1, 'experience')">❯</button>
+    </section>
+    </div>
+
+
+    {% include 'Base_files/Footer.html' %}
+
+    <script>
+        function plusSlides(n, section) {
+            const slides = document.querySelectorAll(`.${section}-section .carousel-slide`);
+            let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+
+            slides[activeIndex].classList.remove('active');
+            slides[activeIndex].style.display = 'none';
+            activeIndex += n;
+
+            if (activeIndex >= slides.length) activeIndex = 0;
+            if (activeIndex < 0) activeIndex = slides.length - 1;
+
+            slides[activeIndex].classList.add('active');
+            slides[activeIndex].style.display = 'block';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.carousel-slide').forEach(slide => slide.style.display = 'none');
+            document.querySelectorAll('.carousel-slide.active').forEach(slide => slide.style.display = 'block');
+        });
+    </script>
+
+</body>
+</html>

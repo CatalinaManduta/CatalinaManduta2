@@ -1,0 +1,32 @@
+/* Carousel Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px; /* Adjusted size */
+    height: 50px; /* Adjusted size */
+    background-color: #15688A;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px; /* Adjusted font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.prev {
+    left: 30px; /* Position next to the left side with a small offset */
+}
+
+.next {
+    right: 30px; /* Position next to the right side with a small offset */
+}
+
+.prev:hover, .next:hover {
+    background-color: #138CA2;
+    transform: scale(1.1);
+}

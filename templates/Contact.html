@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/Contact.css' %}">
+    <title>Contact</title>
+</head>
+<body>
+    <div class="content-wrapper">
+    <!-- Include Navbar -->
+    <div id="navbar">
+    {% include 'Base_files/Navbar.html' %}
+    </div>
+
+    <!-- Contact Section -->
+    <section>
+        <div class="contact-container">
+            <div class="contact-left">
+                <h2>Let's Connect</h2>
+                <p>We'd love to hear from you! Whether you're curious about our services, need help with a project, or just want to chat, we're here to listen.</p>
+                <p>Drop us a message and let's start a conversation.</p>
+            </div>
+            <div class="contact-right">
+                <h2>Contact Us</h2>
+                <form action="/action_page.php" target="_blank">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- Include Footer -->
+    {% include 'Base_files/Footer.html' %}
+
+    <script>
+        // Trigger the animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.contact-container');
+            setTimeout(() => {
+                container.classList.add('show');
+            }, 200);
+        });
+    </script>
+
+</body>
+</html>

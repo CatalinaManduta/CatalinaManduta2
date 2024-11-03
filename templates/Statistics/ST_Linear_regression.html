@@ -1,0 +1,59 @@
+{% extends 'Base_files/Base_Article.html' %}
+
+{% block title %}Frequent Pattern Mining - Biology & Genetics Hub{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h2>Linear regression</h2>
+    </section>
+
+    <section class="white-box">
+        <h3>What is Linear regression?</h3>
+        <p>Linear regression is a method used to understand the relationship between two things and to make predictions.
+            Imagine drawing a straight line that best fits a bunch of points on a graph. This line helps show how one
+            thing (called the independent variable) affects another (called the dependent variable).</p>
+         <!-- Add Plotly interactive graph here -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <div class="plot-container">
+            {{ graph_html|safe }}
+        </div>
+        <h3>Important terms</h3>
+        <ul>
+            <li><strong>Independent Variable:</strong> This is the factor that you think influences the outcome.
+                It’s what you are testing or changing. For example, it could be the amount of sunlight a plant gets.</li>
+            <li><strong>Dependent Variable:</strong> This is the outcome or result that you are measuring or predicting.
+                It changes based on the independent variable. For example, in plants, it could be the height of the plant.</li>
+            <li><strong>Slope:</strong> This tells you how much the dependent variable (the result) changes for every
+                increase in the independent variable. For instance, if you increase sunlight, the slope shows whether
+                the plant’s height grows more or less.</li>
+            <li><strong>Intercept: </strong>  This is where the line crosses the Y-axis (the vertical line on a graph).
+                It shows the value of the dependent variable when the independent variable is zero.
+                For example, it shows how tall the plant is when it gets no sunlight.</li>
+            <li><strong>Regression Line:</strong> The straight line that best fits the data points. This line shows the
+                general direction or trend of the relationship between the two variables.</li>
+            <li><strong>Residuals:</strong> These are the small differences between the actual data points and where
+                the regression line predicts they would be. It’s like the gap between what you predicted and what actually
+                happened.</li>
+            <li><strong>R-squared (R²): </strong> This is a measure of how well the regression line fits the data.
+                It tells you the proportion of the variation in the dependent variable that is explained by the
+                independent variable. The closer R² is to 1, the better the model fits the data.</li>
+            <li><strong>Equation of the Line:</strong> The formula for a straight line in linear regression is usually
+                written as:<code> y=mx+b </code>
+            where:
+                y is the dependent variable (what you are predicting),
+                m is the slope (how much y changes as x changes),
+                x is the independent variable (the factor you are using to predict),
+                b is the intercept (the value of y when x is zero).
+            </li>
+             <li><strong>Coefficient:</strong>  This is the value that multiplies the independent variable in the
+                 equation of the regression line. It's similar to the slope and shows how much change in the dependent
+                 variable is expected with a one-unit change in the independent variable.</li>
+            <li><strong>P-value: </strong> In some cases, especially when testing hypotheses, the p-value tells you
+                whether the relationship between the independent and dependent variables is statistically significant.
+                A low p-value (typically less than 0.05) indicates that the relationship is significant.</li>
+            <li><strong>Outliers:</strong> These are data points that don’t fit the general trend of the data.
+                Outliers can sometimes affect the slope and intercept of the regression line and might need special
+                attention.</li>
+        </ul>
+    </section>
+{% endblock %}

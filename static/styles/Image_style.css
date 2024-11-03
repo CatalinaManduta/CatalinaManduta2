@@ -1,0 +1,164 @@
+/* General Image Styles */
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+}
+
+/* Round Image */
+.img-round {
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image fits within the round shape */
+}
+
+.img-round-frame {
+    border-radius: 50%;
+    border: 5px solid #15688A; /* Change color and width as needed */
+    object-fit: cover; /* Ensures the image fits within the round shape */
+}
+
+/* Round Image with Yellow Frame */
+.img-round-frame-yellow {
+    border-radius: 50%;
+    border: 5px solid #E2E1D2; /* Yellow */
+    object-fit: cover;
+}
+
+/* Round Image with Light Blue Frame */
+.img-round-frame-lightblue {
+    border-radius: 50%;
+    border: 5px solid #1BA5BF; /* Light Blue */
+    object-fit: cover;
+}
+
+/* Round Image with White Frame */
+.img-round-frame-white {
+    border-radius: 50%;
+    border: 5px solid #FFFFFF; /* White */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Round Image with Dark Blue Alternate Frame */
+.img-round-frame-darkblue {
+    border-radius: 50%;
+    border: 5px solid #138CA2; /* Dark Blue Alternate */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Slightly Rounded Image without Frame */
+.img-rectangle {
+    border-radius: 15px; /* Adjust the value to control the roundness */
+    object-fit: cover; /* Ensures the image fits within the rounded shape */
+}
+
+/* Rectangle Image with Yellow Frame */
+.img-rectangle-frame-yellow {
+    border: 5px solid #E2E1D2; /* Yellow */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Rectangle Image with Light Blue Frame */
+.img-rectangle-frame-lightblue {
+    border: 5px solid #1BA5BF; /* Light Blue */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Rectangle Image with White Frame */
+.img-rectangle-frame-white {
+    border: 5px solid #FFFFFF; /* White */
+    object-fit: cover;
+}
+
+/* Rectangle Image with Dark Blue Alternate Frame */
+.img-rectangle-frame-darkblue {
+    border: 5px solid #138CA2; /* Dark Blue Alternate */
+    object-fit: cover;
+}
+
+
+/* Image Positioning */
+.img-left {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.img-right {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    flex: 1 1 auto;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+
+
+/* Container for Image and Text */
+.img-left-container {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 5px;
+    max-width: 100%; /* Ensure the container doesn't exceed the width of the parent */
+    float: left;
+    margin-right: 20px;
+    margin-left: 190px;/* Increased the distance from left here,maybe think of something else later */
+
+}
+
+.img-right-container {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 5px;
+    max-width: 100%; /* Ensure the container doesn't exceed the width of the parent */
+    float: right;
+    margin-left: 20px;
+    margin-right:190px; /* Increased the distance from right here,maybe think of something else later */
+
+}
+
+.img-center-container {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    max-width: 100%; /* Ensure the container doesn't exceed the width of the parent */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    clear: both; /* Ensures that it does not float */
+}
+
+/* Text Styling Under Image */
+.img-text {
+    display: block;
+    margin-top: 5px;
+}
+
+.img-text h3 {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline;
+}
+
+.img-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #15688A;
+    display: inline;
+
+}
+
+/* ensure the image does not move */

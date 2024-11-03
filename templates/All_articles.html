@@ -1,0 +1,117 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
+<link rel="stylesheet" href="{% static 'styles/All_articles.css' %}">
+<link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology & Genetics Hub</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Include Navbar -->
+        <div id="navbar">
+        {% include 'Base_files/Navbar.html' %}
+        </div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Learning Center</h2>
+        </section>
+
+        <!-- Article List Section -->
+        <section class="white-box">
+            <div class="yellow-box-container">
+                <!-- Article Group 1 -->
+                <div class="yellow-box-item visible">
+                    <h3>Introduction to Genetics</h3>
+                    <img src="{% static 'images/Genetics.jpg' %}" class="img-rectangle" alt="Introduction to Genetics">
+                    <p>Genetics is the study of how traits are passed from parents to their offspring through genes. Genes,
+                        made of DNA, carry the instructions for the development and functioning of all living organisms.</p>
+                    <a href="/introduction genetics">Explore</a>
+                </div>
+
+                <div class="yellow-box-item visible">
+                    <h3>Introduction to Bioinformatics</h3>
+                    <img src="{% static 'images/Bioinfo.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
+                    <p>Discover the latest advancements in bioinformatics and their applications.</p>
+                    <a href="/bioinformatics">Explore</a>
+                </div>
+
+                <div class="yellow-box-item visible">
+                    <h3>Machine learning</h3>
+                    <img src="{% static 'images/Bioinfo.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
+                    <p>Discover the latest advancements in bioinformatics and their applications.</p>
+                    <a href="/machine learning">Explore</a>
+                </div>
+
+                <div class="yellow-box-item visible">
+                    <h3>Advanced Genetics</h3>
+                    <img src="{% static 'images/A.jpg' %}" class="img-rectangle" alt="Advanced Genetics">
+                    <p>Deep dive into advanced topics in genetics for experienced learners.</p>
+                    <a href="/article-3">Explore</a>
+                </div>
+
+                <!-- Article Group 2 -->
+                <div class="yellow-box-item">
+                    <h3>Introduction </h3>
+                    <img src="{% static 'images/A.jpg' %}" class="img-rectangle" alt="Introduction to Genetics">
+                    <p>An introduction to the fundamental concepts of genetics, perfect for beginners.</p>
+                    <a href="/article-1">Explore</a>
+                </div>
+
+                <div class="yellow-box-item">
+                    <h3>Introduction to Bioinformatics</h3>
+                    <img src="{% static 'images/A.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
+                    <p>Discover the latest advancements in bioinformatics and their applications.</p>
+                    <a href="/article-2">Explore</a>
+                </div>
+
+                <div class="yellow-box-item">
+                    <h3>Advanced Genetics</h3>
+                    <img src="{% static 'images/A.jpg' %}" class="img-rectangle" alt="Advanced Genetics">
+                    <p>Deep dive into advanced topics in genetics for experienced learners.</p>
+                    <a href="/article-3">Explore</a>
+                </div>
+
+                <!-- Carousel Navigation Buttons -->
+                <button class="prev" onclick="showPrev()">❮</button>
+                <button class="next" onclick="showNext()">❯</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Include Footer -->
+    {% include 'Base_files/Footer.html' %}
+
+    <script>
+        let currentSlide = 0;
+        const items = document.querySelectorAll('.yellow-box-item');
+
+        function showSlide(index) {
+            items.forEach((item, i) => {
+                if (i >= index && i < index + 3) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+
+        function showNext() {
+            currentSlide = (currentSlide + 3) % items.length;
+            showSlide(currentSlide);
+        }
+
+        function showPrev() {
+            currentSlide = (currentSlide - 3 + items.length) % items.length;
+            showSlide(currentSlide);
+        }
+
+        // Initial display
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

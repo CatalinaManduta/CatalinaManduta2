@@ -1,0 +1,258 @@
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E2E1D2;
+    color: #2F4F4F;
+    line-height: 1.2;
+    overflow-x: hidden;
+}
+
+/* Global Styles */
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #15688A;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #15688A; /* Default link color, using the dark blue */
+    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
+}
+
+a:hover {
+    color: #138CA2; /* Slightly lighter blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* Header Styles */
+header {
+    z-index: 1000; /* Ensures the header is on top of other elements */
+    position: relative; /* Allows for absolute positioning of dropdowns */
+    background: linear-gradient(135deg, #15688A, #1BA5BF);
+    color: #ffffff;
+    padding: 20px 50px;
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Distributes space between the left and right elements */
+    align-items: center; /* Vertically centers items within the header */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* White color for the main title */
+}
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff; /* White text color */
+    padding: 10px; /* Padding around the text */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    text-decoration: none; /* Removes underline from links */
+    display: block; /* Ensures the entire area is clickable */
+}
+
+nav a:hover {
+    color: #E2E1D2; /* Changes color on hover */
+}
+
+.cta-button {
+    background-color: #E2E1D2;
+    color: #15688A;
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #138CA2;
+    transform: scale(1.1);
+}
+
+
+/* Search Container Styles */
+.search-container {
+    display: flex; /* Aligns search input and button horizontally */
+    align-items: center; /* Vertically centers items */
+    gap: 10px; /* Space between the input and button */
+}
+
+.search-input {
+    padding: 10px; /* Padding inside the input field */
+    border-radius: 50px; /* Fully rounded corners */
+    border: none; /* Removes default border */
+    font-size: 1.2rem; /* Increases font size */
+    color: #2F4F4F; /* Text color */
+    background-color: #F5F5F5; /* Light background color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    width: 250px; /* Sets width of the input field */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for focus state */
+}
+
+.search-input:focus {
+    outline: none; /* Removes the default outline */
+    background-color: #E2E1D2; /* Changes background color on focus */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Increases shadow on focus */
+}
+
+.search-button {
+    padding: 10px 25px; /* Padding around the button text */
+    border-radius: 50px; /* Fully rounded corners */
+    background-color: #E2E1D2; /* Background color */
+    color: #15688A; /* Text color matching the theme */
+    font-size: 1.2rem; /* Increases font size */
+    border: none; /* Removes default border */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover and active states */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+}
+
+.search-button:hover {
+    background-color: #D1C78B; /* Darkens the background slightly on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.search-button:active {
+    transform: scale(0.95); /* Slightly shrinks the button when clicked */
+}
+
+
+/* Main navigation styles */
+.nav-links {
+    list-style-type: none; /* Removes default list styling */
+    display: flex; /* Aligns navigation items horizontally */
+    gap: 20px; /* Space between each nav item */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    font-size: 1.2rem; /* Sets the font size for navigation items */
+}
+
+/* Styling for each navigation list item */
+.nav-links > li {
+    position: relative; /* Allows for dropdown positioning relative to the parent */
+}
+
+/* Styling for the anchor tags (links) in the navigation */
+.nav-links a {
+    text-decoration: none; /* Removes underline from links */
+    color: #ffffff; /* White text color */
+    padding: 10px; /* Padding around the text */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    display: block; /* Ensures the entire area is clickable */
+}
+
+/* Hover effect for navigation links */
+.nav-links a:hover {
+    color: #E2E1D2; /* Changes color on hover */
+}
+
+/* Dropdown menu styling (applies to all levels of dropdowns) */
+.sub-menu, .more-sub-menu, .even-more-sub-menu {
+    list-style-type: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    display: none; /* Hides the dropdown by default */
+    position: absolute; /* Positions dropdown relative to parent */
+    background-color: #15688A; /* Background color of dropdown */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds a shadow to the dropdown */
+    z-index: 1001; /* Ensures dropdowns appear above other elements */
+    border-radius: 15px; /* Rounds the corners of the dropdown */
+    min-width: 160px; /* Sets minimum width for the dropdown */
+}
+
+/* List item styling within the dropdowns */
+.sub-menu li, .more-sub-menu li, .even-more-sub-menu li {
+    padding: 5px 20px; /* Adds padding inside each dropdown item */
+}
+
+/* Link styling within the dropdowns */
+.sub-menu li a, .more-sub-menu li a, .even-more-sub-menu li a {
+    color: #ffffff; /* White text color */
+    padding: 5px 10px; /* Adds padding around the text */
+    display: block; /* Ensures the entire area is clickable */
+}
+
+/* Hover effect for links within the dropdowns */
+.sub-menu li a:hover, .more-sub-menu li a:hover, .even-more-sub-menu li a:hover {
+    background-color: #1BA5BF; /* Changes background color on hover */
+    border-radius: 10px; /* Slight rounding for hover effect */
+}
+
+/* Shows the dropdown when the parent menu item is hovered */
+.nav-links > li:hover > .sub-menu {
+    display: block; /* Displays the dropdown */
+}
+
+/* Shows the next level of dropdown when its parent is hovered */
+.sub-menu li:hover > .more-sub-menu {
+    display: block; /* Displays the next level dropdown */
+}
+
+.more-sub-menu li:hover > .even-more-sub-menu {
+    display: block; /* Displays the third level dropdown */
+}
+
+/* Positioning for the first level dropdown */
+.sub-menu {
+    top: 100%; /* Positions it below the parent */
+    left: 50%; /* Centers it horizontally under the parent */
+    transform: translateX(-50%); /* Adjusts position to be perfectly centered */
+}
+
+/* Positioning for the second level dropdown */
+.more-sub-menu {
+    top: 0; /* Aligns it with the top of the parent */
+    left: 100%; /* Positions it to the right of the parent */
+    transform: translateX(0); /* No adjustment needed */
+}
+
+/* Positioning for the third level dropdown */
+.even-more-sub-menu {
+    top: 0; /* Aligns it with the top of the parent */
+    left: 100%; /* Positions it to the right of the parent */
+    transform: translateX(0); /* No adjustment needed */
+}
+
+/* Styling for the arrow icons next to dropdown links */
+.arrow {
+    margin-left: 5px; /* Space between the text and the arrow */
+    color: #ffffff; /* White color for the arrow */
+}
+
+/* Additional positioning context for dropdowns */
+.more {
+    position: relative; /* Required for nested dropdown positioning */
+}

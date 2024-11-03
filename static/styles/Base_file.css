@@ -1,0 +1,519 @@
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E2E1D2;
+    color: #2F4F4F;
+    line-height: 1.2;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #15688A;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #15688A; /* Default link color, using the dark blue */
+    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
+}
+
+a:hover {
+    color: #138CA2; /* Slightly lighter blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #15688A, #1BA5BF);
+    color: #ffffff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1BA5BF, #E2E1D2);
+    padding: 75px 20px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1mm; /* Added small gap between sections */
+    clip-path: none; /* Ensure the bottom is straight */
+    border-bottom: 0; /* Remove any borders */
+    width: 100%;
+}
+
+
+.hero::before,
+.hero::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero::before {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+}
+
+.hero::after {
+    width: 400px;
+    height: 400px;
+    bottom: 10%;
+    right: 10%;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero .hero-button {
+    background-color: #15688A;
+    color: #ffffff;
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.hero .hero-button:hover {
+    background-color: #138CA2;
+    transform: scale(1.1);
+}
+
+/* Yellow Box (formerly Blog Section) */
+.yellow-box {
+    background-color: #E2E1D2;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    margin: 0; /* Remove the margin */
+}
+
+.yellow-box::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+.yellow-box h3 {
+    font-size:
+    3rem;
+    /*margin-bottom: 40px;*/
+    z-index: 1;
+    position: relative;
+    color: #15688A;
+    margin: 0 auto 10px auto;
+}
+
+.yellow-box-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.yellow-box-item {
+    background-color: rgba(251,251,248,255);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yellow-box-item h4 {
+    color: #15688A;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.yellow-box-item p, .yellow-box-item ul, .yellow-box-item ol {
+    color: #2F4F4F;
+    font-size: 1.2rem;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+}
+
+.yellow-box-item li {
+    margin-bottom: 10px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+.yellow-box-item a {
+    color: #1BA5BF;
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+}
+
+.yellow-box-item a:hover {
+    color: #138CA2;
+}
+
+.yellow-box-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* White Box (formerly About Section) */
+.white-box {
+    background-color: #F5F5F5;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0; /* Remove any default margin */
+}
+
+.white-box::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(21, 104, 138, 0.1);
+    border-radius: 50%;
+    top: 20%;
+    left: 5%;
+    z-index: 0;
+}
+
+.white-box::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(21, 104, 138, 0.1);
+    border-radius: 50%;
+    bottom: 15%;
+    right: 10%;
+    z-index: 0;
+}
+
+.white-box h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #15688A;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    padding-top: 10px;
+    padding-top: 10px;
+}
+
+.white-box h4 {
+    color: #15688A;
+    font-size: 1.4rem;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+    padding-top: 0px; /* Added top padding */
+    padding-bottom: 0px; /* Added top padding */
+}
+
+.white-box p, .white-box ul, .white-box ol {
+    font-size: 1.4rem;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0px; /* Ensure no additional padding */
+    padding-top: 0px; /* Added top padding */
+    padding-bottom: 0px; /* Added top padding */
+
+}
+
+.white-box li {
+    margin-bottom: 5px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+/* Blue Box (formerly Services Section) */
+.blue-box {
+    background-color: #1BA5BF;
+    color: #ffffff;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0; /* Remove any default margin */
+}
+
+.blue-box::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+}
+
+.blue-box h3 {
+    font-size: 3rem;
+    /*margin-bottom: 40px;*/
+    z-index: 1;
+    position: relative;
+    margin: 0 auto 10px auto;
+}
+
+.blue-box p, .blue-box ul, .blue-box ol {
+    font-size: 1.4rem;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+}
+
+.blue-box li {
+    margin-bottom: 5px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+.blue-box-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 80%;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.blue-box-item {
+    background-color: rgba(61,178,201,255);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.blue-box-item h4 {
+    color: #15688A;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.blue-box-item p, .blue-box-item ul, .blue-box-item ol {
+    color: #ffffff;
+    font-size: 1.2rem;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+}
+
+.blue-box-item li {
+    margin-bottom: 10px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+.blue-box-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Blue Box (formerly Testimonials Section) */
+.dark-blue-box {
+    background-color: #15688A;
+    color: #ffffff;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0; /* Remove any default margin */
+}
+
+.dark-blue-box::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+}
+
+.dark-blue-box h3 {
+    font-size: 3rem;
+    /*margin-bottom: 40px;*/
+    z-index: 1;
+    position: relative;
+    color: #E2E1D2;
+    margin: 0 auto 10px auto;
+}
+
+.dark-blue-box p, .dark-blue-box ul, .dark-blue-box ol {
+    font-size: 1.4rem;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+}
+
+.dark-blue-box li {
+    margin-bottom: 5px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+.dark-blue-box-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 80%;
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.dark-blue-box-item {
+    background-color: rgba(56,127,155,255);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.dark-blue-box-item h4 {
+    color: #E2E1D2;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.dark-blue-box-item p, .dark-blue-box-item ul, .dark-blue-box-item ol {
+    color: #ffffff;
+    font-size: 1.2rem;
+    list-style-position: inside; /* Keep bullets aligned with text */
+    padding-left: 0; /* Ensure no additional padding */
+}
+
+.dark-blue-box-item li {
+    margin-bottom: 10px; /* Maintain consistent spacing */
+    font-size: inherit; /* Inherit font size from <p> */
+    color: inherit; /* Inherit color from <p> */
+    line-height: inherit; /* Inherit line height from <p> */
+    text-align: inherit; /* Inherit text alignment from <p> */
+}
+
+.dark-blue-box-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+

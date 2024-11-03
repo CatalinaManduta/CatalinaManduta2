@@ -1,0 +1,32 @@
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
+<link rel="stylesheet" href="{% static 'styles/All_articles.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology & Genetics Hub</title>
+
+</head>
+<body>
+<div class="content-wrapper">
+    <!-- Include Navbar -->
+    <div id="navbar">
+    {% include 'Base_files/Navbar.html' %}
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Work in Progress</h2>
+    </section>
+
+</div>
+    <!-- Include Footer -->
+    {% include 'Base_files/Footer.html' %}
+
+</body>
+</html>

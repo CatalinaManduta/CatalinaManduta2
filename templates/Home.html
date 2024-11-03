@@ -1,0 +1,88 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/Design.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science & Bioinformatics Hub</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Include Navbar -->
+        <div id="navbar">
+            {% include 'Base_files/Navbar.html' %}
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Welcome to the World of Data and Biology</h2>
+            <p>Join me on a journey through biology, data science, and technology. Together, we'll explore insights and tools that bring these fields to life.</p>
+            <a href="#" class="hero-button">Start Exploring</a>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <h3>A Little About This Space</h3>
+            <p>This is a space where curiosity meets learning. Whether you're just starting out or you're an enthusiast in the life sciences, data analysis, or bioinformatics, you'll find something useful here. It’s a place to explore, learn, and grow.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h3>What You'll Find Here</h3>
+            <div class="services-container">
+                <div class="service-item">
+                    <h4>Educational Resources</h4>
+                    <p>Easy-to-follow articles and tutorials that break down topics like statistics, machine learning, and bioinformatics in a clear and approachable way.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Case Studies</h4>
+                    <p>Real-world examples using actual datasets to show how these concepts are applied. You'll see how machine learning models, statistics, and bioinformatics tools are used in practice.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Section -->
+        <section class="testimonials">
+            <h3>Topics We Explore</h3>
+            <div class="testimonials-container">
+                <div class="testimonial-item">
+                    <p>Basic Statistics</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Machine Learning</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Bioinformatics</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>Epidemiology</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog">
+            <h3>Latest Articles</h3>
+            <div class="blog-container">
+                <div class="blog-post">
+                    <h4>Getting Started with Linear Regression</h4>
+                    <p>A simple guide to understanding and applying linear regression in biological research.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <h4>Pattern mining</h4>
+                    <p>Learn how pattern mining can help you uncover hidden relationships in large datasets.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Include Footer -->
+    {% include 'Base_files/Footer.html' %}
+
+</body>
+</html>

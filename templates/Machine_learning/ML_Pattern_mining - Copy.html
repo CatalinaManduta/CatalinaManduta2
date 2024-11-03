@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology & Genetics Hub</title>
+    <link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/text.css' %}">
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Navbar -->
+        <div id="navbar">
+            {% include 'Navbar.html' %}
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Frequent Pattern Mining</h2>
+        </section>
+
+        <!-- White Box Section -->
+        <section class="white-box">
+            <h3>What is Frequent Pattern Mining?</h3>
+            <p>
+                Frequent pattern mining in machine learning is a process used to find patterns that appear often within a dataset.
+                Imagine you have a large collection of data, like a list of things people buy from a store. Frequent pattern
+                mining helps identify items that frequently appear together, like bread and butter, which are commonly bought together.
+                In simple terms, it's about discovering which combinations or sequences of things show up regularly in a set of
+                data. This is useful in understanding relationships between different items or events, such as in
+                gene co-expression patterns, risk factor identification, or health behavior patterns.
+            </p>
+
+            <!-- Sets Section -->
+            <h3>Sets</h3>
+            <p>Before diving into the subject, there are a few important concepts to introduce:</p>
+
+            <!-- Definitions -->
+            <h4>Definitions</h4>
+            <ul>
+                <li>
+                    <strong>Extensional Definitions:</strong> These are helpful when you have a limited, manageable number of elements in a biological set,
+                    and you can explicitly list them. For example, you might define the set of bird species in a specific park as:
+                    <code>S = {sparrow, eagle, pigeon, robin}</code>.
+                </li>
+                <li>
+                    <strong>Intensional Definitions:</strong> These are useful for describing larger or infinite sets based on a rule or condition.
+                    For instance, to define all bird species with a wingspan greater than 1 meter:
+                    <code>S = {x ∈ Birds | x’s wingspan > 1 meter}</code>.
+                </li>
+            </ul>
+
+            <!-- Set Properties -->
+            <h3>Set Properties</h3>
+            <ul>
+                <li>
+                    <strong>Uniqueness:</strong> In a set, each element is unique. This prevents confusion and ensures clarity in data analysis.
+                    For example, if you're tracking influenza cases, each patient appears only once in the set.
+                </li>
+                <li>
+                    <strong>Well-Definedness:</strong> A set must be well-defined, meaning that for any element, you can clearly determine
+                    whether it belongs to the set. For example, <code>D = {all individuals with a fasting blood sugar level > 126 mg/dL}</code>.
+                </li>
+                <li>
+                    <strong>Order Irrelevance:</strong> The order of elements in a set doesn't matter.
+                    For instance, <code>{A, B, C}</code> is the same as <code>{C, B, A}</code>.
+                </li>
+                <li>
+                    <strong>Finite vs. Infinite Sets:</strong> A finite set has a specific, countable number of elements, while an infinite set doesn't.
+                    For example, <code>C = {100,000 infected individuals}</code> is finite, but <code>S = {all future humans at risk for a novel virus}</code> is infinite.
+                </li>
+                <li>
+                    <strong>Subset:</strong> A subset contains elements that are all part of a larger set.
+                    For example, <code>T ⊆ H</code> means every element in <code>T</code> is also in <code>H</code>.
+                </li>
+                <li>
+                    <strong>Empty Set (∅):</strong> An empty set contains no elements.
+                    For instance, if no individuals in a study have a particular mutation, the set of affected individuals is <code>∅</code>.
+                </li>
+                <li>
+                    <strong>Cardinality:</strong> Cardinality is the number of elements in a set.
+                    For example, if <code>T = {John, Anna, Maria, ...}</code>, the cardinality of the set would be the total number of individuals, say 10,000.
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+     <h3>Sets proprieties</h3>
+    <p> Classical genetics focuses on how traits (phenotypes) are passed down and how they work, without
+        needing to know the specific details about the genes, proteins, or other molecules involved. It's like figuring
+        out how something works by observing what you can see (like physical traits or behaviors) without needing to
+        understand the inner workings or the exact parts that make it happen.
+    </p>
+ <div class="word-box-container">
+    <div class="word-box-item">
+        <div class="word-box-header">
+            <i class="fas fa-bookmark"></i> <!-- Icon added here -->
+            <h3>Phenotype</h3>
+        </div>
+        <div class="word-box-description">
+            <p>Phenotype is what you can see or measure in an organism, like its eye color, height, or how it behaves.
+                It's how the genes and environment together make the organism look or act.
+            </p>
+        </div>
+    </div>
+</div>
+        <h4>Cell biology</h4>
+
+        <p>Even though it is not necessary to understand cell biology to be able to understand classical genetics,
+            this would be a great start in order to have a deeper understanding of the subject.
+        <p>There are two big groups of organisms:</p>
+        <p><strong>Prokaryotes:</strong> These are the organisms whose cells do not have a nucleus.
+            Because of that, their DNA floats freely cell's cytoplasm.</p>
+        <p><strong>Eukaryotes:</strong> On the other hand as you may already know, eukaryotes are organisms
+            that have a nucleus which where the DNA is located.</p>
+
+        <h4>Eukaryotic cells</h4>
+        <div class="img-right-container">
+            <img src="{% static 'Images/Introduction to genetics/Clasical genetics/1.jpg' %}" width="400" height="400" alt="Eukaryotic cells">
+            <div class="img-text">
+                <h3>Eukaryotic cells</h3>
+                <p>Source: <a href="https://www.freepik.com/free-vector/human-cell-anatomy-infographics-with-realistic-
+                educational-chart-labelled-parts-white-background-vector-illustration_26764349.htm#fromView=search&page
+                =1&position=6&uuid=e6009d7a-7566-4a61-843d-a6b7eabf0a79" target="_blank">Freepik</a></p>
+            </div>
+        </div>
+        <p>
+            One of the most important aspects which differentiats them from prokaryotes is the presens of the nucleaus which holds the
+            genetic materials and which is considered one of the biggest organel in most of the human cells
+            (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4600468/" target="_blank">READ MORE HERE NCBI</a>).
+
+
+            The role of the nucleus in these cells is to both protect and store the genetic material
+            as well as the having the roll to control gene expression as most of the processes take place here with one
+            exception which is the gene translation (process which takes place in the cytoplasm)
+            (<a href="https://www.ncbi.nlm.nih.gov/books/NBK9845/#:~:text=The%20presence%20of%20a%20nucleus,as%20the%20cell's%20control%20center." target="_blank">NCBI</a>).</p>
+        </p>
+        <p> One other important aspect is the presence of types of group cells which are:
+            <ol>
+        <li> Somatic cells: Somatic cells are produced by cell division called mitosis, which in multicellular organisms are
+            differentiated into specialized cell types. </li>
+        <li> Sex cells: Sex cells are specialized cells used for reproduction, aspect valid only for organisms that use sexual reproduction.
+            The process is called meiosis and will be discussed later. For example all mammales reproduce sexually, while
+            in some reptile and fish species parthenogenesis can occur.
+            In plants the sexual cells are referred to as gametes.
+        </li>
+    </ol>
+        </p>
+
+
+    <h4>Chromosomes</h4>
+<p>
+    </p>
+
+    <p>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+</div>
+    <!-- Include Footer -->
+    {% include 'Footer.html' %}
+
+
+</body>
+</html>

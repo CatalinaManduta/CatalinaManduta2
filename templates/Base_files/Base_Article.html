@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Biology & Genetics Hub{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Image_style.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Text.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    {% include 'Base_files/Navbar.html' %}
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    {% include 'Base_files/Footer.html' %}
+
+</body>
+</html>

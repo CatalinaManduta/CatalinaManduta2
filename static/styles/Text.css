@@ -1,0 +1,306 @@
+/* Text settings */
+/* Bold Text */
+.bold-text {
+    font-weight: bold;
+}
+
+/* Red Text */
+.red-text {
+    color: #D9534F; /* This is the Bootstrap default red color, adjust as needed */
+}
+
+/* Blue Text */
+.blue-text {
+    color: #15688A; /* Use the dark blue already in the code */
+}
+
+/* Combination of Bold and Red */
+.bold-red-text {
+    font-weight: bold;
+    color: #D9534F;
+}
+
+/* Combination of Bold and Blue */
+.bold-blue-text {
+    font-weight: bold;
+    color: #15688A;
+}
+
+/* General Link Style */
+a {
+    text-decoration: none;
+    color: #15688A; /* Default link color, using the dark blue */
+    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
+}
+
+/* Hover State */
+a:hover {
+    color: #138CA2; /* Slightly lighter blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+/* Red Link */
+a.red-link {
+    color: #D9534F;
+}
+
+a.red-link:hover {
+    color: #C9302C; /* Darker red on hover */
+}
+
+/* Blue Link */
+a.blue-link {
+    color: #1ba5cc; /* Using the light blue already in the code */
+}
+
+a.blue-link:hover {
+    color: #15688A; /* Slightly darker blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+/* Blue Link */
+a.lblue-link {
+    color: #15688A; /* Using the dark blue already in the code */
+}
+
+a.lblue-link:hover {
+    color: #1ba5cc; /* Slightly lighter blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+
+/* IMPORTANT Box (Custom Section for Important Words) */
+.word-box-container {
+    display: flex;
+    justify-content: center; /* Center the box within the container */
+    max-width: 80%; /* Matches the max-width of other sections */
+    margin: 0 auto; /* Centers the container */
+    z-index: 1;
+    position: relative;
+}
+
+.word-box-item {
+    background-color: rgba(61,178,201,255);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px 30px; /* Adjusted padding for equal spacing */
+    max-width: 100%; /* Ensure the box takes the full width within the container */
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    position: relative;
+    padding-top: 10px; /* Added top padding */
+    padding-bottom: 10px; /* Added top padding */
+    flex: 1 1 auto;
+
+}
+
+.word-box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Space below the word section */
+}
+
+.word-box-header i {
+    font-size: 2rem;
+    color: #E2E1D2;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.word-box-header h3 {
+    color: #15688A; /* Blue color */
+    font-size: 2rem;
+    margin: 0; /* No extra margin */
+}
+
+.word-box-description {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 15px; /* Space above the description text */
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: inherit;
+
+}
+
+.word-box-description h2 {
+    color: #15688A; /* Blue color */
+    font-size: 1.8rem;
+    margin: 0 10px 0 0; /* Margin around Phenotype text */
+}
+
+.word-box-description p {
+    margin: 0;
+    color: #ffffff;
+    text-align: justify;
+    padding-left: 0;
+    padding-right: 0; /* Ensure no extra padding on the right */
+    font-size: 1.4rem;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+}
+/* IMPORTANT Box (Custom Section for Important Words) */
+.imp-box-container {
+    display: flex;
+    justify-content: center; /* Center the box within the container */
+    max-width: 80%; /* Matches the max-width of other sections */
+    margin: 0 auto; /* Centers the container */
+    z-index: 1;
+    position: relative;
+}
+
+.imp-box-item {
+    background-color: #15688A;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px 30px; /* Adjusted padding for equal spacing */
+    max-width: 100%; /* Ensure the box takes the full width within the container */
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    position: relative;
+    padding-top: 10px; /* Added top padding */
+    padding-bottom: 10px; /* Added top padding */
+    flex: 1 1 auto;
+
+}
+
+.imp-box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Space below the word section */
+}
+
+.imp-box-header i {
+    font-size: 2rem;
+    color: #E2E1D2;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.imp-box-header h3 {
+    color: #ffffff; /* Blue color */
+    font-size: 2rem;
+    margin: 0; /* No extra margin */
+}
+
+.imp-box-description {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 15px; /* Space above the description text */
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: inherit;
+}
+
+.imp-box-description h2 {
+    color: #ffffff; /* Blue color */
+    font-size: 1.8rem;
+    margin: 0 10px 0 0; /* Margin around Phenotype text */
+}
+
+.imp-box-description p {
+    margin: 0;
+    color: #ffffff;
+    text-align: justify;
+    padding-left: 0;
+    padding-right: 0; /* Ensure no extra padding on the right */
+    font-size: 1.4rem;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* ART Box (Custom Section for Important Words) */
+.art-box-container {
+    display: flex;
+    justify-content: center; /* Center the box within the container */
+    max-width: 80%; /* Matches the max-width of other sections */
+    margin: 0 auto; /* Centers the container */
+    z-index: 1;
+    position: relative;
+}
+
+.art-box-item {
+    background-color: #E2E1D2;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px 30px; /* Adjusted padding for equal spacing */
+    max-width: 100%; /* Ensure the box takes the full width within the container */
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    position: relative;
+    padding-top: 10px; /* Added top padding */
+    padding-bottom: 10px; /* Added top padding */
+    flex: 1 1 auto;
+}
+
+.art-box-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Space below the word section */
+}
+
+.art-box-header i {
+    font-size: 2rem;
+    color: #15688A;
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.art-box-header h3 {
+    color: #15688A; /* Blue color */
+    font-size: 2rem;
+    margin: 0; /* No extra margin */
+}
+
+.art-box-description {
+    display: flex;
+    align-items: center;
+    color: #15688A;
+    margin-top: 15px; /* Space above the description text */
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: inherit;
+}
+
+.art-box-description h2 {
+    color: #15688A; /* Blue color */
+    font-size: 1.8rem;
+    margin: 0 10px 0 0; /* Margin around Phenotype text */
+}
+
+.art-box-description p {
+    margin: 0;
+    color: #15688A;
+    text-align: justify;
+    padding-left: 0;
+    padding-right: 0; /* Ensure no extra padding on the right */
+    font-size: 1.4rem;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Hover Effect */
+.word-box-item:hover, .imp-box-item:hover, .art-box-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.plot-container {
+    width: 80%;        /* Adjust the width of the entire plot */
+    max-width: 800px;  /* Prevent it from being too wide on large screens */
+    margin: 0 auto;    /* Center the plot horizontally */
+}
+

@@ -1,0 +1,37 @@
+{% extends 'Base_files/Base_Article.html' %}
+
+{% block title %}Frequent Pattern Mining - Biology & Genetics Hub{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h2>Frequent Pattern Mining</h2>
+    </section>
+
+    <section class="white-box">
+        <h3>What is Frequent Pattern Mining?</h3>
+        <p>Frequent pattern mining in machine learning is a process used to find patterns that appear often within a dataset.
+        It helps identify items that frequently appear together, like bread and butter, which are commonly bought together.
+        It's about discovering which combinations or sequences of things show up regularly in a set of data, useful in understanding
+        relationships such as gene co-expression patterns, risk factor identification, or health behavior patterns.</p>
+
+        <h3>Sets</h3>
+        <p>Before diving into the subject, here are a few key concepts:</p>
+
+        <h4>Definitions</h4>
+        <ul>
+            <li><strong>Extensional Definitions:</strong> Helpful when you have a limited set of elements. Example: <code>S = {sparrow, eagle, pigeon, robin}</code>.</li>
+            <li><strong>Intensional Definitions:</strong> Describes larger or infinite sets by rule. Example: <code>S = {x ∈ Birds | x’s wingspan > 1 meter}</code>.</li>
+        </ul>
+
+        <h3>Set Properties</h3>
+        <ul>
+            <li><strong>Uniqueness:</strong> Each element in a set is unique (e.g., influenza cases).</li>
+            <li><strong>Well-Definedness:</strong> A set must be well-defined, like <code>D = {individuals with fasting blood sugar > 126 mg/dL}</code>.</li>
+            <li><strong>Order Irrelevance:</strong> The order of elements in a set doesn't matter (<code>{A, B, C} = {C, B, A}</code>).</li>
+            <li><strong>Finite vs. Infinite:</strong> Finite sets have a countable number, while infinite sets don’t (e.g., future humans at risk for a novel virus).</li>
+            <li><strong>Subset:</strong> All elements of a subset are part of a larger set (<code>T ⊆ H</code>).</li>
+            <li><strong>Empty Set (∅):</strong> A set with no elements. For instance, no individuals with a mutation means <code>∅</code>.</li>
+            <li><strong>Cardinality:</strong> The number of elements in a set. Example: <code>T = {John, Anna, Maria}</code>, cardinality = 10,000.</li>
+        </ul>
+    </section>
+{% endblock %}
