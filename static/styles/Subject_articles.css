@@ -1,0 +1,59 @@
+/* Additional Styles for Article List */
+.white-box {
+    background-color: #F5F5F5;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.white-box h3 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #15688A;
+}
+
+.yellow-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.yellow-box-item {
+    background-color: #ffffff;
+    border-radius: 30px; /* More rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: left;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; /* Ensure equal width */
+}
+
+.yellow-box-item:hover {
+    background-color: #E2E1D2;
+    transform: translateY(-5px);
+}
+
+.yellow-box-item h4 {
+    font-size: 1.8rem;
+    color: #15688A;
+    margin-bottom: 15px;
+}
+
+.yellow-box-item p {
+    font-size: 1.2rem;
+    color: #2F4F4F;
+    margin-bottom: 20px;
+}
+
+.yellow-box-item a {
+    font-size: 1rem;
+    color: #1BA5BF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.yellow-box-item a:hover {
+    color: #138CA2;
+}
