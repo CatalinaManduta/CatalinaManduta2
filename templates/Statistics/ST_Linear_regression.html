@@ -134,6 +134,38 @@
         This step-by-step process helps create a more intuitive understanding of how linear regression calculates the best line for a given set of data.
     </p>
 
+    <h3>Playground</h3>
+    <h2>User-Interactive Linear Regression</h2>
+
+    {% if error_message %}
+    <div style="color: red; font-weight: bold; margin-bottom: 10px;">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+        <form method="POST" action="">
+        {% csrf_token %}
+        <label for="x">X values:</label>
+        <input type="text" name="x" class="custom-input" placeholder="e.g., 1, 2, 3" required>
+
+        <label for="y">Y values:</label>
+        <input type="text" name="y" class="custom-input" placeholder="e.g., 4, 5, 6" required>
+        <button type="submit" name="add_points" class="custom-button">Add Points</button>
+
+    </form>
+
+
+    <div class="plot-container">
+        {{ plot_div|safe }}
+    </div>
+
+
+    <!-- Button to clear all points -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        <button type="submit" name="clear_points" class="custom-button">Remove All Points</button>
+    </form>
+
     <h3>Aplications in biology</h3>
 
     <h3>Study case</h3>
@@ -196,29 +228,6 @@
 
 
 
-     <h3>User-Interactive Linear Regression</h3>
-    <div class="plot-container">
-        {{ plot_div|safe }}
-    </div>
-
-    <!-- Form to add a new point -->
-<form method="POST" action="">
-    {% csrf_token %}
-    <label for="x">X values:</label>
-    <input type="text" name="x" class="custom-input" placeholder="e.g., 1, 2, 3" required>
-
-    <label for="y">Y values:</label>
-    <input type="text" name="y" class="custom-input" placeholder="e.g., 4, 5, 6" required>
-
-    <button type="submit" name="add_points" class="custom-button">Add Points</button>
-</form>
-
-
-<!-- Button to clear all points -->
-<form method="POST" action="">
-    {% csrf_token %}
-    <button type="submit" name="clear_points" class="custom-button">Remove All Points</button>
-</form>
 
 
 </section>

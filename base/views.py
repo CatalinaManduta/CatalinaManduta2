@@ -55,31 +55,35 @@ def st(request):
 
 # Main view for linear regression, displaying both static and interactive plots
 def st_linear_regression(request):
+    error_message = None  # Initialize error message as None
     if request.method == 'POST':
-        if 'add_points' in request.POST:
-            # Get comma-separated input from the form
-            x_values = request.POST.get('x')
-            y_values = request.POST.get('y')
+        try:
+            if 'add_points' in request.POST:
+                # Get comma-separated input from the form
+                x_values = request.POST.get('x')
+                y_values = request.POST.get('y')
 
-            # Convert the comma-separated values to lists of floats
-            x_list = [float(i) for i in x_values.split(',')]
-            y_list = [float(i) for i in y_values.split(',')]
+                # Convert the comma-separated values to lists of floats
+                x_list = x_values.split(',')
+                y_list = y_values.split(',')
 
-            # Add multiple points
-            add_points(x_list, y_list)
+                # Add multiple points
+                add_points(x_list, y_list)
 
-        elif 'clear_points' in request.POST:
-            clear_points()
+            elif 'clear_points' in request.POST:
+                clear_points()
+        except ValueError as e:
+            error_message = str(e)  # Set error_message to the exception message
 
-
-
-    # For normal GET requests
+    # For normal GET requests or after handling POST
     graph_html = interactive_plot(request)  # Dataset-based plot
     plot_div = generate_plot(data_points)  # User-modifiable plot
 
     return render(request, "Statistics/ST_Linear_regression.html", {
         'graph_html': graph_html,
-        'plot_div': plot_div
+        'plot_div': plot_div,
+        'error_message': error_message  # Pass the error message to the template
     })
+
 
 

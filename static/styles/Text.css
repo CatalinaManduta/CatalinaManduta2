@@ -300,7 +300,10 @@ a.lblue-link:hover {
 
 .plot-container {
     width: 80%;        /* Adjust the width of the entire plot */
-    max-width: 800px;  /* Prevent it from being too wide on large screens */
+    max-width: 1000px;  /* Prevent it from being too wide on large screens */
     margin: 0 auto;    /* Center the plot horizontally */
+    padding: 10px;              /* Adds padding around the plot */
+    border-radius: 10px;        /* Rounds the corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
 
