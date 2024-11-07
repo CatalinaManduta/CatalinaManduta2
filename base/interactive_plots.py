@@ -3,12 +3,17 @@ from sklearn.linear_model import LinearRegression
 import os
 from django.conf import settings
 import plotly.express as px
+import numpy as np
+import plotly.graph_objs as go  # Import for go.Scatter
+
+
 
 # Construct the full file path relative to BASE_DIR
 file_path = os.path.join(settings.BASE_DIR, 'base', 'Ecological_cleaned_data.txt')
 
 # Load the file
 df = pd.read_csv(file_path, delimiter='\t')
+
 
 def interactive_plot(request):
     # Use the first 90 rows for both x and y, and hover data for the species
@@ -68,3 +73,58 @@ def interactive_plot(request):
 
     # Return the graph HTML to be embedded in the template
     return graph_html
+
+
+# Interactive user-modifiable plot data
+data_points = []
+
+
+# Function to add multiple points with limits on values and list length
+def add_points(x_list, y_list):
+    global data_points
+
+    # Check if x_list and y_list have the same length
+    if len(x_list) != len(y_list):
+        raise ValueError("x_list and y_list must have the same number of elements")
+
+    # Check the length of the lists
+    if len(x_list) > 100 or len(y_list) > 100:
+        raise ValueError("Please do not add more than 100 comma-separated values")
+
+    # Check each value in x_list and y_list
+    for i, j in zip(x_list, y_list):
+        if i >= 1000 or j >= 1000:
+            raise ValueError("Please do not add values larger than 1,000")
+        if i >= 1000 or j >= 1000:
+            raise ValueError("Please add numerical values")
+    # Append each (x, y) pair to data_points if all checks pass
+    for x, y in zip(x_list, y_list):
+        data_points.append((x, y))
+
+
+# Function to clear all points
+def clear_points():
+    global data_points
+    data_points = []
+
+
+# Generates plot based on user-modifiable data_points
+def generate_plot(data_points):
+    x_vals = np.array([point[0] for point in data_points]).reshape(-1, 1)
+    y_vals = np.array([point[1] for point in data_points])
+
+    if len(data_points) > 1:
+        model = LinearRegression()
+        model.fit(x_vals, y_vals)
+        y_pred = model.predict(x_vals)
+        slope, intercept = model.coef_[0], model.intercept_
+    else:
+        y_pred = y_vals
+        slope, intercept = 0, 0
+
+    scatter = go.Scatter(x=x_vals.flatten(), y=y_vals, mode='markers', name='Data Points')
+    line = go.Scatter(x=x_vals.flatten(), y=y_pred, mode='lines',
+                      name=f'Regression Line: y = {slope:.2f}x + {intercept:.2f}')
+    layout = go.Layout(title="Interactive Linear Regression", xaxis=dict(title='X'), yaxis=dict(title='Y'))
+    figure = go.Figure(data=[scatter, line], layout=layout)
+    return figure.to_html(full_html=False)

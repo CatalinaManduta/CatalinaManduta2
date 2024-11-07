@@ -1,6 +1,10 @@
 # Create your views here.
 from django.shortcuts import render
-from .interactive_plots import interactive_plot
+from .interactive_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
+import numpy as np
+import plotly.graph_objs as go  # Import for go.Scatter
+from sklearn.linear_model import LinearRegression
+
 
 def home(request):
     return render(request, "Home.html")
@@ -15,7 +19,7 @@ def about(request):
 
 
 def work_in_progress(request):
-    return render(request, "Work in progress.html")
+    return render(request, "Work_in_progress.html")
 
 
 def all_articles(request):
@@ -46,6 +50,36 @@ def st(request):
     return render(request, "Statistics/ST.html")
 
 
+
+
+
+# Main view for linear regression, displaying both static and interactive plots
 def st_linear_regression(request):
-    graph_html = interactive_plot(request)
-    return render(request, "Statistics/ST_Linear_regression.html", {'graph_html': graph_html})
+    if request.method == 'POST':
+        if 'add_points' in request.POST:
+            # Get comma-separated input from the form
+            x_values = request.POST.get('x')
+            y_values = request.POST.get('y')
+
+            # Convert the comma-separated values to lists of floats
+            x_list = [float(i) for i in x_values.split(',')]
+            y_list = [float(i) for i in y_values.split(',')]
+
+            # Add multiple points
+            add_points(x_list, y_list)
+
+        elif 'clear_points' in request.POST:
+            clear_points()
+
+
+
+    # For normal GET requests
+    graph_html = interactive_plot(request)  # Dataset-based plot
+    plot_div = generate_plot(data_points)  # User-modifiable plot
+
+    return render(request, "Statistics/ST_Linear_regression.html", {
+        'graph_html': graph_html,
+        'plot_div': plot_div
+    })
+
+

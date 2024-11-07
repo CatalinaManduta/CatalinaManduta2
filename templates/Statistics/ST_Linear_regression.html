@@ -1,59 +1,225 @@
 {% extends 'Base_files/Base_Article.html' %}
 
-{% block title %}Frequent Pattern Mining - Biology & Genetics Hub{% endblock %}
+{% block title %} Linear regression - Learning hub {% endblock %}
 
 {% block content %}
-    <section class="hero">
-        <h2>Linear regression</h2>
-    </section>
+<section class="hero">
+    <h2>Linear Regression</h2>
+</section>
 
-    <section class="white-box">
-        <h3>What is Linear regression?</h3>
-        <p>Linear regression is a method used to understand the relationship between two things and to make predictions.
-            Imagine drawing a straight line that best fits a bunch of points on a graph. This line helps show how one
-            thing (called the independent variable) affects another (called the dependent variable).</p>
-         <!-- Add Plotly interactive graph here -->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <div class="plot-container">
-            {{ graph_html|safe }}
-        </div>
-        <h3>Important terms</h3>
-        <ul>
-            <li><strong>Independent Variable:</strong> This is the factor that you think influences the outcome.
-                It’s what you are testing or changing. For example, it could be the amount of sunlight a plant gets.</li>
-            <li><strong>Dependent Variable:</strong> This is the outcome or result that you are measuring or predicting.
-                It changes based on the independent variable. For example, in plants, it could be the height of the plant.</li>
-            <li><strong>Slope:</strong> This tells you how much the dependent variable (the result) changes for every
-                increase in the independent variable. For instance, if you increase sunlight, the slope shows whether
-                the plant’s height grows more or less.</li>
-            <li><strong>Intercept: </strong>  This is where the line crosses the Y-axis (the vertical line on a graph).
-                It shows the value of the dependent variable when the independent variable is zero.
-                For example, it shows how tall the plant is when it gets no sunlight.</li>
-            <li><strong>Regression Line:</strong> The straight line that best fits the data points. This line shows the
-                general direction or trend of the relationship between the two variables.</li>
-            <li><strong>Residuals:</strong> These are the small differences between the actual data points and where
-                the regression line predicts they would be. It’s like the gap between what you predicted and what actually
-                happened.</li>
-            <li><strong>R-squared (R²): </strong> This is a measure of how well the regression line fits the data.
-                It tells you the proportion of the variation in the dependent variable that is explained by the
-                independent variable. The closer R² is to 1, the better the model fits the data.</li>
-            <li><strong>Equation of the Line:</strong> The formula for a straight line in linear regression is usually
-                written as:<code> y=mx+b </code>
-            where:
-                y is the dependent variable (what you are predicting),
-                m is the slope (how much y changes as x changes),
-                x is the independent variable (the factor you are using to predict),
-                b is the intercept (the value of y when x is zero).
-            </li>
-             <li><strong>Coefficient:</strong>  This is the value that multiplies the independent variable in the
-                 equation of the regression line. It's similar to the slope and shows how much change in the dependent
-                 variable is expected with a one-unit change in the independent variable.</li>
-            <li><strong>P-value: </strong> In some cases, especially when testing hypotheses, the p-value tells you
-                whether the relationship between the independent and dependent variables is statistically significant.
-                A low p-value (typically less than 0.05) indicates that the relationship is significant.</li>
-            <li><strong>Outliers:</strong> These are data points that don’t fit the general trend of the data.
-                Outliers can sometimes affect the slope and intercept of the regression line and might need special
-                attention.</li>
-        </ul>
-    </section>
+<section class="white-box">
+    <h3>What is Linear Regression?</h3>
+    <p>
+        Linear regression is a method used to build a model that shows how a result depends on one or more factors.
+        If there's only one factor influencing the result, it’s called simple linear regression. If several factors are involved,
+        it’s called multiple linear regression. This line helps show how one factor (called the independent variable) affects another
+        (called the dependent variable).
+    </p>
+
+    <h3>Behind the Scenes: How Linear Regression Works</h3>
+
+    <h4>Step 1: Understanding the Goal</h4>
+    <p>
+        In linear regression, we’re looking to find the "best fit" line through our data points. This line is described by the equation:
+        <code>y = mx + b</code>, where:
+    </p>
+    <ul>
+        <li><strong>y</strong> is the dependent variable (output we’re predicting).</li>
+        <li><strong>x</strong> is the independent variable (input).</li>
+        <li><strong>m</strong> is the slope of the line (how steep the line is).</li>
+        <li><strong>b</strong> is the intercept (where the line crosses the y-axis).</li>
+    </ul>
+    <p>
+        Our task is to find values for <strong>m</strong> and <strong>b</strong> that make this line best represent our data points.
+    </p>
+
+    <h4>Step 2: Visualizing the Data</h4>
+    <p>
+        If we plot our points: (1, 3), (2, 4), and (3, 5), we see that these points almost form a straight line,
+        hinting that a linear relationship might be a good fit.
+    </p>
+
+    <h4>Step 3: Calculating the Slope (<i>m</i>)</h4>
+    <p>
+        The slope <strong>m</strong> tells us how much <strong>y</strong> changes when <strong>x</strong> increases by 1.
+        Here’s how we calculate it:
+    </p>
+    <ol>
+        <li>
+            Calculate the average of the <strong>x</strong> values and the average of the <strong>y</strong> values:
+            <ul>
+                <li>Average of x = (1 + 2 + 3) / 3 = 2</li>
+                <li>Average of y = (3 + 4 + 5) / 3 = 4</li>
+            </ul>
+        </li>
+        <li>
+            Calculate how much each x and y value deviates from their averages:
+            <ul>
+                <li>For x: deviations are (1 - 2), (2 - 2), (3 - 2) → -1, 0, +1</li>
+                <li>For y: deviations are (3 - 4), (4 - 4), (5 - 4) → -1, 0, +1</li>
+            </ul>
+        </li>
+        <li>
+            Multiply each x deviation by its corresponding y deviation and add up the products:
+            <ul>
+                <li>(-1)(-1) + (0)(0) + (1)(1) = 1 + 0 + 1 = 2</li>
+            </ul>
+        </li>
+        <li>
+            Sum the squares of the x deviations:
+            <ul>
+                <li>(-1)^2 + 0^2 + 1^2 = 1 + 0 + 1 = 2</li>
+            </ul>
+        </li>
+        <li>
+            Divide the total from step 3 by the total from step 4 to get the slope:
+            <ul>
+                <li><strong>m = 2 / 2 = 1</strong></li>
+            </ul>
+        </li>
+    </ol>
+    <p>
+        This tells us that for every 1-unit increase in x, y increases by 1.
+    </p>
+
+    <h4>Step 4: Calculating the Intercept (<i>b</i>)</h4>
+    <p>
+        The intercept <strong>b</strong> tells us the starting point of our line when x = 0. Here’s how we calculate it:
+    </p>
+    <ol>
+        <li>We already have the averages of x and y, which are 2 and 4, respectively.</li>
+        <li>
+            Plug the averages and slope m into the line equation to solve for b:
+            <ul>
+                <li>4 = (1)(2) + b</li>
+                <li>b = 4 - 2 = 2</li>
+            </ul>
+        </li>
+    </ol>
+    <p>
+        So, our intercept <strong>b</strong> is 2.
+    </p>
+
+    <h4>Final Equation</h4>
+    <p>
+        Putting it all together, our best-fit line equation is:
+        <code>y = 1x + 2</code>.
+    </p>
+
+    <h4>Step 5: Understanding Why This Equation is "Best"</h4>
+    <p>
+        This line minimizes the distances between the line and each data point in a vertical direction (these distances are called errors or residuals).
+        In linear regression, we choose <strong>m</strong> and <strong>b</strong> values that make the total squared error as small as possible,
+        which gives us the most accurate line for predicting <strong>y</strong> values based on <strong>x</strong>.
+    </p>
+
+    <h4>Intuition</h4>
+    <p>
+        Let’s say we’re studying the effect of sunlight on plant height. Imagine we collect data from three plants with different sunlight exposure per day
+        (for example, 2 hours, 4 hours, and 6 hours) and measure their heights (say, 10 cm, 14 cm, and 18 cm).
+        Using linear regression, we’re looking to find a line that best represents the relationship between sunlight and plant height. This line won’t
+        necessarily pass through every point, but it will capture the overall trend: as sunlight increases, plant height tends to increase. This trend line
+        allows us to make predictions about plant height for other amounts of sunlight, even if we don’t have direct data for every level of exposure.
+        The line is the best fit because it reduces the overall difference between the actual data and the trend we’re estimating, giving us a reliable
+        model for this relationship.
+    </p>
+
+    <h4>Summary of Key Takeaways</h4>
+    <ul>
+        <li><strong>Slope (m):</strong> Shows how much y changes with each unit of x.</li>
+        <li><strong>Intercept (b):</strong> Shows where the line starts when x = 0.</li>
+        <li><strong>Best fit:</strong> Achieved by minimizing the squared error, balancing the line across the points.</li>
+    </ul>
+    <p>
+        This step-by-step process helps create a more intuitive understanding of how linear regression calculates the best line for a given set of data.
+    </p>
+
+    <h3>Aplications in biology</h3>
+
+    <h3>Study case</h3>
+    <!-- Add Plotly interactive graph here -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ graph_html|safe }}
+    </div>
+
+    <h3>Important Terms</h3>
+    <ul>
+        <li>
+            <strong>Independent Variable:</strong> This is the factor that you think influences the outcome.
+            It’s what you are testing or changing. For example, it could be the amount of sunlight a plant gets.
+        </li>
+        <li>
+            <strong>Dependent Variable:</strong> This is the outcome or result that you are measuring or predicting.
+            It changes based on the independent variable. For example, in plants, it could be the height of the plant.
+        </li>
+        <li>
+            <strong>Slope:</strong> This tells you how much the dependent variable (the result) changes for every
+            increase in the independent variable. For instance, if you increase sunlight, the slope shows whether
+            the plant’s height grows more or less.
+        </li>
+        <li>
+            <strong>Intercept:</strong> This is where the line crosses the Y-axis (the vertical line on a graph).
+            It shows the value of the dependent variable when the independent variable is zero.
+            For example, it shows how tall the plant is when it gets no sunlight.
+        </li>
+        <li>
+            <strong>Regression Line:</strong> The straight line that best fits the data points. This line shows the
+            general direction or trend of the relationship between the two variables.
+        </li>
+        <li>
+            <strong>Residuals:</strong> These are the small differences between the actual data points and where
+            the regression line predicts they would be. It’s like the gap between what you predicted and what actually
+            happened.
+        </li>
+        <li>
+            <strong>R-squared (R²):</strong> This is a measure of how well the regression line fits the data.
+            It tells you the proportion of the variation in the dependent variable that is explained by the
+            independent variable. The closer R² is to 1, the better the model fits the data.
+        </li>
+        <li>
+            <strong>Coefficient:</strong>  This is the value that multiplies the independent variable in the
+            equation of the regression line. It's similar to the slope and shows how much change in the dependent
+            variable is expected with a one-unit change in the independent variable.
+        </li>
+        <li>
+            <strong>P-value:</strong> In some cases, especially when testing hypotheses, the p-value tells you
+            whether the relationship between the independent and dependent variables is statistically significant.
+            A low p-value (typically less than 0.05) indicates that the relationship is significant.
+        </li>
+        <li>
+            <strong>Outliers:</strong> These are data points that don’t fit the general trend of the data.
+            Outliers can sometimes affect the slope and intercept of the regression line and might need special
+            attention.
+        </li>
+    </ul>
+
+
+
+     <h3>User-Interactive Linear Regression</h3>
+    <div class="plot-container">
+        {{ plot_div|safe }}
+    </div>
+
+    <!-- Form to add a new point -->
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="x">X values:</label>
+    <input type="text" name="x" class="custom-input" placeholder="e.g., 1, 2, 3" required>
+
+    <label for="y">Y values:</label>
+    <input type="text" name="y" class="custom-input" placeholder="e.g., 4, 5, 6" required>
+
+    <button type="submit" name="add_points" class="custom-button">Add Points</button>
+</form>
+
+
+<!-- Button to clear all points -->
+<form method="POST" action="">
+    {% csrf_token %}
+    <button type="submit" name="clear_points" class="custom-button">Remove All Points</button>
+</form>
+
+
+</section>
 {% endblock %}
