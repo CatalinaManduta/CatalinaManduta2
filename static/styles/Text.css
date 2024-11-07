@@ -297,7 +297,7 @@ a.lblue-link:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
-
+/* Plot design */
 .plot-container {
     width: 80%;        /* Adjust the width of the entire plot */
     max-width: 1000px;  /* Prevent it from being too wide on large screens */
