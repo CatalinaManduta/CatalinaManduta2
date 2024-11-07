@@ -19,7 +19,7 @@ df = pd.read_csv(file_path, delimiter='\t')
 
 
 def interactive_plot(request):
-    # Use the first 90 rows for both x and y, and hover data for the species
+    # Use the body mass and longevity, and hover data for the species
     x = df[['Body_Mass']].values
     y = df['Max_Longevity'].values
     species = df['Species'].values  # Species names for hover data
