@@ -9,8 +9,7 @@
     <title>{% block title %}Learning Hub{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Image_style.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/Text.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Subject_articles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Global.css' %}">
     <link rel="stylesheet" href="{% static 'styles/hero.css' %}">
 
@@ -22,11 +21,6 @@
 
     <!-- Main Content -->
     <div class="content-wrapper">
-        <section class="hero">
-            <h2>{{ article.title }}</h2>
-            <p class="author-text">{{ article.author_name }}</p>
-            <p class="date-text">Published on: {{ article.created_at|date:"F j, Y" }}</p>
-        </section>
         {% block content %}{% endblock %}
     </div>
 

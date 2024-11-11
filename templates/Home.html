@@ -1,6 +1,11 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'styles/Design.css' %}">
+<link rel="stylesheet" href="{% static 'styles/Home.css' %}">
+<link rel="stylesheet" href="{% static 'styles/Global.css' %}">
+<link rel="stylesheet" href="{% static 'styles/Image_style.css' %}">
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,7 @@
         <section class="hero">
             <h2>Welcome to the World of Data and Biology</h2>
             <p>Join me on a journey through biology, data science, and technology. Together, we'll explore insights and tools that bring these fields to life.</p>
-            <a href="#" class="hero-button">Start Exploring</a>
+            <a href="/articles" class="hero-button">Start Exploring</a>
         </section>
 
         <!-- About Section -->
@@ -41,44 +46,50 @@
                     <h4>Case Studies</h4>
                     <p>Real-world examples using actual datasets to show how these concepts are applied. You'll see how machine learning models, statistics, and bioinformatics tools are used in practice.</p>
                 </div>
+                <div class="service-item">
+                <h4>Play Around with Data</h4>
+                <p>Explore interactive tools to analyze your own datasets, apply various data analysis techniques like regression, clustering, and more, and gain hands-on experience with real data insights.</p>
+                </div>
             </div>
         </section>
 
         <!-- Subjects Section -->
-        <section class="testimonials">
-            <h3>Topics We Explore</h3>
-            <div class="testimonials-container">
-                <div class="testimonial-item">
-                    <p>Basic Statistics</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>Machine Learning</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>Bioinformatics</p>
-                </div>
-                <div class="testimonial-item">
-                    <p>Epidemiology</p>
-                </div>
+        <section class="subjects">
+            <h3>Topics Explored</h3>
+            <div class="subjects-container">
+                <a href="/bioinformatics" class="subjects-item">
+                    <p><i class="fas fa-dna"></i> Bioinformatics</p>
+                </a>
+                <a href="/statistics" class="subjects-item">
+                    <p><i class="fas fa-chart-bar"></i> Basic Statistics</p>
+                </a>
+                <a href="/machine learning" class="subjects-item">
+                    <p><i class="fas fa-robot"></i> Machine Learning</p>
+                </a>
+                <a href="/articles" class="subjects-item">
+                    <p><i class="fas fa-book-open"></i> More</p>
+                </a>
             </div>
         </section>
+
+
 
         <!-- Blog Section -->
         <section class="blog">
             <h3>Latest Articles</h3>
             <div class="blog-container">
-                <div class="blog-post">
-                    <h4>Getting Started with Linear Regression</h4>
-                    <p>A simple guide to understanding and applying linear regression in biological research.</p>
-                    <a href="#">Read More</a>
-                </div>
-                <div class="blog-post">
-                    <h4>Pattern mining</h4>
-                    <p>Learn how pattern mining can help you uncover hidden relationships in large datasets.</p>
-                    <a href="#">Read More</a>
-                </div>
+                {% for article in articles %}
+                    <div class="blog-post">
+                        <h4>{{ article.title }}</h4>
+                        <p class="date-text">Published on: {{ article.created_at|date:"F j, Y" }}</p>
+
+                        <p>{{ article.summary }}</p>
+                        <a href="{{ article.get_absolute_url }}">Read More</a>
+                    </div>
+                {% endfor %}
             </div>
         </section>
+
     </div>
 
     <!-- Include Footer -->

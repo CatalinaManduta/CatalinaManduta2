@@ -1,0 +1,72 @@
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E2E1D2;
+    color: #2F4F4F;
+    line-height: 1.2;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #15688A;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #15688A; /* Default link color, using the dark blue */
+    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
+}
+
+a:hover {
+    color: #138CA2; /* Slightly lighter blue on hover */
+    text-decoration: underline; /* Underline on hover for better visibility */
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #15688A, #1BA5BF);
+    color: #ffffff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+
+
+

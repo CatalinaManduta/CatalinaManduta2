@@ -1,26 +1,11 @@
-{% load static %}
+{% extends 'Base_files/Base_Articles.html' %}
 
-<link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
-<link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
-<link rel="stylesheet" href="{% static 'styles/Subject_articles.css' %}">
+{% block title %} Clustering basics - Learning Hub {% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biology & Genetics Hub</title>
-</head>
-<body>
-<div class="content-wrapper">
-    <!-- Include Navbar -->
-    <div id="navbar">
-        {% include 'Base_files/Navbar.html' %}
-    </div>
-
+{% block content %}
     <!-- Hero Section -->
     <section class="hero">
-        <h2>Introduction to Genetics</h2>
+        <h2>Bioinformatics</h2>
     </section>
 
     <!-- Article List Section -->
@@ -29,39 +14,21 @@
         <div class="yellow-box-container">
             <!-- Article 1 -->
             <div class="yellow-box-item">
-                <h4>In progress</h4>
-                <p>In progress.</p>
-                <a href="/Base file">Read More</a>
+                <h4>Work in progress</h4>
+                <p>Work in progress.</p>
+                <a href="/work in progress">Read More</a>
             </div>
 
             <!-- Article 2 -->
             <div class="yellow-box-item">
-                <h4>In progress</h4>
-                <p>In progress</p>
-                <a href="/article-2">Read More</a>
-            </div>
-
-            <!-- Article 3 -->
-            <div class="yellow-box-item">
-                <h4>In progress</h4>
-                <p>In progress.</p>
-                <a href="/article-3">Read More</a>
-            </div>
-
-            <!-- Article 4 -->
-            <div class="yellow-box-item">
-                <h4>In progress</h4>
-                <p>In progress.</p>
-                <a href="/article-4">Read More</a>
+                <h4>Work in progress</h4>
+                <p>Work in progress.</p>
+                <a href="/work in progress">Read More</a>
             </div>
 
 
         </div>
-    </div>
     </section>
 
-    <!-- Include Footer -->
-    {% include 'Base_files/Footer.html' %}
+{% endblock %}
 
-</body>
-</html>

@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="{% static 'styles/image_style.css' %}">
 <link rel="stylesheet" href="{% static 'styles/All_articles.css' %}">
 <link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
+<link rel="stylesheet" href="{% static 'styles/Global.css' %}">
+<link rel="stylesheet" href="{% static 'styles/hero.css' %}">
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,42 +29,44 @@
         <section class="white-box">
             <div class="yellow-box-container">
 
+            <!-- Article Group 1 -->
+            <div class="yellow-box-item">
+                <h3>Statistics</h3>
+                <img src="{% static 'Images/Statistics/1.jpg' %}" class="img-rectangle" alt="Introduction to Statistics">
+                <p>Unlock the basics of statistics through interactive lessons and real-world study cases. Start with fundamental
+                    concepts, practice calculating statistical measures, and explore how statistics play a critical role in data
+                    analysis and decision-making across fields.</p>
+                <a href="/statistics">Explore</a>
+            </div>
 
-                <!-- Article Group 1 -->
-                <div class="yellow-box-item visible">
-                    <h3>Introduction to Genetics</h3>
-                    <img src="{% static 'images/Genetics.jpg' %}" class="img-rectangle" alt="Introduction to Genetics">
-                    <p>Genetics is the study of how traits are passed from parents to their offspring through genes. Genes,
-                        made of DNA, carry the instructions for the development and functioning of all living organisms.</p>
-                    <a href="/introduction genetics">Explore</a>
-                </div>
+            <!-- Article Group 2 -->
+            <div class="yellow-box-item visible">
+                <h3>Introduction to Bioinformatics</h3>
+                <img src="{% static 'Images/Bioinformatics/1.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
+                <p>Dive into the exciting world of bioinformatics! Through hands-on exercises and real data, explore how bioinformatics
+                    revolutionizes our understanding of biological data, from gene sequencing to protein structure analysis. Perfect
+                    for those interested in the intersection of biology and data science.</p>
+                <a href="/bioinformatics">Explore</a>
+            </div>
 
+            <!-- Article Group 3 -->
+            <div class="yellow-box-item visible">
+                <h3>Machine Learning</h3>
+                <img src="{% static 'Images/Machine learning/1.jpg' %}" class="img-rectangle" alt="Introduction to Machine Learning">
+                <p>Discover the core principles of machine learning with interactive lessons and applications. Learn how algorithms
+                    can make predictions, detect patterns, and drive insights across disciplines. This section offers study cases
+                    to help you apply machine learning methods to practical problems.</p>
+                <a href="/machine learning">Explore</a>
+            </div>
 
-                <!-- Article Group 2 -->
-                <div class="yellow-box-item visible">
-                    <h3>Introduction to Bioinformatics</h3>
-                    <img src="{% static 'images/Bioinfo.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
-                    <p>Discover the latest advancements in bioinformatics and their applications.</p>
-                    <a href="/bioinformatics">Explore</a>
-                </div>
+            <!-- Article Group 4 -->
+            <div class="yellow-box-item">
+                <h3>Work in Progress</h3>
+                <img src="{% static 'Images/Work in progress/1.png' %}" class="img-rectangle" alt="Work in progress">
+                <p>Get a sneak peek into topics under development. </p>
+                <a href="/statistics">Explore</a>
+            </div>
 
-
-                <!-- Article Group 3 -->
-                <div class="yellow-box-item visible">
-                    <h3>Machine learning</h3>
-                    <img src="{% static 'images/Bioinfo.jpg' %}" class="img-rectangle" alt="Introduction to Bioinformatics">
-                    <p>Discover the latest advancements in bioinformatics and their applications.</p>
-                    <a href="/machine learning">Explore</a>
-                </div>
-
-
-                <!-- Article Group 4 -->
-                <div class="yellow-box-item">
-                    <h3>Introduction to statistics </h3>
-                    <img src="{% static 'images/A.jpg' %}" class="img-rectangle" alt="Introduction to Genetics">
-                    <p>An introduction to the fundamental concepts of genetics, perfect for beginners.</p>
-                    <a href="/statistics">Explore</a>
-                </div>
 
 
                 <!-- Carousel Navigation Buttons -->

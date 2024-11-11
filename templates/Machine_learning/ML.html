@@ -1,65 +1,30 @@
-{% load static %}
+{% extends 'Base_files/Base_Articles.html' %}
 
-<link rel="stylesheet" href="{% static 'styles/Base_file.css' %}">
-<link rel="stylesheet" href="{% static 'styles/Image_style.css' %}">
-<link rel="stylesheet" href="{% static 'styles/Subject_articles.css' %}">
+{% block title %} Clustering basics - Learning Hub {% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biology & Genetics Hub</title>
-</head>
-<body>
-    <div class="content-wrapper">
-    <!-- Include Navbar -->
-    <div id="navbar">
-    {% include 'Base_files/Navbar.html' %}
-    </div>
-
+{% block content %}
     <!-- Hero Section -->
     <section class="hero">
         <h2>Machine learning</h2>
     </section>
 
-    <!-- Article List Section -->
-    <section class="white-box">
-        <h3>Explore</h3>
-        <div class="yellow-box-container">
-            <!-- Article 1 -->
+<!-- Article List Section -->
+<section class="white-box">
+    <h3>Explore</h3>
+    <div class="yellow-box-container">
+        {% for article in articles %}
+            <!-- Dynamic Article Item -->
             <div class="yellow-box-item">
-                <h4>Frequent Pattern Mining</h4>
-                <p>In progress.</p>
-                <a href="/machine learning/pattern mining">Read More</a>
+                <h4>{{ article.title }}</h4>
+                <p>{{ article.summary }}</p> <!-- Truncates summary to 10 words -->
+                <a href="{{ article.get_absolute_url }}">Read More</a>
             </div>
-
-            <!-- Article 2 -->
-            <div class="yellow-box-item">
-                <h4>Clustering – Basics and k-means</h4>
-                <p>In progress.</p>
-                <a href="/article-2">Read More</a>
-            </div>
-
-            <!-- Article 3 -->
-            <div class="yellow-box-item">
-                <h4>Classification – Basics and a Basic Classifier</h4>
-                <p>In progress.</p>
-                <a href="/article-3">Read More</a>
-            </div>
-
-            <!-- Article 4 -->
-            <div class="yellow-box-item">
-                <h4>Basic Probability Theory, Bayes’ Rule, and Bayesian Learning</h4>
-                <p>In progress.</p>
-                <a href="/article-4">Read More</a>
-            </div>
-
-        </div>
-    </section>
+        {% empty %}
+            <p>No articles available in this category.</p>
+        {% endfor %}
     </div>
-    <!-- Include Footer -->
-    {% include 'Base_files/Footer.html' %}
+</section>
 
-</body>
-</html>
+
+{% endblock %}
+

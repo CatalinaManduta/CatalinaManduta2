@@ -173,8 +173,8 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Testimonials Section */
-.testimonials {
+/* Subjects Section */
+.subjects {
     background-color: #15688A;
     color: #ffffff;
     padding: 100px 20px;
@@ -183,7 +183,7 @@
     overflow: hidden;
 }
 
-.testimonials::before {
+.subjects::before {
     content: '';
     position: absolute;
     width: 300px;
@@ -196,7 +196,7 @@
     z-index: 0;
 }
 
-.testimonials h3 {
+.subjects h3 {
     font-size: 3rem;
     margin-bottom: 40px;
     position: relative;
@@ -204,7 +204,7 @@
     color: #E2E1D2;
 }
 
-.testimonials-container {
+.subjects-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -215,23 +215,24 @@
     position: relative;
 }
 
-.testimonial-item {
+.subjects-item {
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 50px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     padding: 40px;
     width: 300px;
     text-align: left;
-    font-style: italic;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonial-item p {
+.subjects-item p {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    text-align: center;
+
 }
 
-.testimonial-item:hover {
+.subjects-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
@@ -314,3 +315,10 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
+.date-text {
+    font-style: italic;
+    font-size: 1rem; /* Adjust font size as needed */
+    color: #ffffff;
+    margin-bottom: 10; /* Remove space above the author name */
+
+}

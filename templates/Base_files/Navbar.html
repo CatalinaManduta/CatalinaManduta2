@@ -1,15 +1,15 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'styles/Navbar.css' %}">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/Navbar.css' %}">
+    <title>Learning Hub</title>
 </head>
 <body>
 
-    <!-- navbar.html -->
+    <!-- Navbar -->
     <header>
         <h1>Learning Hub</h1>
         <nav>
@@ -20,28 +20,6 @@
                     <a href="/articles">Learn with me</a>
                     <i class="bx bxs-chevron-down arrow"></i>
                     <ul class="sub-menu">
-                        <li class="more">
-                            <span>
-                                <a href="/introduction genetics">Introduction to Genetics</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/introduction genetics/classical genetics">Classical genetics</a></li>
-                                <li><a href="/work in progress">Lesson 2</a></li>
-                                <li><a href="/work in progress">More</a></li>
-                            </ul>
-                        </li>
-                        <li class="more">
-                            <span>
-                                <a href="/bioinformatics">Bioinformatics</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/machine learning/pattern mining">Lesson 1</a></li>
-                                <li><a href="/work in progress">Lesson 2</a></li>
-                                <li><a href="/work in progress">More</a></li>
-                            </ul>
-                        </li>
 
                         <li class="more">
                             <span>
@@ -49,23 +27,37 @@
                                 <i class="bx bxs-chevron-right arrow more-arrow"></i>
                             </span>
                             <ul class="more-sub-menu sub-menu">
-                                <li><a href="/statistics/linear regression">Linear regression</a></li>
-                                <li><a href="/work in progress">Lesson 2</a></li>
+                                <li><a href="/statistics/linear regression">Linear Regression</a></li>
+                                <li><a href="/statistics/p-value">P-value</a></li>
+                                <li><a href="/statistics">More</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="more">
+                            <span>
+                                <a href="/machine learning">Machine Learning</a>
+                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                            </span>
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="/machine learning/pattern mining">Pattern Mining</a></li>
+                                <li><a href="/machine learning/clustering basics">Clustering - Basics</a></li>
+                                <li><a href="/machine learning">More</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="more">
+                            <span>
+                                <a href="/bioinformatics">Bioinformatics</a>
+                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                            </span>
+                            <ul class="more-sub-menu sub-menu">
+                                <li><a href="/work in progress">Work in progress</a></li>
                                 <li><a href="/work in progress">More</a></li>
                             </ul>
                         </li>
 
-                        <span>
-                                <a href="/machine learning">Machine learning</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/machine learning/pattern mining">Pattern mining</a></li>
-                                <li><a href="/work in progress">Lesson 2</a></li>
-                                <li><a href="/introduction genetics">More</a></li>
-                            </ul>
-                        </li>
-                        <li class="more">
+
                     </ul>
                 </li>
                 <li><a href="/contact">Contact</a></li>

@@ -1,13 +1,16 @@
 # Create your views here.
 from django.shortcuts import render
 from .interactive_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
-import numpy as np
-import plotly.graph_objs as go  # Import for go.Scatter
-from sklearn.linear_model import LinearRegression
+from .models import Article
+from django.shortcuts import render, get_object_or_404
+
+
+# General View #####
 
 
 def home(request):
-    return render(request, "Home.html")
+    articles = Article.objects.all().order_by('-created_at')[:3]  # Order by newest first
+    return render(request, 'Home.html', {'articles': articles})
 
 
 def contact(request):
@@ -26,36 +29,20 @@ def all_articles(request):
     return render(request, "All_articles.html")
 
 
-def ig(request):
-    return render(request, "Genetics/IG.html")
-
-
-def bi(request):
-    return render(request, "Bioinformatics/BI.html")
-
-
-def ig_classical_genetics(request):
-    return render(request, "Genetics/IG_classical_genetics.html")
-
-
-def ml(request):
-    return render(request, "Machine_learning/ML.html")
-
-
-def ml_pattern_mining(request):
-    return render(request, "Machine_learning/ML_Pattern_mining.html")
-
+#  Statistics #####
 
 def st(request):
-    return render(request, "Statistics/ST.html")
-
-
-
+    articles = Article.objects.filter(group='Statistics').order_by('-created_at')  # Filter and order by newest first
+    return render(request, "Statistics/ST.html", {'articles': articles})
 
 
 # Main view for linear regression, displaying both static and interactive plots
 def st_linear_regression(request):
     error_message = None  # Initialize error message as None
+
+    # Retrieve the "Linear Regression" article
+    article = get_object_or_404(Article, title="Linear Regression")
+
     if request.method == 'POST':
         try:
             if 'add_points' in request.POST:
@@ -82,8 +69,53 @@ def st_linear_regression(request):
     return render(request, "Statistics/ST_Linear_regression.html", {
         'graph_html': graph_html,
         'plot_div': plot_div,
-        'error_message': error_message  # Pass the error message to the template
+        'error_message': error_message,  # Pass the error message to the template
+        'article': article  # Pass the article data to the template
+
     })
+
+
+def st_p_value(request):
+    article = get_object_or_404(Article, title="P-Value")
+    return render(request, "Statistics/ST_p_value.html", {'article': article})
+
+
+# Machine learning #####
+def ml(request):
+    articles = Article.objects.filter(group='Machine learning').order_by('-created_at')  # Filter and order by newest first
+    return render(request, "Machine_learning/ML.html", {'articles': articles})
+
+
+def ml_pattern_mining(request):
+    article = get_object_or_404(Article, title="Frequent Pattern Mining")
+    return render(request, "Machine_learning/ML_Pattern_mining.html", {'article': article})
+
+
+def ml_clustering_basics(request):
+    article = get_object_or_404(Article, title="Clustering - Basics")
+    return render(request, "Machine_learning/ML_Clustering_basics.html", {'article': article})
+
+
+#  Bioinformatics #####
+def bi(request):
+    articles = Article.objects.filter(group='Bioinformatics').order_by('-created_at')  # Filter and order by newest first
+    return render(request, "Bioinformatics/BI.html", {'articles': articles})
+
+
+
+
+
+
+def ig_classical_genetics(request):
+    return render(request, "Genetics/IG_classical_genetics.html")
+
+
+def ig(request):
+    return render(request, "Genetics/IG.html")
+
+
+
+
 
 
 

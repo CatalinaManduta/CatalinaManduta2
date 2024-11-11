@@ -23,3 +23,7 @@ if __name__ == '__main__':
 
 # cd profile
 # python manage.py runserver
+
+
+#  python manage.py makemigrations
+#  python manage.py migrate

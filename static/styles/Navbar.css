@@ -1,75 +1,3 @@
-/* Global Styles */
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #E2E1D2;
-    color: #2F4F4F;
-    line-height: 1.2;
-    overflow-x: hidden;
-}
-
-/* Global Styles */
-h1, h2, h3, h4 {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    color: #15688A;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-
-a {
-    text-decoration: none;
-    color: #15688A; /* Default link color, using the dark blue */
-    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
-}
-
-a:hover {
-    color: #138CA2; /* Slightly lighter blue on hover */
-    text-decoration: underline; /* Underline on hover for better visibility */
-}
-
-section {
-    padding: 80px 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-/* Header Styles */
-header {
-    z-index: 1000; /* Ensures the header is on top of other elements */
-    position: relative; /* Allows for absolute positioning of dropdowns */
-    background: linear-gradient(135deg, #15688A, #1BA5BF);
-    color: #ffffff;
-    padding: 20px 50px;
-    display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Distributes space between the left and right elements */
-    align-items: center; /* Vertically centers items within the header */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* White color for the main title */
-}
-
 /* Navbar Styles */
 nav {
     display: flex;
@@ -101,7 +29,6 @@ nav a:hover {
     background-color: #138CA2;
     transform: scale(1.1);
 }
-
 
 /* Search Container Styles */
 .search-container {
@@ -149,7 +76,6 @@ nav a:hover {
     transform: scale(0.95); /* Slightly shrinks the button when clicked */
 }
 
-
 /* Main navigation styles */
 .nav-links {
     list-style-type: none; /* Removes default list styling */
@@ -179,23 +105,52 @@ nav a:hover {
     color: #E2E1D2; /* Changes color on hover */
 }
 
-/* Dropdown menu styling (applies to all levels of dropdowns) */
+/* Dropdown menu styling with left-to-right animation */
 .sub-menu, .more-sub-menu, .even-more-sub-menu {
     list-style-type: none; /* Removes default list styling */
     padding: 0; /* Removes default padding */
     margin: 0; /* Removes default margin */
     display: none; /* Hides the dropdown by default */
     position: absolute; /* Positions dropdown relative to parent */
-    background-color: #15688A; /* Background color of dropdown */
+    background: linear-gradient(90deg, #15688A, #1BA5BF); /* Adds a horizontal gradient background */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adds a shadow to the dropdown */
     z-index: 1001; /* Ensures dropdowns appear above other elements */
     border-radius: 15px; /* Rounds the corners of the dropdown */
     min-width: 160px; /* Sets minimum width for the dropdown */
 }
 
-/* List item styling within the dropdowns */
+/* Animation for left-to-right effect on each item */
 .sub-menu li, .more-sub-menu li, .even-more-sub-menu li {
     padding: 5px 20px; /* Adds padding inside each dropdown item */
+    opacity: 0; /* Starts items hidden */
+    transform: translateX(-10px); /* Start position for left-to-right slide */
+    animation: slide-in 0.3s ease forwards; /* Animation parameters */
+}
+
+/* Animation delay for staggered effect */
+.sub-menu li:nth-child(1) { animation-delay: 0.1s; }
+.sub-menu li:nth-child(2) { animation-delay: 0.2s; }
+.sub-menu li:nth-child(3) { animation-delay: 0.3s; }
+.sub-menu li:nth-child(4) { animation-delay: 0.4s; }
+.sub-menu li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Animation keyframes for slide-in */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Show dropdown menu on hover */
+.nav-links > li:hover > .sub-menu,
+.sub-menu li:hover > .more-sub-menu,
+.more-sub-menu li:hover > .even-more-sub-menu {
+    display: block; /* Displays the dropdown */
 }
 
 /* Link styling within the dropdowns */
@@ -209,20 +164,6 @@ nav a:hover {
 .sub-menu li a:hover, .more-sub-menu li a:hover, .even-more-sub-menu li a:hover {
     background-color: #1BA5BF; /* Changes background color on hover */
     border-radius: 10px; /* Slight rounding for hover effect */
-}
-
-/* Shows the dropdown when the parent menu item is hovered */
-.nav-links > li:hover > .sub-menu {
-    display: block; /* Displays the dropdown */
-}
-
-/* Shows the next level of dropdown when its parent is hovered */
-.sub-menu li:hover > .more-sub-menu {
-    display: block; /* Displays the next level dropdown */
-}
-
-.more-sub-menu li:hover > .even-more-sub-menu {
-    display: block; /* Displays the third level dropdown */
 }
 
 /* Positioning for the first level dropdown */

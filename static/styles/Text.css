@@ -291,12 +291,12 @@ a.lblue-link:hover {
     z-index: 1;
 }
 
-
 /* Hover Effect */
 .word-box-item:hover, .imp-box-item:hover, .art-box-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
+
 /* Plot design */
 .plot-container {
     width: 80%;        /* Adjust the width of the entire plot */
