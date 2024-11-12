@@ -337,6 +337,19 @@
     padding-top: 10px;
 }
 
+.dark-blue-box h4 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    color: #E2E1D2;
+    position: relative;
+    z-index: 1;
+    text-align: justify;
+    max-width: 80%;
+    margin: 0 auto 10px auto;
+    padding-top: 10px;
+    padding-top: 10px;
+}
+
 .dark-blue-box p, .dark-blue-box ul, .dark-blue-box ol {
     font-size: 1.4rem;
     max-width: 80%;

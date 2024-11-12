@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.linear_model import LinearRegression
 import numpy as np
 
 # Load the tab-delimited file into a pandas DataFrame

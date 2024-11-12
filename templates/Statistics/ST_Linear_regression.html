@@ -138,27 +138,74 @@
     </form>
 </section>
 
-<section class="white-box">
 
-    <h3>Applications in Biology</h3>
-    <h3>Study Case</h3>
+<section class="white-box">
+    <h3>Other Important Components and Their Meaning</h3>
+    <ul>
+        <li><strong>Independent Variable:</strong> The factor you choose to test or change to see how it affects another factor. For example, in a study on plant growth, the amount of sunlight could be your independent variable.</li>
+
+        <li><strong>Dependent Variable:</strong> The outcome you’re measuring or predicting, which depends on the independent variable. In the plant study, the plant’s growth or height would be the dependent variable.</li>
+
+        <li><strong>Slope:</strong> Shows how much the dependent variable changes when the independent variable increases by one unit. If the slope is 2, for example, it means that for every extra hour of sunlight, the plant grows 2 cm taller.</li>
+
+        <li><strong>Intercept:</strong> The starting value of the dependent variable when the independent variable is zero. For instance, the intercept might be the height of a plant that receives no sunlight at all.</li>
+
+        <li><strong>Regression Line:</strong> A straight line that best fits the data points on a graph, showing the overall trend between variables. This line helps predict the dependent variable based on the independent variable.</li>
+
+        <li><strong>Residuals:</strong> The differences between the actual data points and the values predicted by the regression line. Residuals show how far off the predictions are from the real data.</li>
+
+        <li><strong>R-squared (R²):</strong> A number that shows how well the regression line fits the data. A higher R² value means the line closely follows the data points, indicating a good fit. For example, an R² of 0.9 means the model explains 90% of the data's variation.</li>
+
+        <li><strong>Coefficient:</strong> This represents how much the dependent variable is expected to change with each one-unit increase in the independent variable. It’s similar to the slope and tells you the direction and strength of the relationship.</li>
+
+        <li><strong>P-value:</strong> A measure of the reliability of the results. A low p-value (usually below 0.05) suggests strong evidence of a relationship between the variables, while a higher p-value suggests the relationship may be due to chance.</li>
+
+        <li><strong>Outliers:</strong> Data points that stand far from the general trend and don’t fit well with the other points. These can sometimes affect the results and may need to be analyzed separately or removed.</li>
+
+        <li><strong>Positive Correlation:</strong> When two variables increase or decrease together. For instance, if there is a positive correlation between hours studied and test scores, it means that as hours studied increase, test scores tend to increase as well. In a graph, this appears as an upward-sloping trend.</li>
+
+        <li><strong>Negative Correlation:</strong> When one variable increases while the other decreases. For example, exercise frequency and weight often have a negative correlation—when exercise increases, weight tends to decrease. In a graph, this appears as a downward-sloping trend.</li>
+    </ul>
+</section>
+
+
+<section class="dark-blue-box">
+
+       <h3>Study Case: Preparing Ecological Data</h3>
+    <h4>Data Collection</h4>
+    <p>
+        The ecological data used in this study case was collected from an open-source dataset containing various animal traits.
+        We focused specifically on four columns: Adult Body Mass, Maximum Longevity, Genus, and Species.
+    </p>
+
+    <h4>Data Cleaning and Preparation</h4>
+    <p>To ensure the quality and usability of the data for linear regression analysis, we performed the following steps:</p>
+    <ol>
+        <li><strong>Selected Relevant Columns:</strong> I focused on key traits like body mass and longevity.</li>
+        <li><strong>Filtered Missing Data:</strong> Rows with missing values (represented by `-999.0`) were removed.</li>
+        <li><strong>Renamed Columns:</strong> The columns were renamed for better readability.</li>
+        <li><strong>Combined Genus and Species:</strong> Genus and Species were concatenated to form a single column for the full species name.</li>
+        <li><strong>Removed Invalid Values:</strong> Rows with `NaN`, zeros, or infinity values in body mass or longevity were removed.</li>
+        <li><strong>Applied Log Transformation:</strong> I applied a log transformation to body mass and longevity values to reduce skewness and stabilize variance.</li>
+    </ol>
+
+    <h4>Log Transformation</h4>
+    <p>
+        Log transformations help stabilize the variance and make the distribution of the data more normal.
+    </p>
+
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <div class="plot-container">
         {{ graph_html|safe }}
     </div>
 
-    <h3>Important Terms</h3>
-    <ul>
-        <li><strong>Independent Variable:</strong> Factor you test or change.</li>
-        <li><strong>Dependent Variable:</strong> The outcome/result you’re predicting.</li>
-        <li><strong>Slope:</strong> Shows change in the dependent variable per unit increase in the independent variable.</li>
-        <li><strong>Intercept:</strong> Value of the dependent variable when the independent variable is zero.</li>
-        <li><strong>Regression Line:</strong> Straight line showing the general trend between variables.</li>
-        <li><strong>Residuals:</strong> Differences between actual data points and predictions.</li>
-        <li><strong>R-squared (R²):</strong> Measure of model fit quality.</li>
-        <li><strong>Coefficient:</strong> Shows expected change in the dependent variable with a one-unit change in the independent variable.</li>
-        <li><strong>P-value:</strong> Indicates statistical significance of the relationship between variables.</li>
-        <li><strong>Outliers:</strong> Data points that don’t fit the general trend.</li>
-    </ul>
+</section>
+
+
+<section class="yellow-box">
+
+    <h3>Applications in Biology</h3>
+
 </section>
 {% endblock %}
+
