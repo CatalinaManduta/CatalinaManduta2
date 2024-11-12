@@ -16,8 +16,8 @@
             <!-- Dynamic Article Item -->
             <div class="yellow-box-item">
                 <h4>{{ article.title }}</h4>
-                <p>{{ article.summary }}</p> <!-- Truncates summary to 10 words -->
-                <a href="{{ article.get_absolute_url }}">Read More</a>
+                <p>{{ article.summary }}</p>
+                <a href="{{ article.get_absolute_url}}">Read More</a>
             </div>
         {% empty %}
             <p>No articles available in this category.</p>

@@ -3,15 +3,15 @@
 {% block title %} Linear Regression - Learning Hub {% endblock %}
 
 {% block content %}
-
-<section class="white-box">
-    <h3>What is Linear Regression?</h3>
-    <p>
-        Linear regression is a method used to build a model that shows how a result depends on one or more factors.
+<section class="dark-blue-box">
+            <h3>What is Linear Regression? </h3>
+            <p>Linear regression is a method used to build a model that shows how a result depends on one or more factors.
         If there's only one factor influencing the result, it’s called simple linear regression. If several factors are involved,
         it’s called multiple linear regression. This line helps show how one factor (called the independent variable) affects another
         (called the dependent variable).
-    </p>
+</section>
+
+<section class="white-box">
 
     <h3>Behind the Scenes: How Linear Regression Works</h3>
     <h4>Step 1: Understanding the Goal</h4>
@@ -108,7 +108,7 @@
     </ul>
     </section>
 
-    <section class="blue-box">
+    <section class="dark-blue-box">
     <h3>Playground</h3>
     <h4>User-Interactive Linear Regression</h4>
 
@@ -125,7 +125,7 @@
 
         <label for="y">Y values:</label>
         <input type="text" name="y" class="custom-input" placeholder="e.g., 4, 5, 6" required>
-        <button type="submit" name="add_points" class="custom-button">Add Points</button>
+        <button type="submit" name="add_points" class="custom-button-yellow">Add Points</button>
     </form>
 
     <div class="plot-container">
@@ -134,7 +134,7 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        <button type="submit" name="clear_points" class="custom-button">Remove All Points</button>
+        <button type="submit" name="clear_points" class="custom-button-yellow">Remove All Points</button>
     </form>
 </section>
 

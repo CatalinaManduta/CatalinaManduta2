@@ -32,7 +32,7 @@
 }
 
 
-.custom-button {
+.custom-button-dark {
     background-color: #15688A;
     color: #ffffff;
     padding: 10px 15px;
@@ -46,11 +46,51 @@
     cursor: pointer; /* Changes the cursor to a pointer on hover */
 }
 
-.custom-button:hover {
+.custom-button-dark:hover {
     background-color: #138CA2; /* Adjusted color on hover */
     transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
+.custom-button-blue {
+    background-color: #138CA2;;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border: none;  /* Removes any default border */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+}
+
+.custom-button-blue:hover {
+    background-color: #E2E1D2; /* Adjusted color on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    color: #15688A;
+}
+
+
+.custom-button-yellow {
+    background-color: #E2E1D2;
+    color: #15688A;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    border: none;  /* Removes any default border */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+}
+
+.custom-button-yellow:hover {
+    background-color: #138CA2; /* Adjusted color on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    color: #ffffff;
+}
 
 .custom-input {
     background-color: #f0f4f8; /* Light background color */

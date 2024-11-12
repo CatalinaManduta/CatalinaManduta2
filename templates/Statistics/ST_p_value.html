@@ -3,8 +3,55 @@
 {% block title %} P-Value - Learning Hub {% endblock %}
 
 {% block content %}
-<section >
 
+<section class="dark-blue-box">
+            <h3>What is a P-Value?</h3>
+    <p>
+        A p-value is a measure that helps us determine if the results we’re observing are meaningful or if they might have happened just by chance.
+        It's a crucial part of hypothesis testing, where we start by assuming that there's no effect or difference – this assumption is called the "null hypothesis."
+    </p>
 </section>
+
+<section class="white-box">
+    <h3>How the P-Value Works</h3>
+    <h4>Step 1: Setting Up the Hypothesis</h4>
+    <p>
+        Suppose we’re testing whether a new medicine works better than a placebo (a sugar pill). Our null hypothesis is, “The new medicine has no effect.”
+        This means we assume any differences in results between the medicine and placebo are purely by chance unless proven otherwise.
+    </p>
+
+    <h4>Step 2: Gathering Data</h4>
+    <p>
+        We test the medicine on a group of people and observe how many get better compared to the placebo group. We then perform calculations to see if the difference we observe is likely to be due to chance.
+    </p>
+
+    <h4>Step 3: Calculating the P-Value</h4>
+    <p>
+        The p-value tells us the probability of seeing results as extreme as ours if the null hypothesis (no effect) is true. For example, a p-value of 0.05 (5%) means there’s a 5% chance that we would see our results by random chance if the medicine actually had no effect.
+    </p>
+
+    <h4>Step 4: Interpreting the P-Value</h4>
+    <ul>
+        <li><strong>Low p-value (e.g., 0.01 or 1%):</strong> Results are unlikely to happen by chance. This gives us strong evidence against the null hypothesis, suggesting the medicine likely has an effect.</li>
+        <li><strong>High p-value (e.g., 0.5 or 50%):</strong> Results could easily happen by chance. This means we don’t have enough evidence to reject the null hypothesis; the medicine might not have a real effect.</li>
+    </ul>
+
+    <p>
+        Scientists often use 0.05 (5%) as a cutoff for statistical significance. If the p-value is below 0.05, we consider the results significant and have enough evidence to suggest an effect. If the p-value is above 0.05, we don't have strong enough evidence.
+    </p>
+
+    <h4>Real-Life Example</h4>
+    <p>
+        Imagine flipping a coin 100 times and getting 70 heads. Normally, we’d expect around 50 heads if the coin were fair. A p-value here would tell us how unusual getting 70 heads is if the coin were truly fair. If the p-value is very low (e.g., 0.01), this could mean the coin might be biased. If the p-value is high (e.g., 0.3 or 30%), getting 70 heads could just be a coincidence.
+    </p>
+
+    <h4>Summary of Key Takeaways</h4>
+    <ul>
+        <li><strong>P-Value:</strong> The probability that our results happened by chance if the null hypothesis is true.</li>
+        <li><strong>Low P-Value:</strong> Suggests strong evidence against the null hypothesis, often considered statistically significant.</li>
+        <li><strong>High P-Value:</strong> Indicates results could easily happen by chance, meaning we lack strong evidence against the null hypothesis.</li>
+    </ul>
+</section>
+
 
 {% endblock %}

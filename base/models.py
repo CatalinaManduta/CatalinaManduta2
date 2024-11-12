@@ -19,8 +19,10 @@ class Article(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        # Use the `path` field directly for the article's URL
-        return self.path if self.path else "#"
+        # Ensure `path` is absolute by adding a leading `/` if missing
+        if self.path and not str(self.path).startswith('/'):
+            return f"/{self.path}"
+        return str(self.path) if self.path else "#"
 
     def __str__(self):
         return self.title
