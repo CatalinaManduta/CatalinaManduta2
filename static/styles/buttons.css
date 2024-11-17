@@ -6,9 +6,9 @@
     transform: translateY(-50%);
     width: 50px; /* Adjusted size */
     height: 50px; /* Adjusted size */
-    background-color: #15688A;
-    color: white;
-    border-radius: 50%;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
+    border-radius: 8%;
     font-size: 20px; /* Adjusted font size */
     display: flex;
     justify-content: center;
@@ -27,18 +27,17 @@
 }
 
 .prev:hover, .next:hover {
-    background-color: #138CA2;
+    background-color: var(--hover-blue);
     transform: scale(1.1);
 }
 
-
 .custom-button-dark {
-    background-color: #15688A;
-    color: #ffffff;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
     padding: 10px 15px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px var(--shadow-medium);
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
     z-index: 1;
@@ -47,17 +46,17 @@
 }
 
 .custom-button-dark:hover {
-    background-color: #138CA2; /* Adjusted color on hover */
+    background-color: var(--hover-blue); /* Adjusted color on hover */
     transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 .custom-button-blue {
-    background-color: #138CA2;;
-    color: #ffffff;
+    background-color: var(--hover-blue);
+    color: var(--text-light);
     padding: 10px 15px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px var(--shadow-medium);
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
     z-index: 1;
@@ -66,44 +65,67 @@
 }
 
 .custom-button-blue:hover {
-    background-color: #E2E1D2; /* Adjusted color on hover */
+    background-color: var(--primary-yellow); /* Adjusted color on hover */
     transform: scale(1.1); /* Slight zoom effect on hover */
-    color: #15688A;
+    color: var(--primary-dark-blue);
 }
 
-
 .custom-button-yellow {
-    background-color: #E2E1D2;
-    color: #15688A;
+    background-color: var(--primary-yellow);
+    color: var(--primary-dark-blue);
     padding: 10px 15px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px var(--shadow-medium);
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
     z-index: 1;
     border: none;  /* Removes any default border */
     cursor: pointer; /* Changes the cursor to a pointer on hover */
+    margin-top: 10px; /* Space above button */
+    min-width: 200px; /* Prevents the button from shrinking too much */
+    max-width: 200px; /* Prevents the button from growing too large */
 }
 
 .custom-button-yellow:hover {
-    background-color: #138CA2; /* Adjusted color on hover */
+    background-color: var(--hover-blue); /* Adjusted color on hover */
     transform: scale(1.1); /* Slight zoom effect on hover */
-    color: #ffffff;
+    color: var(--text-light);
 }
 
+/* Custom styling for input fields */
 .custom-input {
     background-color: #f0f4f8; /* Light background color */
-    color: #333; /* Text color */
+    color: var(--text-dark);
     padding: 12px 20px; /* Adds padding for comfort */
-    border: 2px solid #15688A; /* Matches button color for consistency */
-    border-radius: 30px; /* Rounds the input for a similar look to buttons */
+    border: 2px solid var(--primary-dark-blue); /* Matches button color for consistency */
+    border-radius: 8px; /* Rounds the input for a similar look to buttons */
     font-size: 1rem; /* Slightly larger font for readability */
     outline: none; /* Removes default focus outline */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px; /* Space below input */
+    width: 50%; /* Full-width input field */
 }
 
 .custom-input:focus {
-    border-color: #138CA2; /* Changes color on focus for interactivity */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adds a slight shadow on focus */
+    border-color: var(--hover-blue); /* Changes color on focus for interactivity */
+    box-shadow: 0 4px 12px var(--shadow-light); /* Adds a slight shadow on focus */
+}
+
+label {
+    display: block; /* Displays labels above inputs */
+    font-weight: bold; /* Bold font for readability */
+    margin-top: 10px; /* Space above label */
+}
+
+/* Plot design */
+.plot-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    margin-top: 20px;
+    text-align: center;
 }

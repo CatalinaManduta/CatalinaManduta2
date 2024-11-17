@@ -1,12 +1,15 @@
 /* Yellow Box (formerly Blog Section) */
 .yellow-box {
-    background-color: #E2E1D2;
+    background-color: var(--primary-yellow);
     padding: 100px 20px;
     position: relative;
     z-index: 1;
     overflow: hidden;
     width: 100%;
     margin: 0; /* Remove the margin */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing between boxes */
+    box-shadow: 0 4px 8px var(--hover-yellow); /* Light shadow for depth */
 }
 
 .yellow-box::before {
@@ -14,7 +17,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--hover-yellow);
     border-radius: 50%;
     top: -100px;
     right: -100px;
@@ -24,16 +27,13 @@
 .yellow-box h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     position: relative;
     z-index: 1;
     text-align: justify;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     padding-top: 10px;
-    padding-top: 10px;
-
-
 }
 
 .yellow-box-container {
@@ -48,9 +48,9 @@
 }
 
 .yellow-box-item {
-    background-color: rgba(251,251,248,255);
+    background-color: var(--overlay-light);
     border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px var(--shadow-medium);
     padding: 40px;
     max-width: 800px;
     margin: 0 auto;
@@ -59,22 +59,17 @@
 }
 
 .yellow-box-item h4 {
-    color: #15688A;
+    color: var(--primary-dark-blue);
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
-    list-style-position: inside; /* Keep bullets aligned with text */
-    padding-left: 0; /* Ensure no additional padding */
-    padding-top: 0px; /* Added top padding */
-    padding-bottom: 0px; /* Added top padding */
-
 }
 
 .yellow-box-item p, .yellow-box-item ul, .yellow-box-item ol {
-    color: #2F4F4F;
+    color: var(--text-muted);
     font-size: 1.2rem;
     list-style-position: inside; /* Keep bullets aligned with text */
     padding-left: 0; /* Ensure no additional padding */
@@ -89,7 +84,7 @@
 }
 
 .yellow-box-item a {
-    color: #1BA5BF;
+    color: var(--primary-light-blue);
     font-weight: bold;
     display: block;
     margin-top: 20px;
@@ -97,22 +92,25 @@
 }
 
 .yellow-box-item a:hover {
-    color: #138CA2;
+    color: var(--hover-blue);
 }
 
 .yellow-box-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px var(--shadow-hover);
 }
 
 /* White Box (formerly About Section) */
 .white-box {
-    background-color: #F5F5F5;
+    background-color: var(--primary-dark-white);
     padding: 30px 20px;
     position: relative;
     overflow: hidden;
     width: 100%;
     margin: 0; /* Remove any default margin */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing between boxes */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Light shadow for depth */
 }
 
 .white-box::before {
@@ -120,11 +118,11 @@
     position: absolute;
     width: 250px;
     height: 250px;
-    background-color: rgba(21, 104, 138, 0.1);
+    background-color: var(--overlay-translucent-blue);
     border-radius: 50%;
     top: 20%;
     left: 5%;
-    z-index: 0;
+    z-index: -1;
 }
 
 .white-box::after {
@@ -132,52 +130,47 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    background-color: rgba(21, 104, 138, 0.1);
+    background-color: var(--overlay-translucent-blue);
     border-radius: 50%;
-    bottom: 15%;
-    right: 10%;
-    z-index: 0;
+    bottom: 1%;
+    right: 1%;
+    top:600%
+    z-index: -1;
 }
 
 .white-box h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     position: relative;
     z-index: 1;
     text-align: justify;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
-    padding-top: 10px;
     padding-top: 10px;
 }
 
 .white-box h4 {
-    color: #15688A;
+    color: var(--primary-dark-blue);
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
     list-style-position: inside; /* Keep bullets aligned with text */
     padding-left: 0; /* Ensure no additional padding */
-    padding-top: 0px; /* Added top padding */
-    padding-bottom: 0px; /* Added top padding */
 }
 
 .white-box p, .white-box ul, .white-box ol {
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
     list-style-position: inside; /* Keep bullets aligned with text */
     padding-left: 0px; /* Ensure no additional padding */
-    padding-top: 0px; /* Added top padding */
-    padding-bottom: 0px; /* Added top padding */
-
 }
 
 .white-box li {
@@ -190,13 +183,16 @@
 
 /* Blue Box (formerly Services Section) */
 .blue-box {
-    background-color: #1BA5BF;
-    color: #ffffff;
+    background-color: var(--primary-light-blue);
+    color: var(--text-light);
     padding: 30px 20px;
     position: relative;
     overflow: hidden;
     width: 100%;
     margin: 0; /* Remove any default margin */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing between boxes */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Light shadow for depth */
 }
 
 .blue-box::before {
@@ -204,7 +200,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     top: -100px;
     left: -100px;
@@ -214,25 +210,23 @@
 .blue-box h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     position: relative;
     z-index: 1;
     text-align: justify;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
-    padding-top: 10px;
-    padding-top: 10px;
 }
 
 .blue-box p, .blue-box ul, .blue-box ol {
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
     list-style-position: inside; /* Keep bullets aligned with text */
-    padding-left: 0; /* Ensure no additional padding */
+    padding-left: 0;
 }
 
 .blue-box li {
@@ -248,16 +242,16 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 40px;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto;
     z-index: 1;
     position: relative;
 }
 
 .blue-box-item {
-    background-color: rgba(61,178,201,255);
+    background-color: rgba(61, 178, 201, 1);
     border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px var(--shadow-medium);
     padding: 40px;
     max-width: 800px;
     margin: 0 auto;
@@ -268,21 +262,17 @@
 }
 
 .blue-box-item h4 {
-    color: #15688A;
+    color: var(--primary-dark-blue);
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
-    list-style-position: inside; /* Keep bullets aligned with text */
-    padding-left: 0; /* Ensure no additional padding */
-    padding-top: 0px; /* Added top padding */
-    padding-bottom: 0px; /* Added top padding */
 }
 
 .blue-box-item p, .blue-box-item ul, .blue-box-item ol {
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 1.2rem;
     list-style-position: inside; /* Keep bullets aligned with text */
     padding-left: 0; /* Ensure no additional padding */
@@ -298,18 +288,21 @@
 
 .blue-box-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px var(--shadow-hover);
 }
 
 /* Dark Blue Box (formerly Testimonials Section) */
 .dark-blue-box {
-    background-color: #15688A;
-    color: #ffffff;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
     padding: 30px 20px;
     position: relative;
     overflow: hidden;
     width: 100%;
     margin: 0; /* Remove any default margin */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing between boxes */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Light shadow for depth */
 }
 
 .dark-blue-box::before {
@@ -317,7 +310,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     top: -100px;
     left: -100px;
@@ -327,38 +320,34 @@
 .dark-blue-box h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #E2E1D2;
+    color: var(--primary-yellow);
     position: relative;
     z-index: 1;
     text-align: justify;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
-    padding-top: 10px;
-    padding-top: 10px;
 }
 
 .dark-blue-box h4 {
     font-size: 1.7rem;
     margin-bottom: 20px;
-    color: #E2E1D2;
+    color: var(--primary-yellow);
     position: relative;
     z-index: 1;
     text-align: justify;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
-    padding-top: 10px;
-    padding-top: 10px;
 }
 
 .dark-blue-box p, .dark-blue-box ul, .dark-blue-box ol {
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
     list-style-position: inside; /* Keep bullets aligned with text */
-    padding-left: 0; /* Ensure no additional padding */
+    padding-left: 0;
 }
 
 .dark-blue-box li {
@@ -374,16 +363,16 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 40px;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto;
     z-index: 1;
     position: relative;
 }
 
 .dark-blue-box-item {
-    background-color: rgba(56,127,155,255);
+    background-color: var(--overlay-dark-blue);
     border-radius: 50px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px var(--shadow-medium);
     padding: 40px;
     max-width: 800px;
     margin: 0 auto;
@@ -394,21 +383,17 @@
 }
 
 .dark-blue-box-item h4 {
-    color: #E2E1D2;
+    color: var(--primary-yellow);
     font-size: 1.4rem;
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
     z-index: 1;
     text-align: justify;
-    list-style-position: inside; /* Keep bullets aligned with text */
-    padding-left: 0; /* Ensure no additional padding */
-    padding-top: 0px; /* Added top padding */
-    padding-bottom: 0px; /* Added top padding */
 }
 
 .dark-blue-box-item p, .dark-blue-box-item ul, .dark-blue-box-item ol {
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 1.2rem;
     list-style-position: inside; /* Keep bullets aligned with text */
     padding-left: 0; /* Ensure no additional padding */
@@ -424,6 +409,5 @@
 
 .dark-blue-box-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px var(--shadow-hover);
 }
-

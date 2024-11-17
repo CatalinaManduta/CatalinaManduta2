@@ -5,71 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Root.css' %}">
+
     <title>Learning Hub</title>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header>
-        <h1>Learning Hub</h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li>
-                    <a href="/articles">Learn with me</a>
-                    <i class="bx bxs-chevron-down arrow"></i>
-                    <ul class="sub-menu">
+<nav>
+    <!-- Title of the Navigation Bar -->
+    <h1 class="nav-title">Learning Hub</h1>
 
-                        <li class="more">
-                            <span>
-                                <a href="/statistics">Statistics</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/statistics/linear regression">Linear Regression</a></li>
-                                <li><a href="/statistics/p-value">P-value</a></li>
-                                <li><a href="/statistics">More</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="more">
-                            <span>
-                                <a href="/machine learning">Machine Learning</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/machine learning/pattern mining">Pattern Mining</a></li>
-                                <li><a href="/machine learning/clustering basics">Clustering - Basics</a></li>
-                                <li><a href="/machine learning">More</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li class="more">
-                            <span>
-                                <a href="/bioinformatics">Bioinformatics</a>
-                                <i class="bx bxs-chevron-right arrow more-arrow"></i>
-                            </span>
-                            <ul class="more-sub-menu sub-menu">
-                                <li><a href="/work in progress">Work in progress</a></li>
-                                <li><a href="/work in progress">More</a></li>
-                            </ul>
-                        </li>
-
-
+    <!-- Main Navigation Links -->
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li>
+            <a href="/articles">Learn with me</a>
+            <!-- First-level Dropdown Menu -->
+            <ul class="sub-menu">
+                <li class="more">
+                    <a href="/statistics">Statistics</a>
+                    <!-- Second-level Dropdown Menu -->
+                    <ul class="more-sub-menu">
+                        <li><a href="/statistics/linear regression">Linear Regression</a></li>
+                        <li><a href="/statistics/p-value">P-value</a></li>
+                        <li><a href="/statistics">More</a></li>
                     </ul>
                 </li>
-                <li><a href="/contact">Contact</a></li>
+                <li class="more">
+                    <a href="/machine learning">Machine Learning</a>
+                    <ul class="more-sub-menu">
+                        <li><a href="/machine learning/pattern mining">Pattern Mining</a></li>
+                        <li><a href="/machine learning/clustering basics">Clustering - Basics</a></li>
+                        <li><a href="/machine learning">More</a></li>
+                    </ul>
+                </li>
+                <li class="more">
+                    <a href="/bioinformatics">Bioinformatics</a>
+                    <ul class="more-sub-menu">
+                        <li><a href="/work in progress">Work in progress</a></li>
+                        <li><a href="/work in progress">More</a></li>
+                    </ul>
+                </li>
             </ul>
-        </nav>
+        </li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
 
-        <!-- Search Area -->
-        <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input">
-            <button type="submit" class="search-button">Search</button>
-        </div>
-    </header>
+    <!-- Search Area within Navbar -->
+    <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-input">
+        <button type="submit" class="search-button">Search</button>
+    </div>
+</nav>
 
 </body>
 </html>

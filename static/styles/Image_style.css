@@ -6,23 +6,28 @@
     object-fit: cover;
 }
 
-/* Common Round Image Styles */
-.img-round,
-.img-round-frame,
-.img-round-frame-yellow,
-.img-round-frame-lightblue,
-.img-round-frame-white,
+/* Round Image Frames with Specific Colors */
+.img-round {
+    border: 3px solid var(--primary-dark-blue);
+    border-radius: 50%; /* Ensures the image appears round */
+}
+.img-round-frame-yellow {
+    border: 3px solid var(--primary-yellow);
+    border-radius: 50%; /* Ensures the image appears round */
+}
+.img-round-frame-lightblue {
+    border: 3px solid var(--primary-light-blue);
+    border-radius: 50%; /* Ensures the image appears round */
+}
+.img-round-frame-white {
+    border: 3px solid #FFFFFF;
+    border-radius: 50%; /* Updated to ensure a round shape */
+}
 .img-round-frame-darkblue {
-    border-radius: 50%;
-    object-fit: cover;
+    border: 3px solid var(--hover-blue);
+    border-radius: 50%; /* Corrected to make the frame round */
 }
 
-/* Round Image Frames with Specific Colors */
-.img-round-frame { border: 3px solid #15688A; }
-.img-round-frame-yellow { border: 3px solid #E2E1D2; }
-.img-round-frame-lightblue { border: 3px solid #1BA5BF; }
-.img-round-frame-white { border: 3px solid #FFFFFF; border-radius: 15px; }
-.img-round-frame-darkblue { border: 3px solid #138CA2; border-radius: 15px; }
 
 /* Rectangle Image Styles */
 .img-rectangle,

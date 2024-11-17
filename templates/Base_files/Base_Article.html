@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{% static 'styles/buttons.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Global.css' %}">
     <link rel="stylesheet" href="{% static 'styles/hero.css' %}">
-
+    <link rel="stylesheet" href="{% static 'styles/Table_content.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/Root.css' %}">
 </head>
 <body>
 
@@ -22,11 +23,18 @@
 
     <!-- Main Content -->
     <div class="content-wrapper">
-        <section class="hero">
-            <h2>{{ article.title }}</h2>
-            <p class="author-text">{{ article.author_name }}</p>
-            <p class="date-text">Published on: {{ article.created_at|date:"F j, Y" }}</p>
-        </section>
+        <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-text">
+    <h2>{{ article.title }}</h2>
+    <div class="info-wrapper">
+        <span class="author-text">{{ article.author_name }}</span>
+        <span class="separator">|</span>
+        <span class="date-text">Published on: {{ article.created_at|date:"F j, Y" }}</span>
+    </div>
+    </div>
+</section>
+
         {% block content %}{% endblock %}
     </div>
 

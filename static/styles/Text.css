@@ -6,12 +6,12 @@
 
 /* Red Text */
 .red-text {
-    color: #D9534F; /* This is the Bootstrap default red color, adjust as needed */
+    color: #D9534F; /* This remains as specified */
 }
 
 /* Blue Text */
 .blue-text {
-    color: #15688A; /* Use the dark blue already in the code */
+    color: var(--primary-dark-blue); /* Dark blue from root */
 }
 
 /* Combination of Bold and Red */
@@ -23,19 +23,19 @@
 /* Combination of Bold and Blue */
 .bold-blue-text {
     font-weight: bold;
-    color: #15688A;
+    color: var(--primary-dark-blue);
 }
 
 /* General Link Style */
 a {
     text-decoration: none;
-    color: #15688A; /* Default link color, using the dark blue */
+    color: var(--primary-dark-blue); /* Default link color in dark blue */
     font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
 }
 
 /* Hover State */
 a:hover {
-    color: #138CA2; /* Slightly lighter blue on hover */
+    color: var(--hover-blue); /* Slightly lighter blue on hover */
     text-decoration: underline; /* Underline on hover for better visibility */
 }
 
@@ -50,24 +50,23 @@ a.red-link:hover {
 
 /* Blue Link */
 a.blue-link {
-    color: #1ba5cc; /* Using the light blue already in the code */
+    color: var(--primary-light-blue);
 }
 
 a.blue-link:hover {
-    color: #15688A; /* Slightly darker blue on hover */
+    color: var(--primary-dark-blue); /* Slightly darker blue on hover */
     text-decoration: underline; /* Underline on hover for better visibility */
 }
 
-/* Blue Link */
+/* Light Blue Link */
 a.lblue-link {
-    color: #15688A; /* Using the dark blue already in the code */
+    color: var(--primary-dark-blue);
 }
 
 a.lblue-link:hover {
-    color: #1ba5cc; /* Slightly lighter blue on hover */
+    color: var(--primary-light-blue); /* Slightly lighter blue on hover */
     text-decoration: underline; /* Underline on hover for better visibility */
 }
-
 
 /* IMPORTANT Box (Custom Section for Important Words) */
 .word-box-container {
@@ -82,7 +81,7 @@ a.lblue-link:hover {
 .word-box-item {
     background-color: rgba(61,178,201,255);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px var(--shadow-medium);
     padding: 20px 30px; /* Adjusted padding for equal spacing */
     max-width: 100%; /* Ensure the box takes the full width within the container */
     margin: 0 auto;
@@ -90,53 +89,51 @@ a.lblue-link:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
     position: relative;
-    padding-top: 10px; /* Added top padding */
-    padding-bottom: 10px; /* Added top padding */
+    padding-top: 10px;
+    padding-bottom: 10px;
     flex: 1 1 auto;
-
 }
 
 .word-box-header {
     display: flex;
     align-items: center;
-    margin-bottom: 15px; /* Space below the word section */
+    margin-bottom: 15px;
 }
 
 .word-box-header i {
     font-size: 2rem;
-    color: #E2E1D2;
-    margin-right: 10px; /* Space between icon and text */
+    color: var(--primary-yellow);
+    margin-right: 10px;
 }
 
 .word-box-header h3 {
-    color: #15688A; /* Blue color */
+    color: var(--primary-dark-blue);
     font-size: 2rem;
-    margin: 0; /* No extra margin */
+    margin: 0;
 }
 
 .word-box-description {
     display: flex;
     align-items: center;
-    color: #ffffff;
-    margin-top: 15px; /* Space above the description text */
+    color: var(--text-light);
+    margin-top: 15px;
     font-size: 1.2rem;
     text-align: justify;
     line-height: inherit;
-
 }
 
 .word-box-description h2 {
-    color: #15688A; /* Blue color */
+    color: var(--primary-dark-blue);
     font-size: 1.8rem;
-    margin: 0 10px 0 0; /* Margin around Phenotype text */
+    margin: 0 10px 0 0;
 }
 
 .word-box-description p {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-light);
     text-align: justify;
     padding-left: 0;
-    padding-right: 0; /* Ensure no extra padding on the right */
+    padding-right: 0;
     font-size: 1.4rem;
     max-width: 100%;
     position: relative;
@@ -146,144 +143,141 @@ a.lblue-link:hover {
 /* IMPORTANT Box (Custom Section for Important Words) */
 .imp-box-container {
     display: flex;
-    justify-content: center; /* Center the box within the container */
-    max-width: 80%; /* Matches the max-width of other sections */
-    margin: 0 auto; /* Centers the container */
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
     z-index: 1;
     position: relative;
 }
 
 .imp-box-item {
-    background-color: #15688A;
+    background-color: var(--primary-dark-blue);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px 30px; /* Adjusted padding for equal spacing */
-    max-width: 100%; /* Ensure the box takes the full width within the container */
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    padding: 20px 30px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
     position: relative;
-    padding-top: 10px; /* Added top padding */
-    padding-bottom: 10px; /* Added top padding */
+    padding-top: 10px;
+    padding-bottom: 10px;
     flex: 1 1 auto;
-
 }
 
 .imp-box-header {
     display: flex;
     align-items: center;
-    margin-bottom: 15px; /* Space below the word section */
+    margin-bottom: 15px;
 }
 
 .imp-box-header i {
     font-size: 2rem;
-    color: #E2E1D2;
-    margin-right: 10px; /* Space between icon and text */
+    color: var(--primary-yellow);
+    margin-right: 10px;
 }
 
 .imp-box-header h3 {
-    color: #ffffff; /* Blue color */
+    color: var(--text-light);
     font-size: 2rem;
-    margin: 0; /* No extra margin */
+    margin: 0;
 }
 
 .imp-box-description {
     display: flex;
     align-items: center;
-    color: #ffffff;
-    margin-top: 15px; /* Space above the description text */
+    color: var(--text-light);
+    margin-top: 15px;
     font-size: 1.2rem;
     text-align: justify;
     line-height: inherit;
 }
 
 .imp-box-description h2 {
-    color: #ffffff; /* Blue color */
+    color: var(--text-light);
     font-size: 1.8rem;
-    margin: 0 10px 0 0; /* Margin around Phenotype text */
+    margin: 0 10px 0 0;
 }
 
 .imp-box-description p {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-light);
     text-align: justify;
     padding-left: 0;
-    padding-right: 0; /* Ensure no extra padding on the right */
+    padding-right: 0;
     font-size: 1.4rem;
     max-width: 100%;
     position: relative;
     z-index: 1;
 }
 
-
-
 /* ART Box (Custom Section for Important Words) */
 .art-box-container {
     display: flex;
-    justify-content: center; /* Center the box within the container */
-    max-width: 80%; /* Matches the max-width of other sections */
-    margin: 0 auto; /* Centers the container */
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
     z-index: 1;
     position: relative;
 }
 
 .art-box-item {
-    background-color: #E2E1D2;
+    background-color: var(--primary-yellow);
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px 30px; /* Adjusted padding for equal spacing */
-    max-width: 100%; /* Ensure the box takes the full width within the container */
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    padding: 20px 30px;
+    max-width: 100%;
     margin: 0 auto;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
     position: relative;
-    padding-top: 10px; /* Added top padding */
-    padding-bottom: 10px; /* Added top padding */
+    padding-top: 10px;
+    padding-bottom: 10px;
     flex: 1 1 auto;
 }
 
 .art-box-header {
     display: flex;
     align-items: center;
-    margin-bottom: 15px; /* Space below the word section */
+    margin-bottom: 15px;
 }
 
 .art-box-header i {
     font-size: 2rem;
-    color: #15688A;
-    margin-right: 10px; /* Space between icon and text */
+    color: var(--primary-dark-blue);
+    margin-right: 10px;
 }
 
 .art-box-header h3 {
-    color: #15688A; /* Blue color */
+    color: var(--primary-dark-blue);
     font-size: 2rem;
-    margin: 0; /* No extra margin */
+    margin: 0;
 }
 
 .art-box-description {
     display: flex;
     align-items: center;
-    color: #15688A;
-    margin-top: 15px; /* Space above the description text */
+    color: var(--primary-dark-blue);
+    margin-top: 15px;
     font-size: 1.2rem;
     text-align: justify;
     line-height: inherit;
 }
 
 .art-box-description h2 {
-    color: #15688A; /* Blue color */
+    color: var(--primary-dark-blue);
     font-size: 1.8rem;
-    margin: 0 10px 0 0; /* Margin around Phenotype text */
+    margin: 0 10px 0 0;
 }
 
 .art-box-description p {
     margin: 0;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     text-align: justify;
     padding-left: 0;
-    padding-right: 0; /* Ensure no extra padding on the right */
+    padding-right: 0;
     font-size: 1.4rem;
     max-width: 100%;
     position: relative;
@@ -293,16 +287,7 @@ a.lblue-link:hover {
 /* Hover Effect */
 .word-box-item:hover, .imp-box-item:hover, .art-box-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 20px var(--shadow-hover);
 }
 
-/* Plot design */
-.plot-container {
-    width: 80%;        /* Adjust the width of the entire plot */
-    max-width: 1000px;  /* Prevent it from being too wide on large screens */
-    margin: 0 auto;    /* Center the plot horizontally */
-    padding: 10px;              /* Adds padding around the plot */
-    border-radius: 10px;        /* Rounds the corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-}
 

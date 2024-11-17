@@ -24,17 +24,19 @@
 
 
 <style>
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px;
-}
+    /* Wrapper for main content area */
+    .content-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 10px;
+    }
 
-h3 {
-    border-bottom: 2px solid #1BA5BF;
-    z-index: 0; /* Make sure the button itself has a lower z-index */
-}
+    /* Styling for h3 headers */
+    h3 {
+        border-bottom: 2px solid #1BA5BF;
+        z-index: 0; /* Make sure the button itself has a lower z-index */
 
+    }
 
 /* Keep the existing button style */
 .custom-button-yellow {
@@ -142,23 +144,24 @@ h3 {
     pointer-events: auto; /* Enable pointer interaction */
 }
 
-.carousel-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
+        .carousel-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
 
-.prev, .next {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #1BA5BF;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-}
+        .prev, .next {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #1BA5BF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+        }
+
 
 
 
@@ -368,7 +371,7 @@ h3 {
                     introducing me to economics, project management, and the global market—skills that continue to shape my professional journey.
                 </p>
             </div>
-            <img src="{% static 'images/ucl.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="Dania University of Applied Science">
+            <img src="{% static 'images/Dania.jpg' %}" class="circular-frame" alt="Dania University of Applied Science">
         </div>
     </div>
 
@@ -384,7 +387,7 @@ h3 {
                     viruses and bacteria to the broader fields of zoology and environmental science.
                 </p>
             </div>
-            <img src="{% static 'images/Vest.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="West University of Timisoara">
+            <img src="{% static 'images/Vest.jpg' %}" class="circular-frame" alt="West University of Timisoara">
         </div>
     </div>
 
@@ -400,7 +403,7 @@ h3 {
                     I chose this path not only to deepen my knowledge but also to open doors to diverse career opportunities.
                 </p>
             </div>
-            <img src="{% static 'images/SDU.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="University of Southern Denmark">
+            <img src="{% static 'images/SDU.jpg' %}" class="circular-frame" alt="University of Southern Denmark">
         </div>
     </div>
 
@@ -413,7 +416,7 @@ h3 {
 </section>
 <section class="white-box">
     <div class="image-container">
-        <img src="{% static 'images/Profile_img2.jpg' %}" class="img-rectangle" alt="Profile Picture" class="img-responsive img-center">
+        <img src="{% static 'images/Profile_img2.jpg' %}" alt="Profile Picture" class="img-responsive img-center">
         <!-- LinkedIn Icon -->
         <div class="social-icons_pic">
             <a href="https://www.linkedin.com/in/your-profile-link" target="_blank" aria-label="LinkedIn">
@@ -424,71 +427,49 @@ h3 {
 </section>
 
 
+<!-- Work Experience Section -->
 <section class="dark-blue-box">
-    <h3>ON A MORE PERSONAL NOTE</h3>
+    <h3>WORK EXPERIENCE</h3>
 </section>
-<section class="white-box custom-height carousel">
-    <button class="prev" onclick="plusSlides(-1, 'personal')">&#10094;</button>
-
-    <!-- Dog / Animal Lover -->
-    <div class="carousel-slide active">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>Dog / Animal Lover</h4>
-                <p class="info-text">Happiness in its purest form</p>
-                <p>
-                    I have two cute dogs that bring me endless joy and companionship. They have taught me patience and the value of unconditional love.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Dogs">
-        </div>
+<section class="white-box custom-height">
+    <div>
+        <h4>Software Technical Support</h4>
+        <p class="info-text">Umbraco, Odense, Denmark | 08/2023 - Present</p>
+        <ul>
+            <li>Debugging and troubleshooting technical issues for global users.</li>
+            <li>Collaborating with the development team to enhance user experience.</li>
+            <li>Leading the creation of an internal process playbook.</li>
+            <li>Mentoring new hires and working with international teams.</li>
+        </ul>
     </div>
-
-    <!-- I Love Audiobooks -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>I Love Audiobooks</h4>
-                <p class="info-text">Favorite pastime</p>
-                <p>
-                    I enjoy immersing myself in audiobooks. One of my favorites is <em>My Bondage and My Freedom</em>, which offers profound insights into history and resilience.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Audiobooks">
-        </div>
+    <hr>
+    <div>
+        <h4>Student Assistant</h4>
+        <p class="info-text">University of Southern Denmark, Odense | 11/2022 - 12/2022</p>
+        <ul>
+            <li>Supported professors with data manipulation and statistical analysis.</li>
+            <li>Ensured smooth operation of administrative tasks.</li>
+        </ul>
     </div>
-
-    <!-- DIY Projects -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>DIY Projects</h4>
-                <p class="info-text">Home Renovation Enthusiast</p>
-                <p>
-                    After buying our first home, I discovered a passion for DIY projects. Combining audiobooks with home improvement is my favorite way to spend weekends.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="DIY Projects">
-        </div>
+    <hr>
+    <div>
+        <h4>Marketing Assistant</h4>
+        <p class="info-text">Transaris Lucas Srl, Resita, Romania | 07/2019 - 10/2019</p>
+        <ul>
+            <li>Increased sales by 30% through effective customer outreach.</li>
+            <li>Enhanced customer relationship management using Mailchimp.</li>
+        </ul>
     </div>
-
-    <!-- Collecting Rare Plants -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>Collecting Rare Plants</h4>
-                <p class="info-text">A Growing Passion</p>
-                <p>
-                    I love collecting unique and rare plants, learning about their care, and watching them thrive. It connects me with nature and brings beauty to my home.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Rare Plants">
-        </div>
+    <hr>
+    <div>
+        <h4>Marketing Assistant</h4>
+        <p class="info-text">Lookfit Aps, Viborg, Denmark | 01/2018 - 04/2018</p>
+        <ul>
+            <li>Conducted market research to boost event participation.</li>
+            <li>Designed promotional materials for fitness center events.</li>
+        </ul>
     </div>
-
-    <button class="next" onclick="plusSlides(1, 'personal')">&#10095;</button>
 </section>
-
 
 <script>
     function plusSlides(n, section) {

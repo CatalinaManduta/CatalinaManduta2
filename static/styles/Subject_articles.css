@@ -1,6 +1,6 @@
 /* Additional Styles for Article List */
 .white-box {
-    background-color: #F5F5F5;
+    background-color: var(--primary-dark-white);
     padding: 60px 20px;
     text-align: center;
     position: relative;
@@ -9,7 +9,8 @@
 .white-box h3 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #15688A;
+    color: var(--primary-dark-blue);
+    text-align: center;
 }
 
 .yellow-box-container {
@@ -23,7 +24,7 @@
 .yellow-box-item {
     background-color: #ffffff;
     border-radius: 30px; /* More rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--shadow-light);
     padding: 30px;
     text-align: left;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -31,29 +32,29 @@
 }
 
 .yellow-box-item:hover {
-    background-color: #E2E1D2;
+    background-color: var(--primary-yellow);
     transform: translateY(-5px);
 }
 
 .yellow-box-item h4 {
     font-size: 1.8rem;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     margin-bottom: 15px;
 }
 
 .yellow-box-item p {
     font-size: 1.2rem;
-    color: #2F4F4F;
+    color: var(--text-muted);
     margin-bottom: 20px;
 }
 
 .yellow-box-item a {
     font-size: 1rem;
-    color: #1BA5BF;
+    color: var(--primary-light-blue);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .yellow-box-item a:hover {
-    color: #138CA2;
+    color: var(--hover-blue);
 }

@@ -1,11 +1,10 @@
-
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #1BA5BF, #E2E1D2);
+    background: linear-gradient(135deg, var(--primary-light-blue), var(--primary-yellow));
     padding: 150px 20px;
     text-align: center;
-    color: #ffffff;
-    clip-path: ellipse(100% 75% at center top);
+    color: var(--text-light);
+    clip-path: ellipse(100% 85% at center top);
     position: relative;
     overflow: hidden;
 }
@@ -15,7 +14,7 @@
     position: absolute;
     width: 300px;
     height: 300px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     top: 10%;
     left: 10%;
@@ -27,7 +26,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     bottom: 10%;
     right: 10%;
@@ -53,10 +52,10 @@
 }
 
 .hero .hero-button {
-    background-color: #15688A;
-    color: #ffffff;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
     padding: 18px 35px;
-    border-radius: 50px;
+    border-radius: 8px;
     font-size: 1.2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -65,13 +64,13 @@
 }
 
 .hero .hero-button:hover {
-    background-color: #138CA2;
+    background-color: var(--hover-blue);
     transform: scale(1.1);
 }
 
 /* About Section */
 .about {
-    background-color: #F5F5F5;
+    background-color: var(--primary-dark-white);
     padding: 100px 20px;
     clip-path: ellipse(75% 100% at center bottom);
     position: relative;
@@ -83,7 +82,7 @@
     position: absolute;
     width: 350px;
     height: 350px;
-    background-color: rgba(21, 104, 138, 0.1);
+    background-color: var(--overlay-translucent-blue);
     border-radius: 50%;
     bottom: 15%;
     right: 10%;
@@ -93,7 +92,7 @@
 .about h3 {
     font-size: 3rem;
     margin-bottom: 20px;
-    color: #15688A;
+    color: var(--primary-dark-blue);
     position: relative;
     z-index: 1;
 }
@@ -108,8 +107,8 @@
 
 /* Services Section */
 .services {
-    background-color: #1BA5BF;
-    color: #ffffff;
+    background-color: var(--primary-light-blue);
+    color: var(--text-light);
     padding: 100px 20px;
     position: relative;
     overflow: hidden;
@@ -120,7 +119,7 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     top: 0px;
     left: -100px;
@@ -158,13 +157,13 @@
 }
 
 .service-item h4 {
-    color: #E2E1D2;
+    color: var(--primary-yellow);
     margin-bottom: 20px;
     font-size: 1.8rem;
 }
 
 .service-item p {
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 1.2rem;
 }
 
@@ -175,8 +174,8 @@
 
 /* Subjects Section */
 .subjects {
-    background-color: #15688A;
-    color: #ffffff;
+    background-color: var(--primary-dark-blue);
+    color: var(--text-light);
     padding: 100px 20px;
     clip-path: ellipse(100% 90% at center top);
     position: relative;
@@ -188,7 +187,7 @@
     position: absolute;
     width: 300px;
     height: 300px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     top: -50px;
     left: 50%;
@@ -201,7 +200,7 @@
     margin-bottom: 40px;
     position: relative;
     z-index: 1;
-    color: #E2E1D2;
+    color: var(--primary-yellow);
 }
 
 .subjects-container {
@@ -226,10 +225,9 @@
 }
 
 .subjects-item p {
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 1.5rem;
     text-align: center;
-
 }
 
 .subjects-item:hover {
@@ -239,7 +237,7 @@
 
 /* Blog Section */
 .blog {
-    background-color: #E2E1D2;
+    background-color: var(--primary-yellow);
     padding: 100px 20px;
     position: relative;
     z-index: 1;
@@ -251,7 +249,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--hover-yellow);
     border-radius: 50%;
     top: 0px;
     right: -100px;
@@ -263,7 +261,7 @@
     margin-bottom: 40px;
     z-index: 1;
     position: relative;
-    color: #15688A;
+    color: var(--primary-dark-blue);
 }
 
 .blog-container {
@@ -288,18 +286,18 @@
 }
 
 .blog-post h4 {
-    color: #15688A;
+    color: var(--primary-dark-blue);
     margin-bottom: 20px;
     font-size: 1.8rem;
 }
 
 .blog-post p {
-    color: #2F4F4F;
+    color: var(--text-muted);
     font-size: 1.2rem;
 }
 
 .blog-post a {
-    color: #1BA5BF;
+    color: var(--primary-light-blue);
     font-weight: bold;
     display: block;
     margin-top: 20px;
@@ -307,7 +305,7 @@
 }
 
 .blog-post a:hover {
-    color: #138CA2;
+    color: var(--hover-blue);
 }
 
 .blog-post:hover {
@@ -318,7 +316,6 @@
 .date-text {
     font-style: italic;
     font-size: 1rem; /* Adjust font size as needed */
-    color: #ffffff;
-    margin-bottom: 10; /* Remove space above the author name */
-
+    color: var(--text-light);
+    margin-bottom: 10px; /* Adjusted space below */
 }

@@ -9,18 +9,17 @@ html, body {
 /* Content Wrapper */
 .content-wrapper {
     flex: 1; /* This makes the content-wrapper take up all available space */
-
 }
 
 /* Footer Container */
 footer {
-    background: linear-gradient(135deg, #15688A, #1BA5BF);
-    color: #F5F5F5;
+    background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-light-blue));
+    color: var(--primary-dark-white);
     padding: 60px 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 10px var(--shadow-light);
     flex-shrink: 0; /* Ensures the footer does not shrink if the page content is small */
     margin-top: 1mm; /* Add gap between the footer and the section above */
 }
@@ -29,7 +28,7 @@ footer {
 footer::before, footer::after {
     content: '';
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--overlay-white-translucent);
     border-radius: 50%;
     z-index: 0;
     animation: moveCircle 10s infinite ease-in-out;
@@ -82,13 +81,13 @@ footer p {
 }
 
 .social-icons a {
-    color: #F5F5F5;
+    color: var(--primary-dark-white);
     margin: 0 15px;
     font-size: 1.8rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #1BA5BF;
+    color: var(--primary-light-blue);
     transform: scale(1.1);
 }

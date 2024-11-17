@@ -1,53 +1,38 @@
-
 {% extends 'Base_files/Base_Article.html' %}
 
 {% block title %} Linear Regression - Learning Hub {% endblock %}
 
 {% block content %}
-<style>
-    /* Wrapper for main content area */
-    .content-wrapper {
-        max-width: 900px; /* Limits content width to 900px */
-        margin: 0 auto; /* Centers the content horizontally */
-        padding: 10px; /* Adds padding around the content */
-    }
-
-    /* Styling for h3 headers */
-    h3 {
-        border-bottom: 2px solid #1BA5BF; /* Adds bottom border for emphasis */
-    }
-
-
-</style>
-
-
-<aside class="table-of-contents">
-    <h2>Contents</h2>
-    <ul id="toc-list">
-        <!-- JavaScript will populate TOC items here based on headings -->
-    </ul>
-</aside>
-
 <section class="dark-blue-box">
-    <h3>What is Linear Regression? </h3>
-    <p>Linear regression is a method used to build a model that shows how a result depends on one or more factors. If there's only one factor influencing the result, it’s called simple linear regression. If several factors are involved, it’s called multiple linear regression. This line helps show how one factor (called the independent variable) affects another (called the dependent variable).</p>
+            <h3>What is Linear Regression? </h3>
+            <p>Linear regression is a method used to build a model that shows how a result depends on one or more factors.
+        If there's only one factor influencing the result, it’s called simple linear regression. If several factors are involved,
+        it’s called multiple linear regression. This line helps show how one factor (called the independent variable) affects another
+        (called the dependent variable).
 </section>
 
 <section class="white-box">
-    <h3>Behind the Scenes</h3>
-    <h4> How Linear Regression Works</h4>
+
+    <h3>Behind the Scenes: How Linear Regression Works</h3>
     <h4>Step 1: Understanding the Goal</h4>
-    <p>In linear regression, we’re looking to find the "best fit" line through our data points. This line is described by the equation: <code>y = mx + b</code>, where:</p>
+    <p>
+        In linear regression, we’re looking to find the "best fit" line through our data points. This line is described by the equation:
+        <code>y = mx + b</code>, where:
+    </p>
     <ul>
         <li><strong>y</strong> is the dependent variable (output we’re predicting).</li>
         <li><strong>x</strong> is the independent variable (input).</li>
         <li><strong>m</strong> is the slope of the line (how steep the line is).</li>
         <li><strong>b</strong> is the intercept (where the line crosses the y-axis).</li>
     </ul>
-    <p>Our task is to find values for <strong>m</strong> and <strong>b</strong> that make this line best represent our data points.</p>
 
+    <p>Our task is to find values for <strong>m</strong> and <strong>b</strong> that make this line best represent our data points.</p>
+    <hr>
     <h4>Step 2: Visualizing the Data</h4>
-    <p>If we plot our points: (1, 3), (2, 4), and (3, 5), we see that these points almost form a straight line, hinting that a linear relationship might be a good fit.</p>
+    <p>
+        If we plot our points: (1, 3), (2, 4), and (3, 5), we see that these points almost form a straight line,
+        hinting that a linear relationship might be a good fit.
+    </p>
 
     <h4>Step 3: Calculating the Slope (<i>m</i>)</h4>
     <p>The slope <strong>m</strong> tells us how much <strong>y</strong> changes when <strong>x</strong> increases by 1. Here’s how we calculate it:</p>
@@ -121,9 +106,9 @@
         <li><strong>Intercept (b):</strong> Shows where the line starts when x = 0.</li>
         <li><strong>Best fit:</strong> Achieved by minimizing the squared error, balancing the line across the points.</li>
     </ul>
-</section>
+    </section>
 
-<section class="dark-blue-box">
+    <section class="dark-blue-box">
     <h3>Playground</h3>
     <h4>User-Interactive Linear Regression</h4>
 
@@ -135,94 +120,92 @@
 
     <form method="POST" action="">
         {% csrf_token %}
-        <div>
         <label for="x">X values:</label>
         <input type="text" name="x" class="custom-input" placeholder="e.g., 1, 2, 3" required>
-        </div>
-        <div>
+
         <label for="y">Y values:</label>
         <input type="text" name="y" class="custom-input" placeholder="e.g., 4, 5, 6" required>
-        </div>
-        <div>
         <button type="submit" name="add_points" class="custom-button-yellow">Add Points</button>
-        </div>
     </form>
+
+    <div class="plot-container">
+        {{ plot_div|safe }}
+    </div>
 
     <form method="POST" action="">
         {% csrf_token %}
         <button type="submit" name="clear_points" class="custom-button-yellow">Remove All Points</button>
     </form>
-    <div class="plot-container">
-        {{ plot_div|safe }}
-    </div>
-
-
 </section>
 
+
 <section class="white-box">
-    <h3>Other Important </h3>
+    <h3>Other Important Components and Their Meaning</h3>
     <ul>
-        <li><strong>Independent Variable:</strong> The factor you choose to test or change to see how it affects another factor.</li>
-        <li><strong>Dependent Variable:</strong> The outcome you’re measuring or predicting, which depends on the independent variable.</li>
-        <li><strong>Slope:</strong> Shows how much the dependent variable changes when the independent variable increases by one unit.</li>
-        <li><strong>Intercept:</strong> The starting value of the dependent variable when the independent variable is zero.</li>
-        <li><strong>Regression Line:</strong> A straight line that best fits the data points on a graph, showing the overall trend between variables.</li>
-        <li><strong>Residuals:</strong> The differences between the actual data points and the values predicted by the regression line.</li>
-        <li><strong>R-squared (R²):</strong> A measure of how well the regression line fits the data.</li>
-        <li><strong>Coefficient:</strong> Represents how much the dependent variable changes with each one-unit increase in the independent variable.</li>
-        <li><strong>P-value:</strong> A measure of the reliability of the results.</li>
-        <li><strong>Outliers:</strong> Data points that stand far from the general trend.</li>
+        <li><strong>Independent Variable:</strong> The factor you choose to test or change to see how it affects another factor. For example, in a study on plant growth, the amount of sunlight could be your independent variable.</li>
+
+        <li><strong>Dependent Variable:</strong> The outcome you’re measuring or predicting, which depends on the independent variable. In the plant study, the plant’s growth or height would be the dependent variable.</li>
+
+        <li><strong>Slope:</strong> Shows how much the dependent variable changes when the independent variable increases by one unit. If the slope is 2, for example, it means that for every extra hour of sunlight, the plant grows 2 cm taller.</li>
+
+        <li><strong>Intercept:</strong> The starting value of the dependent variable when the independent variable is zero. For instance, the intercept might be the height of a plant that receives no sunlight at all.</li>
+
+        <li><strong>Regression Line:</strong> A straight line that best fits the data points on a graph, showing the overall trend between variables. This line helps predict the dependent variable based on the independent variable.</li>
+
+        <li><strong>Residuals:</strong> The differences between the actual data points and the values predicted by the regression line. Residuals show how far off the predictions are from the real data.</li>
+
+        <li><strong>R-squared (R²):</strong> A number that shows how well the regression line fits the data. A higher R² value means the line closely follows the data points, indicating a good fit. For example, an R² of 0.9 means the model explains 90% of the data's variation.</li>
+
+        <li><strong>Coefficient:</strong> This represents how much the dependent variable is expected to change with each one-unit increase in the independent variable. It’s similar to the slope and tells you the direction and strength of the relationship.</li>
+
+        <li><strong>P-value:</strong> A measure of the reliability of the results. A low p-value (usually below 0.05) suggests strong evidence of a relationship between the variables, while a higher p-value suggests the relationship may be due to chance.</li>
+
+        <li><strong>Outliers:</strong> Data points that stand far from the general trend and don’t fit well with the other points. These can sometimes affect the results and may need to be analyzed separately or removed.</li>
+
+        <li><strong>Positive Correlation:</strong> When two variables increase or decrease together. For instance, if there is a positive correlation between hours studied and test scores, it means that as hours studied increase, test scores tend to increase as well. In a graph, this appears as an upward-sloping trend.</li>
+
+        <li><strong>Negative Correlation:</strong> When one variable increases while the other decreases. For example, exercise frequency and weight often have a negative correlation—when exercise increases, weight tends to decrease. In a graph, this appears as a downward-sloping trend.</li>
     </ul>
 </section>
 
+
 <section class="dark-blue-box">
-    <h3>Study Case</h3>
-    <h4>Preparing Ecological Data</h4>
+
+       <h3>Study Case: Preparing Ecological Data</h3>
     <h4>Data Collection</h4>
-    <p>The ecological data used in this study case was collected from an open-source dataset containing various animal traits.</p>
+    <p>
+        https://esapubs.org/archive/ecol/E090/184/PanTHERIA_1-0_WR93_Aug2008.txt
+        The ecological data used in this study case was collected from an open-source dataset containing various animal traits.
+        We focused specifically on four columns: Adult Body Mass, Maximum Longevity, Genus, and Species.
+    </p>
 
     <h4>Data Cleaning and Preparation</h4>
     <p>To ensure the quality and usability of the data for linear regression analysis, we performed the following steps:</p>
     <ol>
-        <li><strong>Selected Relevant Columns:</strong> Key traits like body mass and longevity.</li>
-        <li><strong>Filtered Missing Data:</strong> Rows with missing values were removed.</li>
+        <li><strong>Selected Relevant Columns:</strong> I focused on key traits like body mass and longevity.</li>
+        <li><strong>Filtered Missing Data:</strong> Rows with missing values (represented by `-999.0`) were removed.</li>
         <li><strong>Renamed Columns:</strong> The columns were renamed for better readability.</li>
         <li><strong>Combined Genus and Species:</strong> Genus and Species were concatenated to form a single column for the full species name.</li>
-        <li><strong>Removed Invalid Values:</strong> Rows with `NaN`, zeros, or infinity values were removed.</li>
-        <li><strong>Applied Log Transformation:</strong> To reduce skewness and stabilize variance.</li>
+        <li><strong>Removed Invalid Values:</strong> Rows with `NaN`, zeros, or infinity values in body mass or longevity were removed.</li>
+        <li><strong>Applied Log Transformation:</strong> I applied a log transformation to body mass and longevity values to reduce skewness and stabilize variance.</li>
     </ol>
 
     <h4>Log Transformation</h4>
-    <p>Log transformations help stabilize the variance and make the distribution of the data more normal.</p>
+    <p>
+        Log transformations help stabilize the variance and make the distribution of the data more normal.
+    </p>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <div class="plot-container">
         {{ graph_html|safe }}
     </div>
+
 </section>
+
 
 <section class="yellow-box">
+
     <h3>Applications in Biology</h3>
+
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tocList = document.getElementById("toc-list");
-        const headings = document.querySelectorAll(".content-wrapper h3");
-
-        headings.forEach((heading, index) => {
-            if (!heading.id) {
-                heading.id = `section${index + 1}`;
-            }
-            const tocItem = document.createElement("li");
-            const tocLink = document.createElement("a");
-            tocLink.href = `#${heading.id}`;
-            tocLink.textContent = heading.textContent;
-
-            tocItem.appendChild(tocLink);
-            tocList.appendChild(tocItem);
-        });
-    });
-</script>
-
 {% endblock %}

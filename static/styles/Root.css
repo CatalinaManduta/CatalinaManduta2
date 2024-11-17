@@ -1,0 +1,32 @@
+:root {
+    /* Primary Colors */
+    --primary-dark-blue: #15688A; /* Dark blue for headings, main accents, and primary buttons */
+    --primary-light-blue: #1BA5BF; /* Light blue for links, hover states, and secondary accents */
+    --primary-yellow: #E2E1D2; /* Yellow for backgrounds and containers */
+    --primary-dark-white: #F5F5F5; /* Light off-white for general backgrounds and container areas */
+
+    /* Text Colors */
+    --text-dark: #333; /* Dark text color for readability on light backgrounds */
+    --text-light: #f5f5f5; /* White text for readability on dark backgrounds */
+    --text-muted: #2F4F4F; /* Muted dark gray for subtle text elements */
+
+    /* Hover and Active Colors */
+    --hover-blue: #138CA2; /* Darker shade of light blue for hover effects */
+    --hover-yellow: rgba(0, 0, 0, 0.05); /* Light translucent overlay for hover backgrounds */
+
+    /* Background Overlays */
+    --overlay-light: rgba(251, 251, 248, 1); /* Very light, slightly tinted white */
+    --overlay-dark-blue: rgba(56, 127, 155, 1); /* Darkened blue for background or highlighted areas */
+    --overlay-translucent-blue: rgba(21, 104, 138, 0.1); /* Translucent dark blue for decorative backgrounds */
+    --overlay-white-translucent: rgba(255, 255, 255, 0.2); /* Translucent white overlay */
+
+    /* Shadows */
+    --shadow-light: rgba(0, 0, 0, 0.15); /* Light shadow for inputs */
+    --shadow-medium: rgba(0, 0, 0, 0.3); /* Medium shadow for boxes and buttons */
+    --shadow-hover: rgba(0, 0, 0, 0.5); /* Darker shadow for hover states */
+
+    /* Borders */
+    --border-dark-blue: #15688A; /* Border color for inputs and accents */
+}
+
+/* Colors: Dark blue:#15688a, dark white #f5f5f5, yellow:#e2e1d2, light blue:#1ba5bf  */

@@ -62,9 +62,9 @@ def interactive_plot(request):
     fig.add_traces(px.line(x=x.flatten(), y=y_pred).data)
 
     fig.update_layout(
-        width=1000,  # Adjust width (in pixels)
-        height=600,  # Adjust height (in pixels)
-        margin=dict(l=50, r=200, t=50, b=50)  # Left, Right, Top, Bottom margins
+        # width=1000,  # Adjust width (in pixels)
+        # height=600,  # Adjust height (in pixels)
+        margin=dict(l=50, r=225, t=50, b=50)  # Left, Right, Top, Bottom margins
     )
 
     # Add annotations for slope, intercept, R-squared, p-value, standard error, and confidence intervals

@@ -8,37 +8,72 @@ body, html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #E2E1D2;
-    color: #2F4F4F;
-    line-height: 1.2;
+    background-color: var(--primary-yellow);
+    color: var(--text-dark); /* Main font color in dark gray */
+    line-height: 1.6; /* Increased line spacing for readability */
     overflow-x: hidden;
 }
 
+/* Styling for h3 headers */
+h3 {
+    font-size: 1.8rem; /* Large font size for section titles */
+   /* border-bottom: 2px solid var(--primary-light-blue); /* Adds bottom border for emphasis */
+    padding-bottom: 10px; /* Space below border */
+    margin-bottom: 20px; /* Space between header and content */
+}
+
+/* Styling for h4 headers */
+h4 {
+    font-size: 1.4rem; /* Slightly smaller font size for subsection headers */
+    margin-top: 20px; /* Space above header */
+    margin-bottom: 10px; /* Space below header */
+}
+
 h1, h2, h3, h4 {
-    margin: 0;
-    padding: 0;
     font-weight: bold;
-    color: #15688A;
+    color: var(--primary-dark-blue);
 }
 
-p {
-    margin: 0;
-    padding: 0;
-    text-align: left;
+/* General styling for paragraphs, unordered lists (ul), and ordered lists (ol) */
+p, ul, ol {
+    margin: 0; /* Sets margin to 0 for paragraphs */
+    padding: 0; /* Sets padding to 0 for paragraphs */
+    text-align: left; /* Aligns paragraphs to the left */
+    margin-bottom: 1em; /* Adds bottom margin for spacing */
 }
 
+/* Additional padding for list items */
+ul, ol {
+    padding-left: 1.2em; /* Indents lists */
+}
+
+/* Additional styling for individual list items */
+ul li, ol li {
+    margin-bottom: 0.5em; /* Space between list items */
+}
+
+/* Styling for inline code elements */
+code {
+    background-color: var(--primary-dark-white); /* Light background for code */
+    padding: 2px 4px; /* Small padding around code */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 0.9rem; /* Slightly smaller font for inline code */
+}
+
+/* Link styling */
 a {
-    text-decoration: none;
-    color: #15688A; /* Default link color, using the dark blue */
-    font-weight: bold; /* You can remove this if you don't want all links to be bold by default */
+    text-decoration: none; /* Removes underline from links */
+    color: var(--primary-dark-blue); /* Default link color in dark blue */
+    font-weight: bold; /* Makes links bold by default */
 }
 
+/* Hover effect for links */
 a:hover {
-    color: #138CA2; /* Slightly lighter blue on hover */
-    text-decoration: underline; /* Underline on hover for better visibility */
+    color: var(--hover-blue); /* Lightens link color on hover */
+    text-decoration: underline; /* Underline on hover for visibility */
 }
 
 section {
@@ -50,23 +85,18 @@ section {
     overflow: hidden;
 }
 
-
 /* Header */
 header {
-    background: linear-gradient(135deg, #15688A, #1BA5BF);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-light-blue));
+    color: var(--text-light);
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: var(--text-light);
 }
-
-
-
-
