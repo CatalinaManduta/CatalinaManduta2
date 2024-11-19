@@ -3,6 +3,28 @@
 {% block title %} P-Value - Learning Hub {% endblock %}
 
 {% block content %}
+<style>
+    /* Wrapper for main content area */
+    .content-wrapper {
+        max-width: 900px; /* Limits content width to 900px */
+        margin: 0 auto; /* Centers the content horizontally */
+        padding: 10px; /* Adds padding around the content */
+    }
+
+    /* Styling for h3 headers */
+    h3 {
+        border-bottom: 2px solid #1BA5BF; /* Adds bottom border for emphasis */
+    }
+
+
+</style>
+
+<aside class="table-of-contents">
+    <h2>Contents</h2>
+    <ul id="toc-list">
+        <!-- JavaScript will populate TOC items here based on headings -->
+    </ul>
+</aside>
 
 <section class="dark-blue-box">
             <h3>What is a P-Value?</h3>
@@ -52,6 +74,49 @@
         <li><strong>High P-Value:</strong> Indicates results could easily happen by chance, meaning we lack strong evidence against the null hypothesis.</li>
     </ul>
 </section>
+
+<section class="dark-blue-box">
+    <h3>Playground</h3>
+    <h4>Binomial Distribution Visualization</h4>
+
+    {% if error_message %}
+    <div style="color: red; font-weight: bold; margin-bottom: 10px;">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            <label for="experiments">Number of Experiments:</label>
+            <input type="number" name="experiments" class="custom-input" min="1" max="150" value="10" required>
+        </div>
+        <div>
+            <label for="flips">Number of Flips per Experiment:</label>
+            <input type="number" name="flips" class="custom-input" min="1" max="150" value="10" required>
+        </div>
+        <div>
+            <label for="probability">Probability of Heads:</label>
+            <input type="number" name="probability" class="custom-input" step="0.01" min="0" max="1" value="0.5" required>
+        </div>
+        <div>
+            <button type="submit" class="custom-button-yellow">Generate Plot</button>
+        </div>
+    </form>
+
+    <!-- Add a separate form for clearing the plot -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        <button type="submit" name="clear_plot" class="custom-button-yellow">Clear Plot</button>
+    </form>
+
+    <div class="plot-container">
+        {% if plot_binominal %}
+            {{ plot_binominal|safe }}
+        {% endif %}
+    </div>
+</section>
+
 
 
 {% endblock %}

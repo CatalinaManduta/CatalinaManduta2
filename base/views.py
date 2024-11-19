@@ -1,8 +1,10 @@
 # Create your views here.
 from django.shortcuts import render
-from .interactive_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
+from .linear_reagression_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
 from .models import Article
 from django.shortcuts import render, get_object_or_404
+from .p_value import visualize_flips, flips, probability, experiments  # Import functions
+
 
 
 # General View #####
@@ -76,8 +78,41 @@ def st_linear_regression(request):
 
 
 def st_p_value(request):
+    error_message = None  # Initialize error message
+    plot_binominal = None  # Initialize plot as None
+
+    # Retrieve the "P-Value" article
     article = get_object_or_404(Article, title="P-Value")
-    return render(request, "Statistics/ST_p_value.html", {'article': article})
+
+    if request.method == 'POST':
+        # Handle the "Clear Plot" button
+        if 'clear_plot' in request.POST:
+            plot_binominal = None  # Clear the plot
+            return render(request, "Statistics/ST_p_value.html", {
+                'plot_binominal': plot_binominal,
+                'error_message': error_message,
+                'article': article,
+            })
+
+        try:
+            # Retrieve and validate inputs
+            exp = experiments(int(request.POST.get('experiments', 10)))  # Default to 10 if not provided
+            f = flips(int(request.POST.get('flips', 10)))                # Default to 10 if not provided
+            p = probability(float(request.POST.get('probability', 0.5)))  # Default to 0.5 if not provided
+
+            # Generate plot
+            plot_binominal = visualize_flips(f, p, exp)
+
+        except ValueError as e:
+            error_message = str(e)  # Capture validation errors
+
+    # Render template
+    return render(request, "Statistics/ST_p_value.html", {
+        'plot_binominal': plot_binominal,  # Pass the plot HTML to the template
+        'error_message': error_message,  # Pass error messages to the template
+        'article': article  # Pass the article to the template
+    })
+
 
 
 # Machine learning #####
