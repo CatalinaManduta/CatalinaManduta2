@@ -1,174 +1,172 @@
 /* Navbar Container */
 nav {
-    display: flex;
+    display: flex; /* Arrange child elements in a horizontal row */
     justify-content: space-between; /* Space out title, nav links, and search */
-    align-items: center;
-    position: fixed; /* Keeps the navbar fixed at the top of the page */
-    top: 0;
-    left: 0;
-    width: 100%; /* Makes the navbar span the full width of the viewport */
-    background: var(--primary-dark-blue); /* Solid color for a professional look */
-    z-index: 1000; /* High z-index to stay above other content */
-    padding: 15px 50px; /* Slightly reduce padding for a tighter look */
-    box-sizing: border-box;
-    box-shadow: 0 2px 8px var(--shadow-light); /* Subtle shadow for depth */
+    align-items: center; /* Center-align items vertically */
+    position: fixed; /* Keep the navbar fixed at the top of the page */
+    top: 0; /* Position the navbar at the top of the viewport */
+    left: 0; /* Align the navbar to the left edge */
+    width: 100%; /* Make the navbar span the full width of the page */
+    background: var(--primary-dark-blue); /* Apply a solid background color */
+    z-index: 1000; /* Ensure the navbar stays above other content */
+    padding: 15px 50px; /* Add internal spacing for a neat appearance */
+    box-sizing: border-box; /* Include padding and borders in width/height calculation */
+    box-shadow: 0 2px 8px var(--shadow-light); /* Add a subtle shadow for depth */
 }
 
 /* Container for navbar content to space out sections */
 .navbar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    display: flex; /* Arrange child elements in a horizontal row */
+    justify-content: space-between; /* Space out sections within the navbar */
+    align-items: center; /* Center-align items vertically */
+    width: 100%; /* Make the container span the full width of the navbar */
 }
 
 /* Title Styling */
 nav h1 {
-    font-size: 2.3rem; /* Slightly reduced font size for balance */
-    color: var(--text-light);
-    font-weight: 600;
-    margin: 0;
+    font-size: 2.3rem; /* Set a large font size for the title */
+    color: var(--text-light); /* Use a light color for readability */
+    font-weight: 600; /* Set a bold weight for emphasis */
+    margin: 0; /* Remove default margins for consistency */
 }
 
 /* Centered Navigation Links Container */
 .nav-links-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    flex: 1; /* Allow this section to grow and take available space */
+    display: flex; /* Arrange child elements in a horizontal row */
+    justify-content: center; /* Center-align the navigation links */
 }
 
 /* Navbar Links */
 .nav-links {
-    list-style-type: none;
-    display: flex;
-    gap: 18px; /* Tighter spacing between links */
-    padding: 0;
-    margin: 0;
-    font-size: 1.6rem; /* Slightly smaller font for a polished look */
-    font-weight: 500;
+    list-style-type: none; /* Remove default list styling */
+    display: flex; /* Arrange links in a horizontal row */
+    gap: 18px; /* Add space between links */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    font-size: 1.6rem; /* Set a medium font size for the links */
+    font-weight: 500; /* Set a slightly bold weight for clarity */
 }
 
 .nav-links a {
-    color: var(--text-light);
-    padding: 8px 12px; /* Refined padding for a more compact look */
-    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effect */
-    text-decoration: none;
-    border-bottom: 2px solid transparent; /* Subtle underline effect */
+    color: var(--text-light); /* Set the text color to light */
+    padding: 8px 12px; /* Add internal spacing for a neat clickable area */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effect for color and underline */
+    text-decoration: none; /* Remove default underline from links */
+    border-bottom: 2px solid transparent; /* Add an invisible underline */
 }
 
 .nav-links a:hover {
-    color: var(--primary-yellow); /* Keep hover color change */
-    border-bottom-color: var(--primary-yellow); /* Underline effect on hover */
+    color: var(--primary-yellow); /* Change text color on hover */
+    border-bottom-color: var(--primary-yellow); /* Add a visible underline effect on hover */
 }
 
 /* Dropdown Styling */
 .sub-menu, .more-sub-menu, .even-more-sub-menu {
-    list-style-type: none;
-    padding: 10px 0; /* Padding inside dropdown */
-    margin: 0;
-    display: none;
-    position: absolute;
-    background: var(--primary-dark-blue); /* Consistent color for dropdowns */
-    box-shadow: 0 2px 8px var(--shadow-light);
-    z-index: 1001;
-    border-radius: 8px; /* Slight rounding for a modern look */
-    min-width: 180px;
+    list-style-type: none; /* Remove default list styling */
+    padding: 10px 0; /* Add internal vertical spacing for dropdown items */
+    margin: 0; /* Remove default margins */
+    display: none; /* Hide dropdowns by default */
+    position: absolute; /* Position relative to the parent container */
+    background: var(--primary-dark-blue); /* Match the navbar background color */
+    box-shadow: 0 2px 8px var(--shadow-light); /* Add a subtle shadow for depth */
+    z-index: 1001; /* Ensure dropdowns appear above other elements */
+    border-radius: 8px; /* Round the corners slightly for a modern look */
+    min-width: 180px; /* Set a minimum width for dropdowns */
 }
 
 .nav-links > li {
-    position: relative;
+    position: relative; /* Allow dropdowns to position relative to list items */
 }
 
 .nav-links > li:hover > .sub-menu,
 .sub-menu li:hover > .more-sub-menu,
 .more-sub-menu li:hover > .even-more-sub-menu {
-    display: block;
+    display: block; /* Show the dropdown when hovering over a parent item */
 }
 
 .sub-menu li, .more-sub-menu li, .even-more-sub-menu li {
-    padding: 8px 15px;
+    position: relative;
+    padding: 8px 15px; /* Add internal spacing for individual dropdown items */
 }
 
 .sub-menu li a, .more-sub-menu li a, .even-more-sub-menu li a {
-    color: var(--text-light);
-    padding: 1px 1px;
-    text-decoration: none;
-    display: block;
+    color: var(--text-light); /* Set the text color for dropdown links */
+    padding: 1px 1px; /* Add minimal padding for compactness */
+    text-decoration: none; /* Remove underline from dropdown links */
+    display: block; /* Make dropdown links span the full width of their container */
 }
 
 .sub-menu li a:hover, .more-sub-menu li a:hover, .even-more-sub-menu li a:hover {
-    border-bottom-color: var(--primary-yellow); /* Underline effect on hover */
+    border-bottom-color: var(--primary-yellow); /* Add underline effect on hover */
 }
 
 /* Positioning for the first level dropdown */
 .sub-menu {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1px 1px;
-
+    top: 100%; /* Position dropdown below the parent menu */
+    left: 50%; /* Horizontally center the dropdown */
+    transform: translateX(-50%); /* Adjust for centering effect */
+    padding: 1px 1px; /* Add minimal padding */
 }
 
 /* Positioning for the second level dropdown */
 .more-sub-menu {
-    top: 0;
-    left: 100%;
-    transform: translateX(0);
-    padding: 1px 1px;
-
+    top: 0; /* Align dropdown to the top of the parent container */
+    left: 100%; /* Position the dropdown to the right of the parent menu */
+    transform: translateX(0); /* No horizontal adjustment needed */
+    padding: 1px 1px; /* Add minimal padding */
 }
 
 /* Positioning for the third level dropdown */
 .even-more-sub-menu {
-    top: 0;
-    left: 100%;
-    transform: translateX(0);
-    padding: 1px 1px;
-
+    top: 0; /* Align dropdown to the top of the parent container */
+    left: 100%; /* Position the dropdown to the right of the parent menu */
+    transform: translateX(0); /* No horizontal adjustment needed */
+    padding: 1px 1px; /* Add minimal padding */
 }
 
 /* Search Container */
 .search-container {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Reduce gap for a compact look */
+    display: flex; /* Arrange child elements in a horizontal row */
+    align-items: center; /* Center-align search elements vertically */
+    gap: 8px; /* Add space between the input and button */
 }
 
 .search-input {
-    padding: 8px 15px;
-    border-radius: 8px; /* Consistent border radius */
-    border: none;
-    font-size: 1.6rem;
-    color: var(--text-muted);
-    background-color: var(--primary-dark-white);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 220px; /* Slightly reduced width */
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 8px 15px; /* Add internal spacing for a comfortable typing area */
+    border-radius: 8px; /* Round the corners slightly for a modern look */
+    border: none; /* Remove default border */
+    font-size: 1.6rem; /* Set a medium font size */
+    color: var(--text-muted); /* Set muted text color */
+    background-color: var(--primary-dark-white); /* Set a light background for contrast */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle inner shadow for depth */
+    width: 220px; /* Limit the width of the input field */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for focus effects */
 }
 
 .search-input:focus {
-    outline: none;
-    background-color: var(--primary-yellow);
+    outline: none; /* Remove default focus outline */
+    background-color: var(--primary-yellow); /* Change background color on focus */
 }
 
 .search-button {
-    padding: 8px 20px;
-    border-radius: 8px;
-    background-color: var(--primary-yellow);
-    color: var(--primary-dark-blue);
-    font-size: 1.6rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px var(--shadow-light);
+    padding: 8px 20px; /* Add internal spacing for a comfortable clickable area */
+    border-radius: 8px; /* Round the corners slightly for consistency */
+    background-color: var(--primary-yellow); /* Set a bright background for visibility */
+    color: var(--primary-dark-blue); /* Contrast the text color with the button */
+    font-size: 1.6rem; /* Set a medium font size */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Show a pointer cursor to indicate clickability */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover and active effects */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Add a shadow for depth */
 }
 
 .search-button:hover {
-    background-color: var(--primary-light-blue);
-    transform: scale(1.05);
-    color: var(--primary-yellow);
+    background-color: var(--primary-light-blue); /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    color: var(--primary-yellow); /* Change text color for contrast */
 }
 
 .search-button:active {
-    transform: scale(0.95);
+    transform: scale(0.95); /* Slightly shrink the button on click */
 }

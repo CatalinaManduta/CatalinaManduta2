@@ -1,0 +1,90 @@
+{% extends 'Base_files/Base_Article.html' %}
+
+{% block title %} PMF and CDF - Learning Hub {% endblock %}
+
+{% block content %}
+
+<section class="dark-blue-box">
+    <h3>What are PMF and CDF?</h3>
+    <p>The Probability Mass Function (PMF) and Cumulative Distribution Function (CDF) are ways to describe the likelihood of outcomes in a probability distribution.</p>
+    <p>They are especially useful when working with discrete random variables, like the number of heads you get in 10 coin flips.</p>
+</section>
+
+<section class="white-box">
+    <h3>Understanding PMF (Probability Mass Function)</h3>
+    <h4>What Does PMF Do?</h4>
+    <p>The PMF tells you the exact probability of a specific outcome. For example:</p>
+    <ul>
+        <li>What is the probability of getting <strong>exactly 5 heads</strong> when flipping a coin 10 times?</li>
+        <li>The PMF will calculate this probability.</li>
+    </ul>
+    <p>Mathematically, for a binomial distribution:</p>
+    <code>P(X = k) = C(n, k) * p^k * (1 - p)^(n - k)</code>
+    <ul>
+        <li><strong>P(X = k):</strong> Probability of exactly k successes.</li>
+        <li><strong>C(n, k):</strong> The number of ways to arrange k successes in n trials (a combination).</li>
+        <li><strong>p:</strong> Probability of success (e.g., heads in a coin flip).</li>
+        <li><strong>n:</strong> Number of trials (e.g., number of flips).</li>
+    </ul>
+
+    <h4>Visualizing PMF</h4>
+    <p>Think of PMF as a bar chart. Each bar represents the probability of a specific outcome:</p>
+    <ul>
+        <li>The height of the bar at 5 heads shows the probability of exactly 5 heads.</li>
+        <li>The sum of all bar heights equals 1 (since one of the outcomes must happen).</li>
+    </ul>
+</section>
+
+<section class="white-box">
+    <h3>Understanding CDF (Cumulative Distribution Function)</h3>
+    <h4>What Does CDF Do?</h4>
+    <p>The CDF gives you the cumulative probability of <strong>up to a certain number</strong> of successes.</p>
+    <ul>
+        <li>What is the probability of getting <strong>5 or fewer heads</strong> in 10 coin flips?</li>
+        <li>The CDF will calculate this by summing up the probabilities of all outcomes from 0 to 5 heads.</li>
+    </ul>
+    <p>Mathematically, the CDF is:</p>
+    <code>P(X ≤ k) = Σ P(X = i) for i = 0 to k</code>
+    <ul>
+        <li><strong>P(X ≤ k):</strong> Probability of k or fewer successes.</li>
+        <li><strong>Σ:</strong> Summation operator (adds up probabilities).</li>
+        <li><strong>P(X = i):</strong> Probability of exactly i successes.</li>
+    </ul>
+
+    <h4>Visualizing CDF</h4>
+    <p>Think of CDF as a step plot. Each step represents the cumulative probability up to that point:</p>
+    <ul>
+        <li>The value at 5 on the x-axis shows the probability of getting 5 or fewer heads.</li>
+        <li>The last step (at 10) always equals 1, because it includes all possible outcomes.</li>
+    </ul>
+</section>
+
+<section class="white-box">
+    <h3>PMF vs. CDF: Key Differences</h3>
+    <ul>
+        <li><strong>PMF:</strong> Probability of a specific outcome (e.g., exactly 5 heads).</li>
+        <li><strong>CDF:</strong> Cumulative probability up to a certain outcome (e.g., 5 or fewer heads).</li>
+    </ul>
+    <p>If PMF is like a bar chart, CDF is like the running total of that chart.</p>
+</section>
+
+<section class="dark-blue-box">
+    <h3>PMF and CDF in Action</h3>
+    <p>Imagine flipping a coin 10 times. Here’s what the PMF and CDF look like:</p>
+    <ul>
+        <li>The PMF bar at 5 heads might show a 25% probability.</li>
+        <li>The CDF at 5 heads might show a 62.5% cumulative probability (adding up probabilities for 0 to 5 heads).</li>
+    </ul>
+    <p>We can use both PMF and CDF to understand the behavior of the binomial distribution and calculate probabilities for different scenarios.</p>
+</section>
+
+<section class="white-box">
+    <h3>Summary of Key Takeaways</h3>
+    <ul>
+        <li><strong>PMF:</strong> Tells you the probability of a specific outcome.</li>
+        <li><strong>CDF:</strong> Tells you the cumulative probability up to a certain outcome.</li>
+        <li><strong>Applications:</strong> Use PMF for exact outcomes and CDF for ranges of outcomes.</li>
+    </ul>
+</section>
+
+{% endblock %}

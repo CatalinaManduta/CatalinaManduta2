@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .linear_reagression_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
 from .models import Article
 from django.shortcuts import render, get_object_or_404
-from .p_value import visualize_flips, flips, probability, experiments  # Import functions
+from .p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
 
 
 
@@ -31,11 +31,16 @@ def all_articles(request):
     return render(request, "All_articles.html")
 
 
-#  Statistics #####
-
+# Statistics #####
 def st(request):
-    articles = Article.objects.filter(group='Statistics').order_by('-created_at')  # Filter and order by newest first
+    articles = Article.objects.filter(group='Statistics').order_by('order')  # Filter and order by the `order` field
     return render(request, "Statistics/ST.html", {'articles': articles})
+
+
+
+def st_foundation_intro(request):
+    article = get_object_or_404(Article, title="Introduction to Statistics")
+    return render(request, "Statistics/ST_Foundation_Intro.html", {'article': article})
 
 
 # Main view for linear regression, displaying both static and interactive plots
@@ -99,9 +104,11 @@ def st_p_value(request):
             exp = experiments(int(request.POST.get('experiments', 10)))  # Default to 10 if not provided
             f = flips(int(request.POST.get('flips', 10)))                # Default to 10 if not provided
             p = probability(float(request.POST.get('probability', 0.5)))  # Default to 0.5 if not provided
+            obs = observed(int(request.POST.get('observed', 0)))         # Default to 0 if not provided
+
 
             # Generate plot
-            plot_binominal = visualize_flips(f, p, exp)
+            plot_binominal = visualize_flips(f, p, exp, obs)
 
         except ValueError as e:
             error_message = str(e)  # Capture validation errors
@@ -113,6 +120,33 @@ def st_p_value(request):
         'article': article  # Pass the article to the template
     })
 
+
+
+def st_cdf_pmf(request):
+    error_message = None
+    plot_binominal = None
+
+    # Retrieve the "P-Value" article
+    article = get_object_or_404(Article, title="P-Value")
+
+    if request.method == 'POST':
+        try:
+            # Retrieve and validate inputs
+            exp = experiments(int(request.POST.get('experiments', 10)))
+            f = flips(int(request.POST.get('flips', 10)))
+            p = probability(float(request.POST.get('probability', 0.5)))
+
+
+            # Generate plot
+            plot_binominal = visualize_flips(f, p, exp)
+        except ValueError as e:
+            error_message = str(e)
+
+    return render(request, "Statistics/ST_p_value.html", {
+        'plot_binominal': plot_binominal,
+        'error_message': error_message,
+        'article': article
+    })
 
 
 # Machine learning #####

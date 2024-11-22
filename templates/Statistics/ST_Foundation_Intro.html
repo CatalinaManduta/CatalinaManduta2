@@ -1,0 +1,230 @@
+{% extends 'Base_files/Base_Article.html' %}
+
+{% block title %} Introduction to Statistics - Learning Hub {% endblock %}
+
+{% block content %}
+
+<section class="dark-blue-box">
+    <h3>What is Statistics?</h3>
+    <p>Statistics is the science of collecting, analyzing, interpreting, presenting, and organizing data. It helps us make informed decisions by uncovering patterns and trends in data. In biology, statistics is used to study populations, understand genetic traits, measure ecological diversity, and analyze experimental results.</p>
+</section>
+
+<section class="white-box">
+   <h3>Branches of Statistics</h3>
+    <ul>
+    <li><strong>Descriptive Statistics:</strong> Summarizing and presenting data in a meaningful way. Examples include:
+        <ul>
+            <li>Calculating the average height of sunflower plants in a field to understand typical growth patterns.</li>
+            <li>Measuring the population size of frogs in a pond to track ecological changes over time.</li>
+            <li>Visualizing the distribution of leaf lengths in a particular plant species using histograms.</li>
+        </ul>
+    </li>
+    <li><strong>Inferential Statistics:</strong> Drawing conclusions about a population based on a sample. Examples include:
+        <ul>
+            <li>Testing the effectiveness of a new antibiotic by analyzing recovery rates in a clinical trial to infer its efficacy for the general population.</li>
+            <li>Estimating the average lifespan of a bird species by observing tagged individuals and inferring it for the entire species.</li>
+            <li>Predicting the prevalence of a genetic mutation in a population by analyzing DNA samples from a subset of individuals.</li>
+        </ul>
+    </li>
+</ul>
+
+</section>
+
+<section class="white-box">
+    <h3>Types of Data</h3>
+
+    <h4>1. Categorical (Qualitative) Data</h4>
+    <p>Categorical data represents groups or categories and can be further divided into:</p>
+
+    <ul>
+        <li><strong>Binary Data (Dichotomous):</strong> Data with only two possible categories.
+            <ul>
+                <li>Examples: Presence or absence of a genetic mutation (mutant or wild type), case/control in a study, alive/dead status in experiments.</li>
+            </ul>
+        </li>
+        <li><strong>Nominal Data (Polynomic):</strong> Data with more than two categories, where the order does not matter.
+            <ul>
+                <li>Examples: Types of blood groups in a population (A, B, AB, O), species of plants in an ecosystem (oak, pine, maple).</li>
+            </ul>
+        </li>
+        <li><strong>Ordinal Data:</strong> Data with categories that have a meaningful order, but intervals between categories are not uniform.
+            <ul>
+                <li>Examples: Severity of a disease (mild, moderate, severe), growth stages of plants (seedling, vegetative, flowering).</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="art-box-container">
+    <div class="art-box-item">
+        <div class="art-box-header">
+            <i class="fas fa-book"></i>
+            <h4>Why Aren’t Intervals Uniform</h4>
+        </div>
+        <div class="art-box-description">
+            <div>
+            <p>Unlike interval or ratio scales, where values have consistent, measurable differences (e.g.,temperature in
+                Celsius or length in cm), ordinal data only tells you the order of categories, not how far apart those
+                categories are.</p>
+            <p> <strong> For example:</strong> In the growth stages of plants, the duration of each stage (seedling, vegetative, flowering)
+                varies, making the "distance" between these categories uneven.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div>
+    <h4>2. Quantitative (Numerical) Data</h4>
+    </div>
+    <p>Quantitative data represents measurements or counts and can be further divided into:</p>
+
+    <ul>
+        <li><strong>Discrete Data:</strong> Data that can take on only specific, separate values (often counts).
+            <ul>
+                <li>Examples: Number of bacterial colonies in a petri dish, number of seeds in a fruit, number of offspring in a population.</li>
+            </ul>
+        </li>
+        <li><strong>Continuous Data:</strong> Data that can take on any value within a range (often measurements).
+            <ul>
+                <li>Examples: Length of fish measured in centimeters, concentration of glucose in blood samples (mg/dL), weight of laboratory mice (grams).</li>
+            </ul>
+        </li>
+    </ul>
+
+<div class="art-box-container">
+    <div class="art-box-item">
+        <div class="art-box-header">
+            <i class="fas fa-book"></i>
+            <h4>Why is Weight Considered Continuous?</h4>
+        </div>
+        <div class="art-box-description">
+            <div>
+                <p>Weight is considered continuous data because it can take on any value within a range and is measured on a continuous scale. This means it is not restricted to whole numbers or specific categories.</p>
+                <p><strong>For example:</strong> A laboratory mouse could weigh 25.3 grams, 25.34 grams, or even 25.345 grams depending on the precision of the measurement tool.</p>
+                <p>Continuous data allows for an infinite number of possible values within any interval. While in practice, we often round weights (e.g., 25.3 grams), the underlying measurement is still continuous because the value doesn't "stop" at a fixed point—it can always be more precise.</p>
+                <p>This property differentiates weight from discrete data, such as the number of animals in a group, which can only take whole numbers (e.g., 3 animals, not 3.5).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+
+<section class="white-box">
+    <h3>Levels of Measurement</h3>
+    <p>Levels of measurement define how data is categorized or measured and help determine the appropriate statistical tests:</p>
+
+    <h4>1. Nominal Scale</h4>
+    <p>Data is grouped into categories without any specific order.</p>
+    <ul>
+        <li>Examples: Genetic traits (dominant/recessive), habitat types (forest, desert, wetland).</li>
+    </ul>
+
+    <h4>2. Ordinal Scale</h4>
+    <p>Data is grouped into categories with a meaningful order, but intervals between categories are not uniform.</p>
+    <ul>
+        <li>Examples: Severity of disease (mild, moderate, severe), stages of tumor growth (stage I, II, III, IV).</li>
+    </ul>
+
+    <h4>3. Interval Scale</h4>
+    <p>Data is measured along a scale with equal intervals, but there is no true zero point.</p>
+    <ul>
+        <li>Examples: Temperature in Celsius or Fahrenheit (e.g., 10°C, 20°C).</li>
+    </ul>
+        <div class="art-box-container">
+            <div class="art-box-item">
+                <div class="art-box-header">
+                    <i class="fas fa-book"></i>
+                    <h4>Why is Temperature Considered Interval Data?</h4>
+                </div>
+                <div class="art-box-description">
+                    <div>
+                        <p>Temperature in Celsius or Fahrenheit is classified as interval data because of the following reasons:</p>
+                        <p><strong>Equal Intervals:</strong> The difference between consecutive values is consistent. For example, the difference between 10°C and 20°C is the same as the difference between 20°C and 30°C (both are 10°C).</p>
+                        <p><strong>No True Zero Point:</strong> The zero in Celsius or Fahrenheit is arbitrary and does not represent the absence of temperature. For example, 0°C is the freezing point of water, but temperatures can go below zero (e.g., -5°C).</p>
+                        <p>These characteristics distinguish interval data from other types of data, such as ratio data, where a true zero point exists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <h4>4. Ratio Scale</h4>
+    <p>Data has a true zero point, and ratios between values are meaningful.</p>
+    <ul>
+        <li>Examples: Length of plant roots (measured in cm), weight of animals in a study, population size of a species in a habitat.</li>
+    </ul>
+</section>
+
+<section class="white-box">
+    <h3>Data and Variables</h3>
+    <p>Data are the observed values of variables collected during studies, experiments, or observations. Variables are measurable characteristics or attributes that can vary among items in a population or sample.</p>
+
+    <h4>1. What is a Variable?</h4>
+    <p>A variable is any property, characteristic, or quantity that can assume different values across individuals, items, or conditions.</p>
+    <ul>
+        <li><strong>Examples:</strong> Gene expression levels in different cells, the size of a leaf, or the number of seeds in a fruit.</li>
+    </ul>
+
+    <h4>2. Values of a Variable</h4>
+    <p>The values of a variable represent all possible observations or outcomes for that variable, depending on what is being measured.</p>
+    <ul>
+        <li><strong>Examples:</strong>
+            <ul>
+                <li>A variable measuring the concentration of a chemical could have values ranging from 0.1 to 5.0 micrograms per liter.</li>
+                <li>A variable measuring plant height could range from 10 cm to 200 cm.</li>
+                <li>A variable tracking the number of bacterial colonies could have values like 10, 50, or 100.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>3. Dimensions of Data</h4>
+    <p>The dimensions of data refer to how many variables are being studied in a dataset. Simple datasets focus on one variable, while complex datasets involve multiple variables.</p>
+    <ul>
+        <li><strong>Examples:</strong>
+            <ul>
+                <li><strong>One-dimensional:</strong> A dataset containing the pH levels of water samples.</li>
+                <li><strong>Two-dimensional:</strong> A dataset with temperature and humidity levels recorded at various time points.</li>
+                <li><strong>Multi-dimensional:</strong> A dataset including temperature, light intensity, and soil nutrient levels for a plant growth experiment.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>4. Types of Variables</h4>
+<p>Variables can be classified into different types based on how they are measured or their role in a study:</p>
+<ul>
+    <li><strong>Independent Variables:</strong> Variables that are manipulated or categorized to observe their effect on another variable.
+        <ul>
+            <li><strong>Example:</strong> Amount of sunlight provided to plants in a growth experiment.</li>
+        </ul>
+    </li>
+    <li><strong>Dependent Variables:</strong> Variables that are observed or measured to see how they respond to changes in the independent variable.
+        <ul>
+            <li><strong>Example:</strong> Plant height as affected by different sunlight levels.</li>
+        </ul>
+    </li>
+    <li><strong>Controlled Variables:</strong> Variables that are kept constant to ensure the study focuses on the relationship between the independent and dependent variables.
+        <ul>
+            <li><strong>Example:</strong> Soil type, water amount, and fertilizer type in a plant experiment.</li>
+        </ul>
+    </li>
+</ul>
+
+</section>
+
+
+<!--
+<form method="POST" action="">
+    {% csrf_token %}
+    <div>
+        <label for="data">Upload Data:</label>
+        <input type="file" name="data" class="custom-input" accept=".csv, .txt">
+    </div>
+    <div>
+        <button type="submit" class="custom-button-yellow">Classify Data</button>
+    </div>
+</form>
+-->
+
+</section>
+
+{% endblock %}

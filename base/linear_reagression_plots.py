@@ -30,7 +30,6 @@ def interactive_plot(request):
 
     # Predict y values based on the model
     y_pred = model.predict(x)
-
     # Get the slope (coefficient) and intercept
     slope = model.coef_[0]
     intercept = model.intercept_

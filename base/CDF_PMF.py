@@ -75,36 +75,6 @@ def experiments(experiment: int) -> int:
         raise e
 
 
-def observed(obs: int) -> int:
-    """
-    Validate and return the number of experiments to be run.
-    Parameters:
-    experiment : int
-        The number of experiments to run. Must be a positive integer
-        between 1 and 150 (inclusive).
-
-    Returns:
-    int
-        the validated number of experiments.
-
-    Raises:
-    ValueError
-        If `experiment` is not an integer.
-        If `experiment` is less than 1 or greater than 150.
-    """
-    try:
-        if not isinstance(obs, int):
-            raise ValueError("Input must be an integer.")
-        if obs <= 1:
-            raise ValueError("The number of flips must be greater than 0.")
-        if obs > 150:
-            raise ValueError("The number of flips must not exceed 150.")
-        # If all conditions pass, return the value
-        return obs
-    except ValueError as e:
-        raise e
-
-
 def probability(prob: float) -> float:
     """
     Validate and return a probability value.
@@ -167,9 +137,10 @@ def sample(f: int, p: float, exp: int):
     return samples
 
 
-def visualize_flips(f: int, p: float, exp: int, obs: int) -> str:
+def visualize_flips(f: int, p: float, exp: int) -> str:
     """
-    Visualize the distribution of outcomes from a binomial distribution and return the plot as an HTML div.
+    Visualize the distribution of outcomes from a binomial distribution, highlight tail areas,
+    and display the p-value based on observed data.
 
     Parameters:
     ----------
@@ -179,53 +150,79 @@ def visualize_flips(f: int, p: float, exp: int, obs: int) -> str:
         The probability of success (e.g., heads in a coin flip).
     exp : int
         The number of experiments to simulate.
-    obs : int
-        The observed number of successes to validate against the distribution.
 
     Returns:
     -------
     str
-        The HTML representation of the plot with explanatory text.
+        The HTML representation of the plot to be rendered in the template.
+
+    Raises:
+    ------
+    ValueError
+        If input values do not meet validation criteria.
     """
     # Validate inputs
     f = flips(f)
     p = probability(p)
     exp = experiments(exp)
-    obs = observed(obs)
 
     # Generate sample data
     samples = sample(f, p, exp)
 
+    # Determine k_observed (e.g., use the mean or a random sample as "observed" value)
+    k_observed = int(np.mean(samples))  # Example: mean of samples
+
     # Count occurrences of each number of successes
     unique, counts = np.unique(samples, return_counts=True)
-    pmf_values = counts / exp  # Normalize counts to represent probabilities
 
-    # Calculate the PMF for the observed value
-    pmf_obs = pmf_values[unique == obs][0] if obs in unique else 0
+    # Calculate PMF and CDF
+    pmf = binom.pmf(unique, f, p)
+    cdf = binom.cdf(unique, f, p)
 
-    # Generate textual explanation
-    explanation = f"""
-        <p>In {exp} experiments, each involving {f} flips with a probability of {p} for heads:</p>
-        <ul>
-            <li>The observed value of {obs} heads occurred with an approximate probability of {pmf_obs:.4f}.</li>
-            <li>The distribution shows most outcomes are centered around {int(f * p)} successes, which is expected for a fair coin.</li>
-            <li>{'This outcome is quite rare.' if pmf_obs < 0.05 else 'This outcome is common and aligns well with expectations.'}</li>
-        </ul>
-    """
+    # Calculate p-value for the observed number of successes (two-tailed test)
+    left_tail = binom.cdf(k_observed, f, p)  # P(X <= k_observed)
+    right_tail = 1 - binom.cdf(k_observed - 1, f, p)  # P(X >= k_observed)
+    p_value = left_tail + right_tail
+
+    # Highlight tail areas in the PMF
+    tail_colors = ["red" if (x <= k_observed or x >= f - k_observed) else "blue" for x in unique]
 
     # Create the plot using Plotly
     fig = go.Figure()
 
-    # Bar plot for PMF
+    # Add PMF as a bar plot
     fig.add_trace(go.Bar(
         x=unique,
-        y=pmf_values,
+        y=pmf,
         name="PMF",
-        marker=dict(color=['red' if u == obs else 'blue' for u in unique]),
-        hovertemplate="Successes: %{x}<br>Probability: %{y:.4f}<extra></extra>"
+        marker=dict(color=tail_colors, opacity=0.7),
+        hovertemplate="Successes: %{x}<br>PMF: %{y:.3f}<extra></extra>"
     ))
 
-    # Add layout details
+    # Add CDF as a step plot
+    fig.add_trace(go.Scatter(
+        x=unique,
+        y=cdf,
+        mode="lines+markers",
+        name="CDF",
+        line=dict(color="green"),
+        hovertemplate="Successes: %{x}<br>CDF: %{y:.3f}<extra></extra>"
+    ))
+
+    # Add p-value annotation
+    fig.add_annotation(
+        x=k_observed,
+        y=0,
+        text=f"P-value: {p_value:.4f}",
+        showarrow=True,
+        arrowhead=2,
+        ax=0,
+        ay=-40,
+        font=dict(color="red", size=12),
+        align="center"
+    )
+
+    # Update layout details
     fig.update_layout(
         title=f"Binomial Distribution (flips={f}, p={p}, experiments={exp})",
         xaxis_title="Number of Successes (Heads)",
@@ -234,21 +231,7 @@ def visualize_flips(f: int, p: float, exp: int, obs: int) -> str:
         template="plotly_white"
     )
 
-    # Combine plot and explanation as HTML
-    combined_html = f"""
-        <div>
-            <div>
-                <h3>Results Summary</h3>
-                {explanation}
-            </div>
-            <div>
-                {to_html(fig, full_html=False)}
-            </div>
-        </div>
-    """
-
-    return combined_html
-
-
+    # Return the plot as an HTML div
+    return to_html(fig, full_html=False)
 
 

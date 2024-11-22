@@ -41,6 +41,11 @@
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-align: left;
+    color:var(--primary-dark-white)
+}
+
+.contact-left h2 {
+    color:var(--primary-dark-blue)
 }
 
 .contact-left p {

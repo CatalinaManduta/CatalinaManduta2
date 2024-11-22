@@ -1,0 +1,31 @@
+<div class="{{ box_type }}-container">
+    <div class="{{ box_type }}-item">
+        <div class="{{ box_type }}-header">
+            <i class="{{ icon_class }}"></i>
+            <h4>{{ title }}</h4>
+        </div>
+        <div class="{{ box_type }}-description">
+            <div>
+                {{ description|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Example of an Art Box
+{% include 'partials/multi_box.html' with box_type="art"
+                                     title="Why is Temperature Considered Interval Data?"
+                                     icon_class="fas fa-thermometer-half"
+                                     description="<p>Temperature in Celsius or Fahrenheit is classified as interval data because of the following reasons...</p>" %}
+
+{% include 'partials/multi_box.html' with box_type="imp"
+                                     title="Key Insights About Ordinal Data"
+                                     icon_class="fas fa-info-circle"
+                                     description="<p>Ordinal data only tells you the order of categories, but not the distance between them...</p>" %}
+
+{% include 'partials/multi_box.html' with box_type="word"
+                                     title="What is Continuous Data?"
+                                     icon_class="fas fa-chart-line"
+                                     description="<p>Continuous data allows for infinite precision within a range...</p>" %}
+-->

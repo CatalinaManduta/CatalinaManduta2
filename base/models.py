@@ -12,6 +12,8 @@ class Article(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     author_name = models.CharField(max_length=100, blank=True, null=True)
+    order = models.IntegerField(default=0, help_text="Order of the article for sorting purposes")
+
 
     def save(self, *args, **kwargs):
         if not self.slug:

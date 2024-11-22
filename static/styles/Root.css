@@ -27,6 +27,9 @@
 
     /* Borders */
     --border-dark-blue: #15688A; /* Border color for inputs and accents */
+
+      /* Font Sizes */
+    --font-size-h4: 1.4rem; /* Font size for h4 elements */
 }
 
 /* Colors: Dark blue:#15688a, dark white #f5f5f5, yellow:#e2e1d2, light blue:#1ba5bf  */
