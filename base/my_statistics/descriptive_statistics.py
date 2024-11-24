@@ -63,7 +63,7 @@ def calculate_descriptions(lis):
     median = np.median(lis)
 
     # Handle mode calculation robustly
-    mode_result = mode(lis, keepdims=True)
+    mode_result = mode(lis)
     mode_value = mode_result.mode[0] if mode_result.count[0] > 0 else None
 
     variance = np.var(lis)
