@@ -16,8 +16,7 @@ from .models import Article
 # Statistics folder
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
 from my_statistics.linear_reagression import interactive_plot, add_points, generate_plot, clear_points, data_points
-from my_statistics.descriptive_statistics import numerical, categorical, calculate_descriptions, choice, mode_st
-
+from my_statistics.descriptive_statistics import numerical, calculate_descriptions
 
 
 # General View #####
@@ -58,30 +57,26 @@ def st_introduction_st(request):
 def st_descriptive_st(request):
     error_message = None
     plot_html = {}
-    data_type = None  # To track the selected data type
-
-
     # Fetch the article object
     article = get_object_or_404(Article, title="Descriptive Statistics")
 
     if request.method == "POST":
+        # Handle the "Clear Plot" button
+        if 'clear_plot' in request.POST:
+            plot_html = {}  # Clear the plot
+            error_message = None
+            return render(request, "Statistics/ST_Descriptive_ST.html", {
+                'plot_html': plot_html,
+                'error_message': error_message,
+                'article': article,
+            })
         # Get the user input
-        data_type = request.POST.get("data_type")  # Either "categorical" or "numerical"
         data_input = request.POST.get("data_input")  # Comma-separated values
 
         try:
-            # Check the selected data type and validate
-            if data_type == "numerical":
-                # Convert to integers for numerical data
-                num = choice("numerical", data_input)
-                plot_html = calculate_descriptions(num)
-
-            elif data_type == "categorical":
-                choice("categorical", data_input)  # Validate categorical data
-                plot_html = mode_st(data_input, plot=True)
-
-            else:
-                error_message = "Invalid data type selected. Please choose either categorical or numerical."
+            # Convert to integers for numerical data
+            num = numerical(data_input)
+            plot_html = calculate_descriptions(num)
 
         except ValueError as e:
             error_message = str(e)

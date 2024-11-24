@@ -109,6 +109,101 @@
 
 
 <section class="white-box">
+    <h3>Understanding Quantiles</h3>
+    <h4>What are Quantiles?</h4>
+    <p>
+        Quantiles are values that divide a dataset into equal parts, helping us understand how the data is distributed.
+        They are used to identify the spread of data and provide a detailed summary of its variability.
+    </p>
+    <p>
+        Common types of quantiles include:
+    </p>
+    <ul>
+        <li>
+            <strong>Quartiles:</strong> Divide the data into four equal parts:
+            <ul>
+                <li>
+                    <strong>Q1 (25th percentile):</strong> 25% of the data lies below this value.
+                </li>
+                <li>
+                    <strong>Q2 (50th percentile or Median):</strong> 50% of the data lies below this value.
+                </li>
+                <li>
+                    <strong>Q3 (75th percentile):</strong> 75% of the data lies below this value.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Percentiles:</strong> Divide the data into 100 equal parts (e.g., 90th percentile means 90% of data is below this value).
+        </li>
+        <li>
+            <strong>Deciles:</strong> Divide the data into 10 equal parts.
+        </li>
+    </ul>
+
+    <h4>How Are They Calculated?</h4>
+    <ul>
+        <li>
+            <strong>Quartiles:</strong>
+            To calculate quartiles, sort the data in ascending order and identify the values at the 25th percentile (Q1), 50th percentile (Q2 or median), and 75th percentile (Q3).
+            <br>
+            <strong>Example:</strong> Consider a dataset of plant heights (in cm): <code>10, 15, 20, 25, 30, 35, 40</code>.
+            <br>
+            <ul>
+                <li><strong>Q1 (25th percentile):</strong> 25% of the data lies below <code>15</code> cm.</li>
+                <li><strong>Q2 (Median):</strong> The median (50th percentile) is <code>25</code> cm.</li>
+                <li><strong>Q3 (75th percentile):</strong> 75% of the data lies below <code>35</code> cm.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Percentiles:</strong>
+            Calculate percentiles by dividing the dataset into 100 equal parts.
+            <br>
+            <strong>Example:</strong> If the 90th percentile of the same dataset is <code>37</code> cm, it means 90% of the plants are shorter than 37 cm.
+        </li>
+    </ul>
+
+    <h4>Why Use Quantiles?</h4>
+    <ul>
+        <li>
+            <strong>Summarize Data:</strong> Quantiles divide data into manageable sections, allowing us to identify ranges and variability.
+        </li>
+        <li>
+            <strong>Handle Outliers:</strong> Quartiles and the interquartile range (IQR = Q3 - Q1) are robust measures that are not affected by extreme outliers.
+        </li>
+        <li>
+            <strong>Understand Skewness:</strong> Comparing Q1, Q2, and Q3 reveals whether the data is symmetric or skewed. If the distance between Q1 and Q2 is smaller than between Q2 and Q3, the data is right-skewed.
+        </li>
+    </ul>
+
+    <h4>Applications of Quantiles</h4>
+    <ul>
+        <li>
+            <strong>Interquartile Range (IQR):</strong>
+            The IQR is the difference between Q3 and Q1. It measures the spread of the middle 50% of the data.
+            <br>
+            <strong>Example:</strong> In the plant height dataset <code>10, 15, 20, 25, 30, 35, 40</code>:
+            <br>
+            <code>IQR = Q3 - Q1 = 35 - 15 = 20 cm</code>.
+            <br>
+            This means the middle 50% of the plants have heights ranging over 20 cm.
+        </li>
+        <li>
+            <strong>Skewness:</strong>
+            Quantiles help detect skewness in data.
+            <br>
+            <strong>Example:</strong> If Q3 - Q2 is larger than Q2 - Q1, the dataset is right-skewed.
+        </li>
+        <li>
+            <strong>Box Plots:</strong>
+            Quantiles are visualized in box plots, where the box represents the IQR, the line inside the box shows the median (Q2), and the whiskers extend to the data range.
+        </li>
+    </ul>
+</section>
+
+
+
+<section class="white-box">
     <h3>Measures of Spread</h3>
     <h4>Why do we need them?</h4>
     <p>While measures of central tendency describe the center of a dataset, measures of spread explain how far the data points are from the center. These measures provide insights into the variability or consistency of the data. Key measures include:</p>
@@ -225,10 +320,15 @@
             <input type="text" name="data_input" class="custom-input" placeholder="e.g., 4, 8, 15, 16, 23, 42" required>
         </div>
         <div>
+
             <label for="data_type">Select Data Type:</label>
             <button type="submit" name="data_type" value="numerical" class="custom-button-yellow">Numerical Data</button>
-            <button type="submit" name="data_type" value="categorical" class="custom-button-yellow">Categorical Data</button>
         </div>
+    </form>
+        <!-- Add a separate form for clearing the plot -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        <button type="submit" name="clear_plot" class="custom-button-yellow">Clear Plot</button>
     </form>
 
     {% if plot_html %}

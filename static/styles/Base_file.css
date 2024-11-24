@@ -60,7 +60,7 @@
 
 .yellow-box-item h4 {
     color: var(--primary-dark-blue);
-    font-size: 1.4rem;
+    font-size: var(--font-size-h4);
     max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
@@ -152,7 +152,7 @@
 
 .white-box h4 {
     color: var(--primary-dark-blue);
-    font-size: 1.4rem;
+    font-size:var(--font-size-h4);
     max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
@@ -263,7 +263,7 @@
 
 .blue-box-item h4 {
     color: var(--primary-dark-blue);
-    font-size: 1.4rem;
+    font-size: var(--font-size-h4);
     max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
@@ -329,7 +329,7 @@
 }
 
 .dark-blue-box h4 {
-    font-size: 1.7rem;
+    font-size: var(--font-size-h4);
     margin-bottom: 20px;
     color: var(--primary-yellow);
     position: relative;
@@ -384,7 +384,7 @@
 
 .dark-blue-box-item h4 {
     color: var(--primary-yellow);
-    font-size: 1.4rem;
+    font-size: var(--font-size-h4);
     max-width: 85%;
     margin: 0 auto 10px auto;
     position: relative;
