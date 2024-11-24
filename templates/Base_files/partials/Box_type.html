@@ -1,3 +1,8 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/Text.css' %}">
+
+
+
 <div class="{{ box_type }}-container">
     <div class="{{ box_type }}-item">
         <div class="{{ box_type }}-header">
@@ -28,4 +33,16 @@
                                      title="What is Continuous Data?"
                                      icon_class="fas fa-chart-line"
                                      description="<p>Continuous data allows for infinite precision within a range...</p>" %}
+
+
+{% include 'Base_files/partials/box_type.html' with
+    box_type="art-box"
+    icon_class="fas fa-book"
+    title="Why is Standard Deviation Important?"
+    description="The standard deviation provides an easy-to-understand measure of variability in a dataset:<br>
+    A <strong>low standard deviation</strong> indicates that data points are close to the mean.<br>
+    A <strong>high standard deviation</strong> suggests that data points are spread out over a wide range of values.<br>
+    It is particularly useful when comparing datasets to see which has more consistency or variability."
+%}
+
 -->

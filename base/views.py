@@ -1,9 +1,22 @@
 # Create your views here.
+
+import sys
+import os
+
+# Add project directory to sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))  # This is needed so other packages are recognized
+# __file__: This is a special variable in Python that holds the full path of the script being executed.
+# Example: If you're running views.py from C:\Users\Catalina\Desktop\CatalinaManduta2\base\, then:
+# __file__ = "C:\\Users\\Catalina\\Desktop\\CatalinaManduta2\\base\\views.py"
+
 from django.shortcuts import render
-from .linear_reagression_plots import interactive_plot, add_points, generate_plot, clear_points, data_points
-from .models import Article
 from django.shortcuts import render, get_object_or_404
-from .p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
+from .models import Article
+
+# Statistics folder
+from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
+from my_statistics.linear_reagression import interactive_plot, add_points, generate_plot, clear_points, data_points
+from my_statistics.descriptive_statistics import numerical, categorical, calculate_descriptions, choice, mode_st
 
 
 
@@ -37,10 +50,52 @@ def st(request):
     return render(request, "Statistics/ST.html", {'articles': articles})
 
 
-
-def st_foundation_intro(request):
+def st_introduction_st(request):
     article = get_object_or_404(Article, title="Introduction to Statistics")
-    return render(request, "Statistics/ST_Foundation_Intro.html", {'article': article})
+    return render(request, "Statistics/ST_Introduction_ST.html", {'article': article})
+
+
+def st_descriptive_st(request):
+    error_message = None
+    plot_html = {}
+    data_type = None  # To track the selected data type
+
+
+    # Fetch the article object
+    article = get_object_or_404(Article, title="Descriptive Statistics")
+
+    if request.method == "POST":
+        # Get the user input
+        data_type = request.POST.get("data_type")  # Either "categorical" or "numerical"
+        data_input = request.POST.get("data_input")  # Comma-separated values
+
+        try:
+            # Check the selected data type and validate
+            if data_type == "numerical":
+                # Convert to integers for numerical data
+                num = choice("numerical", data_input)
+                plot_html = calculate_descriptions(num)
+
+            elif data_type == "categorical":
+                choice("categorical", data_input)  # Validate categorical data
+                plot_html = mode_st(data_input, plot=True)
+
+            else:
+                error_message = "Invalid data type selected. Please choose either categorical or numerical."
+
+        except ValueError as e:
+            error_message = str(e)
+
+    # Render the page with the plot or an error message
+    return render(
+        request,
+        "Statistics/ST_Descriptive_ST.html",
+        {
+            "article": article,
+            "plot_html": plot_html,
+            "error_message": error_message,
+        }
+    )
 
 
 # Main view for linear regression, displaying both static and interactive plots

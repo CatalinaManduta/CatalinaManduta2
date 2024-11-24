@@ -1,0 +1,270 @@
+{% extends 'Base_files/Base_Article.html' %}
+
+{% block title %} Descriptive Statistics - Learning Hub {% endblock %}
+
+{% block content %}
+
+<section class="dark-blue-box">
+    <h3>What is Descriptive Statistics?</h3>
+    <p>Descriptive statistics is a branch of statistics that focuses on summarizing and understanding data.
+        It involves using tools and methods to describe and interpret the central tendency, spread, and overall patterns
+        in a dataset. These measures form the foundation of statistical analysis, helping us make sense of complex data
+        in an intuitive way.</p>
+</section>
+
+<section class="white-box">
+    <h3>Measures of Central Tendency</h3>
+    <h4>What are they?</h4>
+    <p>Measures of central tendency describe the center or typical value of a dataset. The three most commonly used measures are:</p>
+    <ul>
+        <li><strong>Mean:</strong> The average of all data points.</li>
+        <li><strong>Median:</strong> The middle value when data points are ordered.</li>
+        <li><strong>Mode:</strong> The most frequently occurring value(s) in the dataset.</li>
+    </ul>
+    <p>These measures help us identify the "average" or "typical" value in a dataset, but they each tell us something different depending on the data.</p>
+
+
+    <h4>How Are They Calculated?</h4>
+<ul>
+    <li>
+        <strong>Mean:</strong> Add all data points together and divide by the total number of data points.
+        <br>
+        <strong>Example:</strong> Let's say we are measuring the growth of plants (in cm) in a controlled experiment. The recorded heights are <code>12, 15, 18, 20, 22, 25</code> cm.
+        <br>
+        <code>Sum = 12 + 15 + 18 + 20 + 22 + 25 = 112</code>
+        <br>
+        <code>Mean = 112 ÷ 6 = 18.67</code> cm.
+        <br>
+        The mean height of the plants is 18.67 cm, giving a general idea of the average growth in the experiment.
+    </li>
+
+    <li>
+        <strong>Median:</strong> Arrange the dataset in ascending order and find the middle value(s).
+        <br>
+        <strong>Example 1 (Even Data Points):</strong> In another plant growth experiment, the recorded heights are <code>14, 16, 18, 20, 22, 24</code> cm.
+        <br>
+        Since there are 6 data points (even number), the median is the average of the 3rd and 4th values:
+        <br>
+        <code>Median = (18 + 20) ÷ 2 = 19</code> cm.
+        <br><br>
+        <strong>Example 2 (Odd Data Points):</strong> Now consider a dataset with recorded heights <code>13, 14, 18, 19, 22, 24, 28</code> cm.
+        <br>
+        Since there are 7 data points (odd number), the median is the 4th value:
+        <br>
+        <code>Median = 19</code> cm.
+        <br>
+        The median gives the central value, which is particularly useful if there are outliers in the dataset.
+    </li>
+
+    <li>
+        <strong>Mode:</strong> Identify the most frequently occurring value(s) in the dataset.
+        <br>
+        <strong>Example 1 (Mode Exists):</strong> In an ecological study, researchers record the number of a specific insect species observed per day in a habitat: <code>12, 15, 15, 18, 20, 21</code>.
+        <br>
+        The mode is <code>15</code> because it occurs more frequently than any other value.
+        <br>
+        <strong>Why Mode?:</strong> In this scenario, we are interested in the most common daily observation, as it represents the typical or "normal" number of insects seen in the habitat. While the average (mean) could give a general idea, it might not reflect what is most commonly observed in reality. The mode is more relevant here because it highlights the value that occurs most often.
+
+        <br><br>
+        <strong>Example 2 (No Mode):</strong> In a biodiversity study, the count of different bird species spotted is <code>2, 3, 4, 5, 6, 7</code>.
+        <br>
+        Since no value repeats, this dataset has no mode.
+        <br><br>
+        The mode is useful when identifying the most common occurrence, such as the most frequent gene expression in cells or the most observed species in a habitat.
+    </li>
+</ul>
+
+
+    <h4>When to Use Each Measure?</h4>
+       <ul>
+    <li>
+        <strong>Mean:</strong> Use for symmetric data without extreme outliers.
+        <br>
+        Symmetric data means the distribution of data points is balanced on both sides of the center (e.g., a bell-shaped curve like the normal distribution).
+        The mean is appropriate for symmetric data because it accurately reflects the central value when all data points contribute equally.
+        However, extreme outliers can skew the mean, making it less representative of the dataset.
+        <br>
+        <strong>Example:</strong> When measuring the average height of a plant species in a controlled environment with no extreme growth outliers, the mean is the most representative measure.
+    </li>
+    <li>
+        <strong>Median:</strong> Use for skewed data or data with outliers.
+        <br>
+        Skewed data means the distribution is not balanced and has a longer "tail" on one side (e.g., income data often has a long tail on the right).
+        The median is robust against outliers because it represents the middle value of a sorted dataset, ignoring extreme values that could distort the central tendency.
+        <br>
+        <strong>Example:</strong> When analyzing the lifespan of a species where a few individuals live significantly longer than the rest (creating a right-skewed distribution), the median provides a better measure of central tendency than the mean.
+    </li>
+    <li>
+        <strong>Mode:</strong> Use for categorical data or when the most common value is of interest.
+        <br>
+        Categorical data means values represent categories rather than numbers (e.g., "red," "blue," "green").
+        The mode is useful when the most frequent occurrence of a category or value is important, such as determining the most popular product or the most common response in a survey.
+        For numerical data, the mode is less meaningful unless the data is discrete and specific values repeat frequently.
+        <br>
+        <strong>Example:</strong> The mode can be used to identify the most common blood type in a population or the most frequently observed genotype in a genetic experiment.
+    </li>
+</ul>
+
+</section>
+
+
+<section class="white-box">
+    <h3>Measures of Spread</h3>
+    <h4>Why do we need them?</h4>
+    <p>While measures of central tendency describe the center of a dataset, measures of spread explain how far the data points are from the center. These measures provide insights into the variability or consistency of the data. Key measures include:</p>
+    <ul>
+        <li>
+            <strong>Range:</strong> The difference between the highest and lowest values.
+            <br>
+            <strong>How is it calculated?:</strong> Subtract the smallest value from the largest value.
+            <br>
+            <strong>Example:</strong> If the heights of plants in an experiment are <code>10, 15, 20, 25, 30</code> cm:
+            <br>
+            <code>Range = 30 - 10 = 20</code> cm.
+            <br>
+            <strong>Interpretation:</strong> A range of 20 cm means there is a 20 cm difference between the smallest and largest plant. This tells us about the spread of heights, but it doesn't give any information about the variation between individual plants. For instance, a range of 20 cm could mean most plants are clustered closely together with one very tall plant, or it could mean the plants are evenly distributed across the range.
+        </li>
+        <br>
+        <li>
+            <strong>Variance:</strong> The average of the squared differences from the mean, showing how spread out the data is.
+            <br>
+            <strong>How is it calculated?:</strong>
+            <ol>
+                <li>Find the mean of the dataset.</li>
+                <li>Subtract the mean from each data point and square the result.</li>
+                <li>Find the average of the squared differences.</li>
+            </ol>
+            <strong>Example:</strong> For the dataset <code>10, 12, 14, 16, 18</code>, calculate variance:
+            <br>
+            <code>Mean = (10 + 12 + 14 + 16 + 18) ÷ 5 = 14</code>.
+            <br>
+            Squared differences: <code>(10-14)², (12-14)², (14-14)², (16-14)², (18-14)²</code> = <code>16, 4, 0, 4, 16</code>.
+            <br>
+            Variance = <code>(16 + 4 + 0 + 4 + 16) ÷ 5 = 8</code>.
+            <br>
+            <strong>Interpretation:</strong> A variance of 8 means the squared differences between each plant's height and the average height are, on average, 8 units. Larger variance indicates the plants have more variation in height. If the variance were smaller, it would suggest the plants are more similar in height.
+        </li>
+        </ul>
+            <div class="art-box-container">
+        <div class="art-box-item">
+            <div class="art-box-header">
+                <i class="fas fa-book"></i>
+                <h4>Detailed Explanation</h4>
+            </div>
+            <div class="art-box-description">
+                <p>In the example, the dataset consists of heights of plants measured in centimeters (cm). When calculating
+                    variance, the differences between each data point and the mean are squared, so the unit of variance
+                    becomes squared centimeters <code> 2cm²</code>
+                <br>
+                    Thus:
+                <br>
+                 A variance of 8 units means that, on average, the squared differences from the mean are <code>8cm²</code>
+                <br>
+                This squared unit makes variance less intuitive for direct interpretation, which is why we often use the
+                standard deviation (the square root of variance) to bring it back to the original unit, <code>cm</code> in this case.
+                <br>
+                <strong>Key Takeaway:</strong>
+                <br>
+                Variance gives a numerical representation of variability but is in squared units.
+                <br>
+                Standard deviation simplifies this by converting back to the original unit of the dataset, making it easier to relate to real-world measurements.
+                </p>
+            </div>
+        </div>
+    </div>
+        <br>
+    <ul>
+        <li>
+            <strong>Standard Deviation:</strong> The square root of the variance, indicating how much the data typically deviates from the mean.
+            <br>
+            <strong>How is it calculated?:</strong> Take the square root of the variance.
+            <br>
+            <strong>Example:</strong> From the variance calculation above, <code>Variance = 8</code>.
+            <br>
+            <code>Standard Deviation = √8 ≈ 2.83</code>.
+            <br>
+            <strong>Interpretation:</strong> A standard deviation of approximately 2.83 cm means most plants' heights are about 2.83 cm away from the average height (14 cm). This is easier to interpret than variance because it is in the same unit as the data (cm in this case). A lower standard deviation would mean the plant heights are closer to the average, while a higher standard deviation would indicate more variation.
+        </li>
+    </ul>
+
+    <div class="art-box-container">
+        <div class="art-box-item">
+            <div class="art-box-header">
+                <i class="fas fa-book"></i>
+                <h4>Why is Standard Deviation Important?</h4>
+            </div>
+            <div class="art-box-description">
+                <p>The standard deviation provides an easy-to-understand measure of variability in a dataset:
+                <br>
+                A <strong>low standard deviation</strong> indicates that data points are close to the mean, suggesting consistency.
+                <br>
+                A <strong>high standard deviation</strong> suggests that data points are spread out over a wide range of values, indicating variability.
+                <br>
+                <strong>Example in Use:</strong> In a clinical trial testing the effects of a drug on blood pressure, a low standard deviation in patient responses suggests the drug has a consistent effect. A high standard deviation might indicate that some patients respond very differently to the drug, which could require further investigation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="dark-blue-box">
+    <h3>Playground</h3>
+    <h4>Interactive Descriptive Statistics</h4>
+
+    {% if error_message %}
+    <div style="color: red; font-weight: bold; margin-bottom: 10px;">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            <label for="data_input">Enter Dataset (comma-separated):</label>
+            <input type="text" name="data_input" class="custom-input" placeholder="e.g., 4, 8, 15, 16, 23, 42" required>
+        </div>
+        <div>
+            <label for="data_type">Select Data Type:</label>
+            <button type="submit" name="data_type" value="numerical" class="custom-button-yellow">Numerical Data</button>
+            <button type="submit" name="data_type" value="categorical" class="custom-button-yellow">Categorical Data</button>
+        </div>
+    </form>
+
+    {% if plot_html %}
+    <div class="plot-container">
+        <h4>Histogram:</h4>
+        <div class="plot-wrapper">
+            {{ plot_html.histogram|safe }}
+        </div>
+
+        <h4>Box Plot:</h4>
+        <div class="plot-wrapper">
+            {{ plot_html.boxplot|safe }}
+        </div>
+
+        <h4>Density Plot:</h4>
+        <div class="plot-wrapper">
+            {{ plot_html.density|safe }}
+        </div>
+
+        <h4>Spread Metrics:</h4>
+        <div class="plot-wrapper">
+            {{ plot_html.spread|safe }}
+        </div>
+    </div>
+    {% endif %}
+</section>
+
+
+
+<section class="white-box">
+    <h3>Summary of Key Takeaways</h3>
+    <ul>
+        <li><strong>Central Tendency:</strong> Mean, median, and mode describe the typical value of a dataset.</li>
+        <li><strong>Spread:</strong> Range, variance, and standard deviation explain the variability in the data.</li>
+        <li><strong>Context Matters:</strong> Different measures are useful depending on the type and distribution of data.</li>
+    </ul>
+</section>
+
+{% endblock %}

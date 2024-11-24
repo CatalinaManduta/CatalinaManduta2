@@ -58,10 +58,16 @@ ul li, ol li {
 /* Styling for inline code elements */
 code {
     background-color: var(--primary-dark-white); /* Light background for code */
-    padding: 2px 4px; /* Small padding around code */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 0.9rem; /* Slightly smaller font for inline code */
+    color: var(--text-dark); /* Darker text color for better contrast */
+    padding: 4px 6px; /* Slightly larger padding for a cleaner look */
+    border-radius: 8px; /* More rounded corners for a softer appearance */
+    font-size: 1.2rem; /* Slightly larger font for readability */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for a code-like feel */
+    box-shadow: 0 1px 3px var(--shadow-light); /* Subtle shadow for a lifted effect */
+    margin: 0 2px; /* Small margin for spacing between inline elements */
+    white-space: nowrap; /* Prevent code from breaking into multiple lines */
 }
+
 
 /* Link styling */
 a {

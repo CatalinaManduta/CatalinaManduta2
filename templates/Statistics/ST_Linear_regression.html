@@ -137,7 +137,7 @@
 </section>
 
 <section class="white-box">
-    <h3>Other Important </h3>
+    <h3>Summary of Key Takeaways</h3>
     <ul>
         <li><strong>Independent Variable:</strong> The factor you choose to test or change to see how it affects another factor.</li>
         <li><strong>Dependent Variable:</strong> The outcome you’re measuring or predicting, which depends on the independent variable.</li>
@@ -182,24 +182,5 @@
     <h3>Applications in Biology</h3>
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tocList = document.getElementById("toc-list");
-        const headings = document.querySelectorAll(".content-wrapper h3");
-
-        headings.forEach((heading, index) => {
-            if (!heading.id) {
-                heading.id = `section${index + 1}`;
-            }
-            const tocItem = document.createElement("li");
-            const tocLink = document.createElement("a");
-            tocLink.href = `#${heading.id}`;
-            tocLink.textContent = heading.textContent;
-
-            tocItem.appendChild(tocLink);
-            tocList.appendChild(tocItem);
-        });
-    });
-</script>
 
 {% endblock %}

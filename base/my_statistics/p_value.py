@@ -7,9 +7,8 @@ from plotly.io import to_html
 def flips(flip: int) -> int:
     """
     Validate and return the number of flips to be run per experiment.
-
-    Parameters:
     ----------
+    Parameters:
     flips : int
         The number of flips to run per each experiment. Must be a positive integer
         between 1 and 150 (inclusive).
@@ -46,13 +45,11 @@ def flips(flip: int) -> int:
 def experiments(experiment: int) -> int:
     """
     Validate and return the number of experiments to be run.
-
-    Parameters:
     ----------
+    Parameters:
     experiment : int
         The number of experiments to run. Must be a positive integer
         between 1 and 150 (inclusive).
-
     Returns:
     int
         the validated number of experiments.
@@ -78,6 +75,7 @@ def experiments(experiment: int) -> int:
 def observed(obs: int) -> int:
     """
     Validate and return the number of experiments to be run.
+    ----------
     Parameters:
     experiment : int
         The number of experiments to run. Must be a positive integer
@@ -108,10 +106,8 @@ def observed(obs: int) -> int:
 def probability(prob: float) -> float:
     """
     Validate and return a probability value.
-
-    Parameters:
     ----------
-
+    Parameters:
     prob : float
         A number (int or float) representing the probability.
         Must be between 0 and 1 (inclusive).
@@ -135,9 +131,8 @@ def probability(prob: float) -> float:
 def sample(f: int, p: float, exp: int):
     """
         Generate a sample of outcomes based on a binomial distribution.
-
-        Parameters:
         ----------
+        Parameters:
         f : int
             The number of trials (flips) in each experiment. Must be a positive integer.
         p : float
@@ -147,19 +142,16 @@ def sample(f: int, p: float, exp: int):
             The number of experiments to simulate. Must be a positive integer.
 
         Returns:
-        -------
         numpy.ndarray
             An array of integers, where each element represents the number of successes
             (e.g., heads) observed in each experiment.
 
         Raises:
-        ------
         ValueError
             If `f` or `exp` are not positive integers.
             If `p` is not a float or not in the range [0, 1].
 
         Example:
-        -------
          sample(f=10, p=0.5, exp=5)
         array([5, 6, 4, 7, 5])  # Number of successes in 5 experiments of 10 flips
         """
@@ -170,9 +162,8 @@ def sample(f: int, p: float, exp: int):
 def visualize_flips(f: int, p: float, exp: int, obs: int) -> str:
     """
     Visualize the distribution of outcomes from a binomial distribution and return the plot as an HTML div.
-
-    Parameters:
     ----------
+    Parameters:
     f : int
         The number of trials (flips) in each experiment.
     p : float
@@ -181,9 +172,7 @@ def visualize_flips(f: int, p: float, exp: int, obs: int) -> str:
         The number of experiments to simulate.
     obs : int
         The observed number of successes to validate against the distribution.
-
     Returns:
-    -------
     str
         The HTML representation of the plot with explanatory text.
     """
