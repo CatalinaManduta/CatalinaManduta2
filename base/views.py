@@ -16,7 +16,7 @@ from .models import Article
 # Statistics folder
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
 from my_statistics.linear_reagression import interactive_plot, add_points, generate_plot, clear_points, data_points
-from my_statistics.descriptive_statistics import numerical, calculate_descriptions
+from my_statistics.descriptive_statistics import numerical, calculate_descriptions, premade
 
 
 # General View #####
@@ -57,6 +57,63 @@ def st_introduction_st(request):
 def st_descriptive_st(request):
     error_message = None
     plot_html = {}
+
+    # Fetch the article object
+    article = get_object_or_404(Article, title="Descriptive Statistics")
+
+    if request.method == "POST":
+        # Handle the "Clear Plot" button
+        if 'clear_plot' in request.POST:
+            plot_html = {}  # Clear the plot
+            error_message = None
+            return render(request, "Statistics/ST_Descriptive_ST.html", {
+                'plot_html': plot_html,
+                'error_message': error_message,
+                'article': article,
+            })
+
+        # Determine which button was clicked
+        submit_type = request.POST.get("submit_type")
+
+        if submit_type == "custom_data":
+            # Handle custom input data
+            data_input = request.POST.get("data_input")
+            try:
+                num = numerical(data_input)
+                plot_html = calculate_descriptions(num)
+            except ValueError as e:
+                error_message = str(e)
+
+        elif submit_type == "normal":
+            # Use predefined normal dataset
+            predefined_data = premade("normal")
+            plot_html = calculate_descriptions(predefined_data)
+
+        elif submit_type == "skewed":
+            # Use predefined skewed dataset
+            predefined_data = premade("skewed")
+            plot_html = calculate_descriptions(predefined_data)
+
+        elif submit_type == "outliers":
+            # Use predefined dataset with outliers
+            predefined_data = premade("outliers")
+            plot_html = calculate_descriptions(predefined_data)
+
+    # Render the page with the plot or an error message
+    return render(
+        request,
+        "Statistics/ST_Descriptive_ST.html",
+        {
+            "article": article,
+            "plot_html": plot_html,
+            "error_message": error_message,
+        }
+    )
+
+
+def st_descriptive_stcop(request):
+    error_message = None
+    plot_html = {}
     # Fetch the article object
     article = get_object_or_404(Article, title="Descriptive Statistics")
 
@@ -91,7 +148,6 @@ def st_descriptive_st(request):
             "error_message": error_message,
         }
     )
-
 
 # Main view for linear regression, displaying both static and interactive plots
 def st_linear_regression(request):

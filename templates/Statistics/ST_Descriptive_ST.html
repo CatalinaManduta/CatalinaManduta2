@@ -313,16 +313,29 @@
     </div>
     {% endif %}
 
+      <!-- Form for predefined datasets -->
     <form method="POST" action="">
         {% csrf_token %}
+        <div>
+            <label>Select Predefined Dataset:</label>
+            <button type="submit" name="submit_type" value="normal" class="custom-button-yellow">Normal Distribution</button>
+            <button type="submit" name="submit_type" value="skewed" class="custom-button-yellow">Skewed Distribution</button>
+            <button type="submit" name="submit_type" value="outliers" class="custom-button-yellow">Outliers distribution</button>
+        </div>
+    </form>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div style="margin-top: 20px;">
         <div>
             <label for="data_input">Enter Dataset (comma-separated):</label>
             <input type="text" name="data_input" class="custom-input" placeholder="e.g., 4, 8, 15, 16, 23, 42" required>
         </div>
-        <div>
 
+        <div>
             <label for="data_type">Select Data Type:</label>
-            <button type="submit" name="data_type" value="numerical" class="custom-button-yellow">Numerical Data</button>
+            <button type="submit" name="data_type" value="numerical" class="custom-button-yellow">Visualize Custom Data</button>
+        </div>
         </div>
     </form>
         <!-- Add a separate form for clearing the plot -->
@@ -350,7 +363,9 @@
 
         <h4>Spread Metrics:</h4>
         <div class="plot-wrapper">
+             <div style="margin-top: 20px;">
             {{ plot_html.spread|safe }}
+            </div>
         </div>
     </div>
     {% endif %}

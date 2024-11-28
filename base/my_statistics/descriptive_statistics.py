@@ -50,7 +50,7 @@ def calculate_descriptions(lis):
     iqr = q3 - q1  # Interquartile Range (IQR)
 
     # Handle mode calculation robustly
-    mode_result = mode(lis) # When texting it locally use also keepdims=True
+    mode_result = mode(lis, keepdims=True) # When texting it locally use also keepdims=True
     mode_value = mode_result.mode[0] if mode_result.count[0] > 0 else None
     if mode_value is not None:
         mode_count = lis.count(mode_value)
@@ -331,3 +331,19 @@ def calculate_descriptions(lis):
         "spread": combined_spread
     }
 
+def premade(distr: str) ->list:
+    if distr == "normal":
+        # List with normal distribution
+        np.random.seed(2)
+        list1 = list(np.random.normal(50, 10, 800))
+        return list1
+    elif distr == "skewed":
+        # List with skewed distribution (right skew)
+        np.random.seed(3)
+        list2 = list(np.random.exponential(20, 800))
+        return list2
+    else:
+        # Outliers
+        np.random.seed(1)
+        list3 = list(np.random.normal(50, 10, 795)) + [150, 160, 170, 180, 190]
+        return list3
