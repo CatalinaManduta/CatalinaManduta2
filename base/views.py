@@ -137,6 +137,27 @@ def st_introduction_st(request):
 
 
 def st_descriptive_st(request):
+    """
+    Handles requests for the 'Descriptive Statistics' page.
+    ----------
+    Parameters:
+    request : HttpRequest
+        The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse
+        Renders the 'Statistics/ST_Descriptive_ST.html' template with the following context:
+        - plot_html: A dictionary containing HTML representations of generated plots (if any).
+        - error_message: A string containing an error message, if applicable.
+        - article: The fetched article object titled "Descriptive Statistics".
+
+    Functionality:
+    - Responds to GET and POST requests.
+    - Displays an interactive page where users can:
+        1. Provide custom numerical data for analysis.
+        2. Use predefined datasets (normal, skewed, or outliers) for analysis.
+    - Handles errors in data input and allows clearing of plots.
+    """
     error_message = None
     plot_html = {}
 

@@ -128,4 +128,6 @@ label {
     box-shadow: 0 4px 12px var(--shadow-light);
     margin-top: 20px;
     text-align: center;
+    height: auto; /* Allow flexible height */
+    overflow: hidden; /* Prevent overflow */
 }

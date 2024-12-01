@@ -310,7 +310,12 @@
 <section class="dark-blue-box">
     <h3>Playground</h3>
     <h4>Interactive Descriptive Statistics</h4>
-
+    <p>
+    Explore the three available datasets or create your own to analyze and investigate.
+    Hover over the plots to discover additional insights and details.
+    Feel free to download the plots for your personal use or projects.
+    </p>
+    <br>
     {% if error_message %}
     <div style="color: red; font-weight: bold; margin-bottom: 10px;">
         {{ error_message }}
@@ -366,24 +371,12 @@
         </div>
 
         <h4>Spread Metrics:</h4>
-        <div class="plot-wrapper">
-             <div style="margin-top: 20px;">
+        <div class="plot-wrapper" style="height: 2000; margin: 0 auto; overflow: hidden;">
             {{ plot_html.spread|safe }}
-            </div>
         </div>
     </div>
     {% endif %}
 </section>
 
-
-
-<section class="white-box">
-    <h3>Summary of Key Takeaways</h3>
-    <ul>
-        <li><strong>Central Tendency:</strong> Mean, median, and mode describe the typical value of a dataset.</li>
-        <li><strong>Spread:</strong> Range, variance, and standard deviation explain the variability in the data.</li>
-        <li><strong>Context Matters:</strong> Different measures are useful depending on the type and distribution of data.</li>
-    </ul>
-</section>
 
 {% endblock %}

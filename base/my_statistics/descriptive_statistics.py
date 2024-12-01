@@ -7,7 +7,7 @@ import plotly.io as pio
 
 
 # Colors: standard blue: #15688a, dark red: #a53e44, green: #007147, orange: #ed982a
-def numerical(input_string):
+def numerical(input_string: str) -> list:
     """
     Process numerical data from a comma-separated string.
     ----------
@@ -38,7 +38,23 @@ def numerical(input_string):
     return lis
 
 
-def calculate_descriptions(lis):
+def calculate_descriptions(lis: list):
+    """
+    Calculate descriptive statistics and generate visualizations for a dataset.
+    ----------
+    Parameters:
+    lis : list
+        A list of numerical data (e.g., [1, 2, 3, 4, 5]).
+    Returns:
+    dict
+        A dictionary containing HTML strings for various visualizations, including:
+        - Histogram with mean, median, and mode
+        - Box plot with interquartile range and outliers
+        - Density plot with standard deviation markers
+        - Spread metrics bar chart for variance, standard deviation, and range
+    Raises:
+        ValueError: If the input list is empty or contains invalid data.
+    """
     # Calculations
     mean = np.mean(lis)
     median = np.median(lis)
@@ -98,7 +114,7 @@ def calculate_descriptions(lis):
         fig_histogram.add_trace(go.Scatter(
             x=[mode_value, mode_value], y=[0, max(np.histogram(lis, bins=10)[0])],
             mode="lines", line=dict(color="#ed982a", dash="solid"),  # Options: "solid", "dot", "dash", "longdash", etc.
-            name=f"Mode: {mode_value}"
+            name=f"Mode: {mode_value:.2f}"
         ))
     fig_histogram.update_layout(
         title="Histogram with Mean, Median, and Mode",
@@ -171,7 +187,8 @@ def calculate_descriptions(lis):
         title="Spread Metrics",
         xaxis_title="Metrics",
         yaxis_title="Values",
-        template="plotly_white"
+        template="plotly_white",
+        margin = dict(l=50, r=50, t=80, b=30)  # Adjust margins (left, right, top, bottom)
     )
 
     # Convert figures to HTML strings
@@ -192,7 +209,7 @@ def calculate_descriptions(lis):
                     </li>
                     <li>
                         <strong>Mode:</strong> 
-                        {'There is no mode in this dataset, indicating all values are unique.' if mode_value is None else f'The mode is <strong>{mode_value}</strong>, appearing <strong>{mode_count}</strong> times. This suggests {mode_value} is the most frequent or common value in the dataset.'}
+                        {'There is no mode in this dataset, indicating all values are unique.' if mode_value is None else f'The mode is <strong>{mode_value:.2f}</strong>, appearing <strong>{mode_count}</strong> times. This suggests {mode_value:.2f} is the most frequent or common value in the dataset.'}
                     </li>
                 </ul>
             """
@@ -224,16 +241,16 @@ def calculate_descriptions(lis):
                 <strong>Outliers:</strong> Any points outside the whiskers are considered outliers, suggesting extreme values in the dataset. These values are represented as individual dots in the box plot.
             </li>
             <li>
-                <strong>Mean and Standard Deviation:</strong> The box plot also includes a marker for the mean (<strong>{mean:.2f}</strong>) and a visual indication of the standard deviation. The mean provides an average value, while the standard deviation captures the typical deviation of data points from the mean.
+                <strong>Mean and Standard Deviation:</strong> The box plot also includes a marker for the mean (<strong>{mean:.2f}</strong>) and a visual indication of the standard deviation.
             </li>
         </ul>
     """
 
     explanation_density = f"""
-        <p>The density plot is a smooth curve representing the distribution of the dataset. It provides insights into the shape of the data and its spread.</p>
+        <p>The density plot is a curve representing the distribution of the dataset. It provides insights into the shape of the data and its spread.</p>
         <ul>
             <li>
-                <strong>Mean:</strong> The mean is <strong>{mean:.2f}</strong>, represented by the solid line in the plot. It is the average value and indicates the central tendency.
+                <strong>Mean:</strong> The mean is <strong>{mean:.2f}</strong>, represented by the red solid line in the plot. It is the average value and indicates the central tendency.
             </li>
             <li>
                 <strong>Standard Deviation:</strong> 
@@ -248,7 +265,7 @@ def calculate_descriptions(lis):
                 Together, these lines show the typical spread of the dataset, with most data falling within one standard deviation of the mean (between the orange and green dotted lines).
             </li>
             <li>
-                <strong>Density Peaks:</strong> The peaks in the curve represent areas where the data points are concentrated. A higher peak means more frequent values in that range.
+                <strong>Density Peaks:</strong> Overall the peaks in the curve represent areas where the data points are concentrated. A higher peak means more frequent values in that range.
             </li>
         </ul>
     """
@@ -257,21 +274,26 @@ def calculate_descriptions(lis):
         <ul>
             <li>
                 <strong>Variance:</strong> The variance is <strong>{variance:.2f}</strong>. 
-                Variance measures the average squared deviation of each data point from the mean. A higher variance indicates that data points are more spread out, while a lower variance suggests they are closer to the mean.
+                Variance measures the average squared deviation of each data point from the mean. 
+                A higher variance indicates that data points are more spread out, while a lower variance suggests they are closer to the mean.
                 <br>
-                <strong>Example Interpretation:</strong> In this dataset, a variance of <strong>{variance:.2f}</strong> suggests that the data points deviate moderately/significantly from the mean on average.
+                <strong>Example Interpretation:</strong> In this dataset, a variance of <strong>{variance:.2f}</strong> 
+                suggests that the data points deviate moderately/significantly from the mean on average.
             </li>
             <li>
                 <strong>Standard Deviation:</strong> The standard deviation is <strong>{std_dev:.2f}</strong>.
-                It is the square root of the variance and is expressed in the same units as the data, making it more intuitive to interpret. A smaller standard deviation means the data points are closer to the mean, while a larger one indicates greater variability.
+                It is the square root of the variance and is expressed in the same units as the data, making it more intuitive to interpret.
+                 A smaller standard deviation means the data points are closer to the mean, while a larger one indicates greater variability.
                 <br>
                 <strong>Example Interpretation:</strong> A standard deviation of <strong>{std_dev:.2f}</strong> indicates that most data points are typically within <strong>{std_dev:.2f}</strong> units of the mean.
             </li>
             <li>
                 <strong>Range:</strong> The range is <strong>{range_value:.2f}</strong>.
-                It is the difference between the maximum and minimum values in the dataset, showing the total spread. The range is sensitive to outliers and provides a quick sense of the overall variability.
+                It is the difference between the maximum and minimum values in the dataset, showing the total spread.
+                 <strong>The range is sensitive to outliers and provides a quick sense of the overall variability.</strong>
                 <br>
-                <strong>Example Interpretation:</strong> A range of <strong>{range_value:.2f}</strong> means the data points span this entire interval from the smallest to the largest value.
+                <strong>Example Interpretation:</strong> A range of <strong>{range_value:.2f}</strong> means the data 
+                points span this entire interval from the smallest to the largest value.
             </li>
         </ul>
     """
@@ -331,19 +353,35 @@ def calculate_descriptions(lis):
         "spread": combined_spread
     }
 
-def premade(distr: str) ->list:
+def premade(distr: str) -> list:
+    """
+       Generate premade datasets for demonstrating different statistical distributions.
+       ----------
+       Parameters:
+       distr : str
+           A string specifying the desired distribution type. Options are:
+           - "normal": Generates a dataset with a normal distribution.
+           - "skewed": Generates a dataset with a right-skewed distribution.
+           - "outliers": Generates a dataset with a normal distribution and added outliers.
+       Returns:
+       list
+           A list of integers representing the generated dataset.
+       Raises:
+           ValueError: If the specified distribution type is not recognized.
+       """
     if distr == "normal":
         # List with normal distribution
         np.random.seed(2)
-        list1 = list(np.random.normal(50, 10, 800))
+        list1 = list(np.round(np.random.normal(50, 10, 800)).astype(int))
         return list1
     elif distr == "skewed":
         # List with skewed distribution (right skew)
         np.random.seed(3)
-        list2 = list(np.random.exponential(20, 800))
+        list2 = list(np.round(np.random.exponential(20, 800)).astype(int))
         return list2
     else:
         # Outliers
         np.random.seed(1)
-        list3 = list(np.random.normal(50, 10, 795)) + [150, 160, 170, 180, 190]
+        list3 = list(np.round(np.random.normal(50, 10, 795)).astype(int))
+        list3 = list3 + [150, 160, 170, 180, 190]
         return list3
