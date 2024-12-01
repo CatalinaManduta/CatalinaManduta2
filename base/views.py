@@ -46,14 +46,10 @@ def contact_success_view(request):
     return render(request, 'Contact_success.html', {'articles': articles})
 
 
-import os
-from django.shortcuts import render
-
-
 def search_html_files(request):
     search_query = request.GET.get('q', '').lower()  # Get search query from the request
     results = []  # To store search results
-    html_directory = os.path.join('templates')  # Adjust the directory as needed
+    html_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
     # Loop through all HTML files in the directory
     for root, dirs, files in os.walk(html_directory):
