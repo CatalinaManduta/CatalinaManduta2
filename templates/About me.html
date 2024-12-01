@@ -15,194 +15,17 @@
     <link rel="stylesheet" href="{% static 'styles/hero.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Table_content.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Root.css' %}">
-    <script src="{% static 'Table_content.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'styles/AboutMe.css' %}">
+    <script src="{% static 'scripts/Table_content.js' %}" defer></script>
+    <script src="{% static 'scripts/Carousel.js' %}" defer></script>
+
 </head>
+
 <body>
 
     <!-- Navbar -->
     {% include 'Base_files/Navbar.html' %}
 
-
-<style>
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-h3 {
-    border-bottom: 2px solid #1BA5BF;
-    z-index: 0; /* Make sure the button itself has a lower z-index */
-}
-
-
-/* Keep the existing button style */
-.custom-button-yellow {
-    display: flex; /* Align icon and text horizontally */
-    align-items: center; /* Vertically center icon and text */
-    gap: 2px; /* Space between the icon and text */
-    font-size: 1rem; /* Text font size */
-    text-align: left; /* Left-align the text */
-    padding: 5px 10px; /* Add internal padding */
-    background-color: var(--primary-yellow); /* Background color */
-    color: var(--primary-dark-blue); /* Text and icon color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 12px var(--shadow-medium); /* Subtle shadow for depth */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-    z-index: 1; /* Make sure the button itself has a lower z-index */
-    position: relative; /* Required for the popup to position itself relative to the button */
-    padding-top: 5px;
-
-}
-
-.custom-button-yellow i {
-    font-size: 20px; /* Icon size */
-    color: var(--primary-light-blue); /* Icon color for consistency */
-    margin-bottom: 10px; /* Space between icon and text */
-
-}
-
-.skills-section div {
-    display: flex; /* Arrange buttons in a row */
-    flex-wrap: wrap; /* Allow buttons to wrap onto the next line if necessary */
-    gap: 10px; /* Add space between the buttons */
-    justify-content: flex-start; /* Align buttons to the left */
-    max-width: 85%; /* Restrict container width */
-    margin: 0 auto; /* Center the entire container */
-    padding: 0; /* Remove extra padding */
-
-}
-
-.custom-button-yellow:hover {
-    background-color: var(--primary-dark-blue); /* Slightly darker color on hover */
-    color: var(--primary-yellow);
-    transform: scale(1.05);
-}
-
-.white-box.custom-height {
-    height: 700px; /* Fixes the height to 500px */
-    overflow: auto; /* Ensures scrollbars if the content exceeds the box height */
-}
-
-.white-box {
-    overflow: visible;
-}
-
-
-.dark-blue-box {
-    margin-bottom: 0px; /* Spacing between boxes */
-    padding: 10px 20px;
-    position: relative;
-    overflow: visible;
-    width: 100%;
-    z-index: 0; /* Make sure the button itself has a lower z-index */
-}
-.dark-blue-box h3 {
-    color: var(--primary-yellow);
-    position: relative;
-    z-index: 0;
-    margin: 0 auto 0px auto;
-    max-width: 85%;
-}
-
-.white-box h4 {
-    padding-top: 20px;
-    padding-bottom: 0px;
-    margin: 0 auto 0px auto;
-}
-
-/* Circular popup styling */
-.custom-button-yellow .popup-circle {
-    position: absolute; /* Position relative to the button */
-    top: -130px; /* Move the popup further above the button */
-    left: 50%; /* Center horizontally relative to the button */
-    transform: translateX(-100%); /* Center the popup */
-    width: 170px; /* Circle width */
-    height: 170px; /* Circle height */
-    background-color: var(--primary-yellow); /* Popup background color */
-    color: var(--primary-dark-blue); /* Popup text color */
-    border-radius: 8px; /* Make it circular */
-    display: flex; /* Use Flexbox to center text */
-    align-items: center; /* Vertically center text */
-    justify-content: center; /* Horizontally center text */
-    text-align: center; /* Center-align text */
-    font-size: 0.8rem; /* Adjust text size */
-    opacity: 0; /* Initially hidden */
-    pointer-events: none; /* Disable pointer events when hidden */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth appearance */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-}
-
-/* Show the popup on hover */
-.custom-button-yellow:hover .popup-circle {
-    opacity: 1; /* Make the popup visible */
-    transform: translateX(-50%) translateY(-10px); /* Slight upward movement */
-    pointer-events: auto; /* Enable pointer interaction */
-}
-
-.carousel-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.prev, .next {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #1BA5BF;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-}
-
-
-
-.image-container {
-    position: relative; /* This ensures the child element (icon) can position relative to this container */
-    display: inline-block;
-}
-
-.img-responsive {
-    width: 100%;
-    height: auto;
-    display: block; /* Ensures the image behaves properly */
-}
-
-.social-icons_pic {
-    position: absolute;
-    top: 8%; /* Adjust this value to position the icon vertically */
-    left: 35%; /* Adjust this value to position the icon horizontally */
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem; /* Adjust icon size */
-    background-color: #0077B5; /* LinkedIn Blue */
-    color: white;
-    border-radius: 50%; /* Ensures the element is a perfect circle */
-    width: 70px; /* Set fixed width for a consistent circle */
-    height: 70px; /* Set fixed height matching width */
-    display: flex; /* Center the icon inside the circle */
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.social-icons_pic a {
-    text-decoration: none;
-    color: white;
-}
-
-.social-icons_pic a:hover {
-    background-color: #005582; /* Darker LinkedIn Blue */
-    transition: 0.3s ease;
-}
-
-
-</style>
 
    <!-- Main Content -->
     <div class="content-wrapper">
@@ -289,75 +112,128 @@ h3 {
         <div>
             <strong>CSS</strong>
         </div>
-        <span class="popup-circle">Advanced. Exploring advanced CSS techniques while designing this project, enhancing styles, layouts, and responsiveness for a professional look.</span>
+        <span class="popup-circle">Intermediate. Exploring CSS techniques while designing this project, enhancing styles, layouts, and responsiveness for a professional look.</span>
     </button>
 </div>
 
 
-    <h4>COMPUTATIONAL BIOLOGY</h4>
-    <div>
-        <button class="custom-button-yellow">
-            <i class="fas fa-dna"></i>
-            <div>
-                <strong>Bioinformatics</strong>
-            </div>
-            <span class="popup-circle">Intermediate</span>
-        </button>
+<h4>COMPUTATIONAL BIOLOGY</h4>
+<div>
+    <!-- Bioinformatics Button -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-dna"></i>
+        <div>
+            <strong>Bioinformatics</strong>
+        </div>
+        <span class="popup-circle">
+            Intermediate: Studied topics such as sequence alignment, string matching, DNA binding sites, motif discovery, population genetics, network biology, and data mining.
+        </span>
+    </button>
 
-        <button class="custom-button-yellow">
-            <i class="fas fa-flask"></i>
-            <div>
-                <strong>Biostatistics</strong>
-            </div>
-            <span class="popup-circle">Intermediate</span>
-        </button>
+    <!-- Biostatistics Button -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-flask"></i>
+        <div>
+            <strong>Biostatistics</strong>
+        </div>
+        <span class="popup-circle">
+            Intermediate: Covered statistical methods, probability distributions, data visualization, regression, hypothesis testing, and real-world applications in biomedical research.
+        </span>
+    </button>
 
-        <button class="custom-button-yellow">
-            <i class="fas fa-heartbeat"></i>
-            <div>
-                <strong>Basic Epidemiology</strong>
-            </div>
-            <span class="popup-circle">In Biomedicine</span>
-        </button>
-    </div>
+    <!-- Epidemiology Button -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-heartbeat"></i>
+        <div>
+            <strong>Basic Epidemiology</strong>
+        </div>
+        <span class="popup-circle">
+            Explored epidemiological study designs, causality, diagnostics, genetic epidemiology, and error sources in research.
+        </span>
+    </button>
+</div>
 
-    <h4>SOFT SKILLS</h4>
-    <div>
-        <button class="custom-button-yellow">
-            <i class="fas fa-language"></i>
-            <div>
-                <strong>Fluent in</strong>
-            </div>
-            <span class="popup-circle">English and Romanian</span>
-        </button>
+<h4>SOFT SKILLS</h4>
+<div>
+    <!-- Language Skills -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-language"></i>
+        <div>
+            <strong>Fluent in</strong>
+        </div>
+        <span class="popup-circle">
+            English and Romanian: Strong command of professional and conversational English, combined with native-level Romanian. Ability to adapt language use to diverse cultural and professional settings.
+        </span>
+    </button>
 
-        <button class="custom-button-yellow">
-            <i class="fas fa-globe"></i>
-            <div>
-                <strong>Proficient in</strong>
-            </div>
-            <span class="popup-circle">Danish</span>
-        </button>
+    <!-- Proficiency in Danish -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-globe"></i>
+        <div>
+            <strong>Proficient in</strong>
+        </div>
+        <span class="popup-circle">
+            Danish: Acquired proficiency in Danish after living and working in Denmark.
+        </span>
+    </button>
 
-        <button class="custom-button-yellow">
-            <i class="fas fa-comments"></i>
-            <div>
-                <strong>Presentation & Communication</strong>
-            </div>
-            <span class="popup-circle">Excellent</span>
-        </button>
-    </div>
+    <!-- Presentation and Communication -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-comments"></i>
+        <div>
+            <strong>Presentation & Communication</strong>
+        </div>
+        <span class="popup-circle">
+            Skilled in crafting impactful presentations and communicating complex ideas clearly. Experienced in technical support and university presentations.
+        </span>
+    </button>
+
+    <!-- Cultural Competence -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-handshake"></i>
+        <div>
+            <strong>Global Cultural Competence</strong>
+        </div>
+        <span class="popup-circle">
+            Extensive experience living and working in diverse environments across Romania and Denmark. Skilled in building strong, cross-cultural professional relationships.
+        </span>
+    </button>
+
+    <!-- Critical Thinking -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-brain"></i>
+        <div>
+            <strong>Critical Thinking</strong>
+        </div>
+        <span class="popup-circle">
+            Ability to analyze complex problems, identify key factors, and synthesize solutions. Leveraged in technical roles and data analysis.
+        </span>
+    </button>
+
+    <!-- Mentorship -->
+    <button class="custom-button-yellow">
+        <i class="fas fa-users"></i>
+        <div>
+            <strong>Mentorship</strong>
+        </div>
+        <span class="popup-circle">
+            Enjoys sharing knowledge and explaining concepts to others, finding joy in making complex ideas understandable. Believes teaching not only empowers others but also deepens personal understanding. Values creating an open environment for learning and collaboration.
+        </span>
+    </button>
+
+</div>
+
 </section>
-
 
 <section class="dark-blue-box">
     <h3>EDUCATION</h3>
 </section>
-<section class="white-box custom-height carousel">
-    <button class="prev" onclick="plusSlides(-1, 'carousel')">&#10094;</button>
+<section class="white-box custom-height carousel education-carousel">
+    <button class="prev" onclick="plusSlides(-1, 'education-slide')">❮</button>
+
 
     <!-- Marketing Management -->
-    <div class="carousel-slide active">
+    <div class="education-slide active">
         <div class="education-item">
             <div class="education-item-text">
                 <h4>Marketing Management</h4>
@@ -368,12 +244,12 @@ h3 {
                     introducing me to economics, project management, and the global market—skills that continue to shape my professional journey.
                 </p>
             </div>
-            <img src="{% static 'images/ucl.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="Dania University of Applied Science">
+            <img src="{% static 'images/ucl.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Dania University of Applied Science">
         </div>
     </div>
 
     <!-- Bachelor's in Biology -->
-    <div class="carousel-slide">
+    <div class="education-slide">
         <div class="education-item">
             <div class="education-item-text">
                 <h4>Bachelor's in Biology</h4>
@@ -384,12 +260,12 @@ h3 {
                     viruses and bacteria to the broader fields of zoology and environmental science.
                 </p>
             </div>
-            <img src="{% static 'images/Vest.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="West University of Timisoara">
+            <img src="{% static 'images/Vest.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="West University of Timisoara">
         </div>
     </div>
 
     <!-- Master's in Computational Biomedicine -->
-    <div class="carousel-slide">
+    <div class="education-slide">
         <div class="education-item">
             <div class="education-item-text">
                 <h4>Master's in Computational Biomedicine</h4>
@@ -400,12 +276,13 @@ h3 {
                     I chose this path not only to deepen my knowledge but also to open doors to diverse career opportunities.
                 </p>
             </div>
-            <img src="{% static 'images/SDU.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px; alt="University of Southern Denmark">
+            <img src="{% static 'images/SDU.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="University of Southern Denmark">
         </div>
     </div>
 
-    <button class="next" onclick="plusSlides(1, 'carousel')">&#10095;</button>
+    <button class="next" onclick="plusSlides(1, 'education-slide')">❯</button>
 </section>
+
 
 <!-- Work Experience Section -->
 <section class="dark-blue-box">
@@ -416,7 +293,7 @@ h3 {
         <img src="{% static 'images/Profile_img2.jpg' %}" class="img-rectangle" alt="Profile Picture" class="img-responsive img-center">
         <!-- LinkedIn Icon -->
         <div class="social-icons_pic">
-            <a href="https://www.linkedin.com/in/your-profile-link" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/catalina-manduta/" target="_blank" aria-label="LinkedIn">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
@@ -427,95 +304,74 @@ h3 {
 <section class="dark-blue-box">
     <h3>ON A MORE PERSONAL NOTE</h3>
 </section>
-<section class="white-box custom-height carousel">
-    <button class="prev" onclick="plusSlides(-1, 'personal')">&#10094;</button>
+<section class="white-box custom-height carousel personal-carousel">
+    <button class="prev" onclick="plusSlides(-1, 'personal-slide')">❮</button>
 
-    <!-- Dog / Animal Lover -->
-    <div class="carousel-slide active">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>Dog / Animal Lover</h4>
-                <p class="info-text">Happiness in its purest form</p>
-                <p>
-                    I have two cute dogs that bring me endless joy and companionship. They have taught me patience and the value of unconditional love.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Dogs">
+<!-- Dog / Animal Lover -->
+<div class="personal-slide active">
+    <div class="education-item">
+        <div class="education-item-text">
+            <h4>Furry Companions</h4>
+            <p>
+                I have two adorable dogs who bring so much joy:
+                <br>
+                One, a sweet, loving, and sensitive soul who is incredibly smart. While she may be reserved with strangers, she shares her heart generously with those she knows and loves.
+                <br>
+                While the other one, my outgoing adventurer, always ready to trade me for food and a good scratch!
+            </p>
+        </div>
+        <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Dogs">
+        <p>I will let you guess which one is which.</p>
+    </div>
+</div>
+
+<!-- Audiobooks -->
+<div class="personal-slide">
+    <div class="education-item">
+        <div class="education-item-text">
+            <h4>Audiobooks</h4>
+            <p>
+                Here are some of my favorite audiobooks that inspire and intrigue me, though it is pretty hard to make just one list:
+            </p>
+            <ul>
+                <li><em>The Male Brain: A Breakthrough Understanding of How Men and Boys Think</em> by Louann Brizendine</li>
+                <li><em>The Female Brain</em> by Louann Brizendine</li>
+                <li><em>Man's Search for Meaning</em> by Viktor E. Frankl</li>
+                <li><em>The Culture Map: Breaking Through the Invisible Boundaries of Global Business</em> by Erin Meyer</li>
+                <li><em>The Future Leader: 9 Skills and Mindsets to Succeed in the Next Decade</em> by Jacob Morgan</li>
+                <li><em>Emotional Intelligence</em> by Daniel Goleman</li>
+                <li><em>The Authority Gap: Why Women Are Taken Less Seriously Than Men and What We Can Do About It</em> by Mary Ann Sieghart</li>
+                <li><em>Invisible Women: Exposing Data Bias in a World Designed for Men</em> by Caroline Criado Perez</li>
+                <li><em>Brave, Not Perfect: Fear Less, Fail More, and Live Bolder</em> by Reshma Saujani</li>
+                <li><em>Behave: The Biology of Humans at Our Best and Worst</em> by Robert M. Sapolsky</li>
+                <li><em>Through a Window: My Thirty Years with the Chimpanzees of Gombe</em> by Jane Goodall</li>
+                <li><em>Mama's Last Hug: Animal Emotions and What They Tell Us About Ourselves</em> by Frans de Waal</li>
+                <li><em>My Bondage and My Freedom</em> by Frederick Douglass</li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <!-- I Love Audiobooks -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>I Love Audiobooks</h4>
-                <p class="info-text">Favorite pastime</p>
-                <p>
-                    I enjoy immersing myself in audiobooks. One of my favorites is <em>My Bondage and My Freedom</em>, which offers profound insights into history and resilience.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Audiobooks">
+<!-- DIY Projects -->
+<div class="personal-slide">
+    <div class="education-item">
+        <div class="education-item-text">
+            <h4>DIY Projects</h4>
+            <p class="info-text">Home Renovation Enthusiast</p>
+            <p>
+                After buying our first home, I discovered a passion for DIY projects. My weekends are often spent plastering
+                and painting walls or sanding, staining, and applying lacquer to wooden floors. I truly enjoy learning
+                new skills and creating something with my own hands, often accompanied by a great audiobook.
+            </p>
         </div>
     </div>
-
-    <!-- DIY Projects -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>DIY Projects</h4>
-                <p class="info-text">Home Renovation Enthusiast</p>
-                <p>
-                    After buying our first home, I discovered a passion for DIY projects. Combining audiobooks with home improvement is my favorite way to spend weekends.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="DIY Projects">
-        </div>
-    </div>
-
-    <!-- Collecting Rare Plants -->
-    <div class="carousel-slide">
-        <div class="education-item">
-            <div class="education-item-text">
-                <h4>Collecting Rare Plants</h4>
-                <p class="info-text">A Growing Passion</p>
-                <p>
-                    I love collecting unique and rare plants, learning about their care, and watching them thrive. It connects me with nature and brings beauty to my home.
-                </p>
-            </div>
-            <img src="{% static 'images/dogs.jpg' %}" class="img-rectangle" style="width: 400px; height: 400px;" alt="Rare Plants">
-        </div>
-    </div>
-
-    <button class="next" onclick="plusSlides(1, 'personal')">&#10095;</button>
+</div>
+    <button class="next" onclick="plusSlides(1, 'personal-slide')">❯</button>
 </section>
 
-
-<script>
-    function plusSlides(n, section) {
-        const slides = document.querySelectorAll(`.${section} .carousel-slide`);
-        let activeIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
-
-        slides[activeIndex].classList.remove('active');
-        slides[activeIndex].style.display = 'none';
-        activeIndex += n;
-
-        if (activeIndex >= slides.length) activeIndex = 0;
-        if (activeIndex < 0) activeIndex = slides.length - 1;
-
-        slides[activeIndex].classList.add('active');
-        slides[activeIndex].style.display = 'block';
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll('.carousel-slide').forEach(slide => slide.style.display = 'none');
-        document.querySelector('.carousel-slide.active').style.display = 'block';
-    });
-</script>
-
-</div>
+</body>
 
     <!-- Footer -->
     {% include 'Base_files/Footer.html' %}
 
-</body>
 </html>

@@ -11,7 +11,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))  # This is needed so
 
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from .models import Article
+from .forms import ContactForm
 
 # Statistics folder
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
@@ -28,7 +30,59 @@ def home(request):
 
 
 def contact(request):
-    return render(request, "Contact.html")
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save data to the database
+            return redirect('contact_success')  # Redirect to success page
+    else:
+        form = ContactForm()
+
+    return render(request, 'Contact.html', {'form': form})
+
+
+def contact_success_view(request):
+    articles = Article.objects.all().order_by('-created_at')[:4]  # Order by newest first
+    return render(request, 'Contact_success.html', {'articles': articles})
+
+
+import os
+from django.shortcuts import render
+
+
+def search_html_files(request):
+    search_query = request.GET.get('q', '').lower()  # Get search query from the request
+    results = []  # To store search results
+    html_directory = os.path.join('templates')  # Adjust the directory as needed
+
+    # Loop through all HTML files in the directory
+    for root, dirs, files in os.walk(html_directory):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read().lower()  # Read file content
+                        if search_query in content:  # Check if query is in the content
+                            results.append({
+                                'file_name': file,
+                                'file_path': file_path,
+                                'excerpt': get_excerpt(content, search_query),
+                            })
+                except Exception as e:
+                    print(f"Error reading file {file_path}: {e}")
+
+    return render(request, 'Search_results.html', {'results': results, 'query': search_query})
+
+
+def get_excerpt(content, query, char_limit=100):
+    """Helper function to get a snippet around the search query."""
+    index = content.find(query)
+    if index != -1:
+        start = max(index - char_limit // 2, 0)
+        end = min(index + char_limit // 2, len(content))
+        return content[start:end]
+    return None
 
 
 def about(request):

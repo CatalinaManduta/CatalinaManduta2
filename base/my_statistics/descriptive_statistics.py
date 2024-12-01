@@ -50,7 +50,7 @@ def calculate_descriptions(lis):
     iqr = q3 - q1  # Interquartile Range (IQR)
 
     # Handle mode calculation robustly
-    mode_result = mode(lis, keepdims=True) # When texting it locally use also keepdims=True
+    mode_result = mode(lis) # When texting it locally use also keepdims=True
     mode_value = mode_result.mode[0] if mode_result.count[0] > 0 else None
     if mode_value is not None:
         mode_count = lis.count(mode_value)

@@ -6,9 +6,11 @@ urlpatterns = [
     # General
     path("", views.home, name="home"),
     path("contact/", views.contact, name="contact"),
+    path('contact/success/', views.contact_success_view, name='contact_success'),
     path("about/", views.about, name="about"),
     path("articles/", views.all_articles, name="articles"),
     path("work in progress/", views.work_in_progress, name="work in progress"),
+    path('search/', views.search_html_files, name='search_html_files'), # Delete this if implementing Elasticseacrch
     # Machine learning
     path("machine learning/", views.ml, name="machine learning"),
     path("machine learning/pattern mining/", views.ml_pattern_mining, name="pattern mining"),

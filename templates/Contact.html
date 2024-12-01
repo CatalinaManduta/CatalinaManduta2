@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'styles/Global.css' %}">
     <link rel="stylesheet" href="{% static 'styles/hero.css' %}">
     <link rel="stylesheet" href="{% static 'styles/Root.css' %}">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
 
     <title>Contact</title>
@@ -30,24 +31,30 @@
             </div>
             <div class="contact-right">
                 <h2>Connect</h2>
-                <form action="/action_page.php" target="_blank">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
+                <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
 
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
+                <label for="id_name">Name *</label>
+                {{ form.name }}
 
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
+                <label for="id_email">Email *</label>
+                {{ form.email }}
 
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone">
+                <label for="id_company">Company</label>
+                {{ form.company }}
 
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
+                <label for="id_phone">Phone</label>
+                {{ form.phone }}
 
-                    <button type="submit">Send Message</button>
-                </form>
+                <label for="id_message">Message *</label>
+                {{ form.message }}
+
+                <!-- Add Invisible reCAPTCHA Field -->
+                {{ form.captcha }}
+
+                <button type="submit">Send Message</button>
+            </form>
+
             </div>
         </div>
     </section>

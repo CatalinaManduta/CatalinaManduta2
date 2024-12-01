@@ -1,0 +1,29 @@
+{% extends 'Base_files/Base_Articles.html' %}
+
+{% block title %} Search Results - Learning Hub {% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Search Results</h2>
+    </section>
+
+    <!-- Search Results Section -->
+    <section class="white-box">
+        <h3>Results for "{{ query }}"</h3>
+        <div class="yellow-box-container">
+            {% if results %}
+                {% for result in results %}
+                    <!-- Dynamic Result Item -->
+                    <div class="yellow-box-item">
+                        <h4>{{ result.file_name }}</h4>
+                        <p>{{ result.snippet }}</p>
+                        <a href="{{ result.file_path }}">View File</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No results found for your search.</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

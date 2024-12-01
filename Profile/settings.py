@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base.apps.BaseConfig'
+    'base.apps.BaseConfig',
+    'django_recaptcha'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,6 @@ STATIC_ROOT = '/home/CatalinaM/CatalinaManduta/staticfiles'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = '6LeLWY8qAAAAAF-WsSbVMbWEusCYX4lPVTrCfmJ0'
+RECAPTCHA_PRIVATE_KEY = '6LeLWY8qAAAAAIeFtECtez0abFCNtxlxY57ALTou'

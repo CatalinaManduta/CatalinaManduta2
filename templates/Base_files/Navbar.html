@@ -54,9 +54,16 @@
 
     <!-- Search Area within Navbar -->
     <div class="search-container">
-        <input type="text" placeholder="Search..." class="search-input">
-        <button type="submit" class="search-button">Search</button>
+        <form action="{% url 'search_html_files' %}" method="get">
+            <input
+                type="text"
+                name="q"
+                placeholder="Search..."
+                class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </div>
+
 </nav>
 
 </body>
