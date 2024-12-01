@@ -46,10 +46,15 @@ def contact_success_view(request):
     return render(request, 'Contact_success.html', {'articles': articles})
 
 
+    # html_directory = os.path.join('templates')  # Adjust the directory as needed
+    # html_directory = '/home/CatalinaM/CatalinaManduta/templates'
+
+
 def search_html_files(request):
     search_query = request.GET.get('q', '').lower()  # Get search query from the request
     results = []  # To store search results
-    html_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+    # html_directory = os.path.join('templates')  # Adjust the directory as needed
+    html_directory = '/home/CatalinaM/CatalinaManduta/templates'
 
     # Loop through all HTML files in the directory
     for root, dirs, files in os.walk(html_directory):
@@ -58,16 +63,43 @@ def search_html_files(request):
                 file_path = os.path.join(root, file)
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
-                        content = f.read().lower()  # Read file content
-                        if search_query in content:  # Check if query is in the content
-                            results.append({
-                                'file_name': file,
-                                'file_path': file_path,
-                                'excerpt': get_excerpt(content, search_query),
-                            })
+                        content = f.read()  # Read file content without converting to lowercase
+                        if search_query in content.lower():  # Convert content to lowercase only for the search
+                            # Debug: Verify if the search query is found
+                            print(f"Search query '{search_query}' found in file: {file}")
+
+                            # Extract title
+                            title_start = content.find('<meta name="title" content="')
+                            if title_start != -1:
+                                title_start += len('<meta name="title" content="')
+                                title_end = content.find('"', title_start)
+                                if title_end != -1:
+                                    title = content[title_start:title_end].strip()
+                                else:
+                                    title = "No title found"
+                            else:
+                                title = "No title found"
+                            print(f"Extracted title: {title}")  # Debug
+
+                            # Extract URL
+                            url_start = content.find('<meta name="url" content="')
+                            if url_start != -1:
+                                url_start += len('<meta name="url" content="')
+                                url_end = content.find('"', url_start)
+                                if url_end != -1:
+                                    url = content[url_start:url_end].strip()
+                                else:
+                                    url = "#"
+                            else:
+                                url = "#"
+                            print(f"Extracted URL: {url}")  # Debug
+
+                            # Add to results
+                            if title != "No title found" and url != "#":  # Exclude results with no title or URL
+                                results.append({'title': title, 'url': url})
                 except Exception as e:
                     print(f"Error reading file {file_path}: {e}")
-
+    print(f"Final results: {results}")
     return render(request, 'Search_results.html', {'results': results, 'query': search_query})
 
 

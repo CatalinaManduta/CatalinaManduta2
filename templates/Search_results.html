@@ -14,12 +14,13 @@
         <div class="yellow-box-container">
             {% if results %}
                 {% for result in results %}
-                    <!-- Dynamic Result Item -->
-                    <div class="yellow-box-item">
-                        <h4>{{ result.file_name }}</h4>
-                        <p>{{ result.snippet }}</p>
-                        <a href="{{ result.file_path }}">View File</a>
-                    </div>
+                    {% if result.title != "No title found" %}
+                        <!-- Dynamic Result Item -->
+                        <div class="yellow-box-item">
+                            <h4>{{ result.title }}</h4>
+                            <a href="{{ result.url }}">View Article</a>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             {% else %}
                 <p>No results found for your search.</p>
