@@ -178,8 +178,8 @@ def st_descriptive_st(request):
         # Determine which button was clicked
         submit_type = request.POST.get("submit_type")
 
-        if submit_type == "custom_data":
-            # Handle custom input data
+        # Check if "data_type" is provided for custom data
+        if request.POST.get("data_type") == "numerical":
             data_input = request.POST.get("data_input")
             try:
                 num = numerical(data_input)
