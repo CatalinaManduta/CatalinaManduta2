@@ -21,6 +21,8 @@ urlpatterns = [
     path("statistics/", views.st, name="statistics"),
     path("statistics/introduction to statistics/", views.st_introduction_st, name="introduction to statistics"),
     path("statistics/descriptive statistics/", views.st_descriptive_st, name="introduction to statistics"),
+    path("statistics/data visualization/", views.st_data_visualization, name="data visualization"),
+
     path("statistics/linear regression/", views.st_linear_regression, name="linear regression"),
     path("statistics/p-value/", views.st_p_value, name="p-value"),
     # Genetics

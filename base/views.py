@@ -14,6 +14,8 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ContactForm
+from django.core.paginator import Paginator
+
 
 # Statistics folder
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
@@ -127,8 +129,16 @@ def all_articles(request):
 
 # Statistics #####
 def st(request):
-    articles = Article.objects.filter(group='Statistics').order_by('order')  # Filter and order by the `order` field
-    return render(request, "Statistics/ST.html", {'articles': articles})
+    # Filter and order articles
+    articles = Article.objects.filter(group='Statistics').order_by('order')
+
+    # Paginate the articles (e.g., 5 articles per page)
+    paginator = Paginator(articles, 4)
+    page_number = request.GET.get('page')  # Get the current page number from the query parameters
+    page_obj = paginator.get_page(page_number)  # Get the articles for the current page
+
+    # Pass `page_obj` to the template
+    return render(request, "Statistics/ST.html", {'page_obj': page_obj})
 
 
 def st_introduction_st(request):
@@ -214,7 +224,7 @@ def st_descriptive_st(request):
     )
 
 
-def st_descriptive_stcop(request):
+def st_descriptive_st(request):
     error_message = None
     plot_html = {}
     # Fetch the article object
@@ -251,6 +261,11 @@ def st_descriptive_stcop(request):
             "error_message": error_message,
         }
     )
+
+def st_data_visualization(request):
+    article = get_object_or_404(Article, title='Data Visualization')
+    return render(request, "Statistics/ST_Data_visualization.html", {'article': article})
+
 
 # Main view for linear regression, displaying both static and interactive plots
 def st_linear_regression(request):

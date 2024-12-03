@@ -22,7 +22,7 @@
 }
 
 .yellow-box-item {
-    background-color: #ffffff;
+    background-color: var(--primary-white);
     border-radius: 30px; /* More rounded corners */
     box-shadow: 0 4px 12px var(--shadow-light);
     padding: 30px;
@@ -57,4 +57,44 @@
 
 .yellow-box-item a:hover {
     color: var(--hover-blue);
+}
+
+
+/* Center pagination within the white-box */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--primary-dark-white);
+    border-radius: 8px;
+}
+
+/* Pagination links styled as buttons */
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: var(--primary-dark-blue);
+    background-color: var(--primary-white);
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: var(--primary-yellow);
+    color: var(--primary-dark-blue);
+    transform: scale(1.05);
+    text-decoration: none;
+
+}
+
+.pagination .current {
+    font-weight: bold;
+    color: var(--primary-dark-white);
+    background-color: var(--primary-dark-blue);
 }

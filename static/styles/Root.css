@@ -4,6 +4,7 @@
     --primary-light-blue: #1BA5BF; /* Light blue for links, hover states, and secondary accents */
     --primary-yellow: #E2E1D2; /* Yellow for backgrounds and containers */
     --primary-dark-white: #F5F5F5; /* Light off-white for general backgrounds and container areas */
+    --primary-white:#ffffff
 
     /* Text Colors */
     --text-dark: #333; /* Dark text color for readability on light backgrounds */
