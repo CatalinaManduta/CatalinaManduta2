@@ -264,7 +264,7 @@ def st_descriptive_st(request):
 
 def st_data_visualization(request):
     article = get_object_or_404(Article, title='Data Visualization')
-    return render(request, "Statistics/ST_Data_visualization.html", {'article': article})
+    return render(request, "Statistics/ST_Data_Visualization.html", {'article': article})
 
 
 # Main view for linear regression, displaying both static and interactive plots
