@@ -223,45 +223,6 @@ def st_descriptive_st(request):
         }
     )
 
-
-def st_descriptive_st(request):
-    error_message = None
-    plot_html = {}
-    # Fetch the article object
-    article = get_object_or_404(Article, title="Descriptive Statistics")
-
-    if request.method == "POST":
-        # Handle the "Clear Plot" button
-        if 'clear_plot' in request.POST:
-            plot_html = {}  # Clear the plot
-            error_message = None
-            return render(request, "Statistics/ST_Descriptive_ST.html", {
-                'plot_html': plot_html,
-                'error_message': error_message,
-                'article': article,
-            })
-        # Get the user input
-        data_input = request.POST.get("data_input")  # Comma-separated values
-
-        try:
-            # Convert to integers for numerical data
-            num = numerical(data_input)
-            plot_html = calculate_descriptions(num)
-
-        except ValueError as e:
-            error_message = str(e)
-
-    # Render the page with the plot or an error message
-    return render(
-        request,
-        "Statistics/ST_Descriptive_ST.html",
-        {
-            "article": article,
-            "plot_html": plot_html,
-            "error_message": error_message,
-        }
-    )
-
 def st_data_visualization(request):
     article = get_object_or_404(Article, title='Data Visualization')
     return render(request, "Statistics/ST_Data_Visualization.html", {'article': article})
