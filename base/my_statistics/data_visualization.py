@@ -75,53 +75,5 @@ def filled_plot():
                   )
     return fig.to_html(full_html=False)
 
-# Construct the full file path relative to BASE_DIR
-# file_path = os.path.join(settings.BASE_DIR, 'base', 'Data', 'soil_moisture_2020.csv') this should work when I run the file in Django
-# file_path = os.path.join(os.path.dirname(__file__), 'base', 'Data', 'soil_moisture_2020.csv')
-# https://biodiversity.europa.eu/data
-file_path = r'C:\Users\catal\Desktop\Website\CatalinaManduta2\base\my_statistics\Data\Statistics_Ecosystems.csv'
-
-
-# Load the file
-df = pd.read_csv(file_path, delimiter=',')
-# df = pd.read_csv(file_path, sep=None, engine='python') set the delimiter automatically
-
-#print(df.head)
-df = pd.DataFrame(df)
-
-subset = df[["Country_code", "Ecosystem_level1", "Ecosystem_level2", "Area (m2)"]]
-#print(subset.head)
-#print(subset.columns)
-
-unique_level2 = df['Ecosystem_level2'].nunique()
-#print(unique_level2) # 10 unique counts
-
-unique_level1 = df['Ecosystem_level1'].nunique()
-#print(unique_level1) # 10 unique counts
-
-unique_country = df['Country_code'].nunique()
-#print(unique_country) # 10 unique counts
-
-
-df['Area (m2)'] = pd.to_numeric(df['Area (m2)'], errors='coerce')
-
-# Group the data by Country_code and Ecosystem_level1, summing the areas
-grouped = df.groupby(['Country_code', 'Ecosystem_level1'])['Area (m2)'].sum().reset_index()
-grouped['Area (km²)'] = grouped['Area (m2)'] / 1000000
-
-#print(grouped['Area (km²)'])
-def bar_plot2():
-    # Create a bar plot using Plotly Express
-    fig = px.bar(
-        grouped,
-        x='Country_code',             # Countries on the x-axis
-        y='Area (km²)',                # Area on the y-axis
-        color='Ecosystem_level1',     # Differentiate bars by Ecosystem_level1
-        title='Ecosystem Areas by Country',
-        labels={'Area (km²)': 'Area (km²)', 'Country_code': 'Country Code'},
-        barmode='group'               # Bars for each ecosystem grouped together
-    )
-    # Show the plot
-    return fig.show()
 
 
