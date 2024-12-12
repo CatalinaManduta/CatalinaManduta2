@@ -21,6 +21,8 @@ from django.core.paginator import Paginator
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
 from my_statistics.linear_reagression import interactive_plot, add_points, generate_plot, clear_points, data_points
 from my_statistics.descriptive_statistics import numerical, calculate_descriptions, premade
+from my_statistics.data_visualization import generate_fertilizer_growth_data, bar_plot, filled_plot
+
 
 
 # General View #####
@@ -225,7 +227,13 @@ def st_descriptive_st(request):
 
 def st_data_visualization(request):
     article = get_object_or_404(Article, title='Data Visualization')
-    return render(request, "Statistics/ST_Data_Visualization.html", {'article': article})
+    barplot_html = bar_plot()
+    filled_plot_html = filled_plot()
+    return render(request, "Statistics/ST_Data_Visualization.html", {
+        'article': article,
+        "barplot_html": barplot_html,
+        "filled_plot_html": filled_plot_html
+        })
 
 
 # Main view for linear regression, displaying both static and interactive plots

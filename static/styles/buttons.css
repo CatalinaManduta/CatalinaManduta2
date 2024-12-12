@@ -129,5 +129,5 @@ label {
     margin-top: 20px;
     text-align: center;
     height: auto; /* Allow flexible height */
-    overflow: hidden; /* Prevent overflow */
+    # overflow: hidden; /* Prevent overflow */
 }

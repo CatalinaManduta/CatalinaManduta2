@@ -8,9 +8,6 @@ import plotly.graph_objs as go  # Import for go.Scatter
 
 import statsmodels.api as sm  # Import statsmodels for additional statistics
 
-
-
-
 # Construct the full file path relative to BASE_DIR
 file_path = os.path.join(settings.BASE_DIR, 'base', 'Ecological_cleaned_data.txt')
 

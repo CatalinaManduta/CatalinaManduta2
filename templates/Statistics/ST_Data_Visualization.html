@@ -19,88 +19,298 @@
 <section class="white-box">
     <h3>Comparative Graphs</h3>
     <p>Graphs in this category are used to compare quantities, categories, or trends across different groups.</p>
-    <ul>
-        <li>
-            <strong>Bar Chart:</strong> Used to compare quantities across categories.
-            <br><strong>Example:</strong> Comparing the average height of plants grown under different light conditions.
-        </li>
-        <li>
-            <strong>Stacked Area Chart:</strong> Visualizes the cumulative composition of different groups over time.
-            <br><strong>Example:</strong> Tracking the proportion of different plankton species in a lake ecosystem across seasons.
-        </li>
-    </ul>
+    <h4>Bar Chart</h4>
+    <p>Used to compare quantities across categories.</p>
+    <p> <strong>Example:</strong> Comparing the average height of plants grown under different light conditions. </p>
+    <p><strong>Key Components:</strong></p>
+            <ul>
+                <li><strong>X-Axis:</strong> Represents categories (e.g., "Control," "Low Light," "Fertilizer").</li>
+                <li><strong>Y-Axis:</strong> Represents numerical values (e.g., average height in cm).</li>
+                <li><strong>Bars:</strong> Rectangular bars indicate the value for each category, with their length (vertical) or width (horizontal) proportional to the value.</li>
+            </ul>
+        <p><strong>Advantages:</strong></p>
+            <ul>
+                <li>Simple and easy to interpret.</li>
+                <li>Versatile and suitable for comparing frequencies, percentages, or absolute values.</li>
+                <li>Customizable with color and labels for clarity.</li>
+            </ul>
+            <p><strong>Disadvantages:</strong></p>
+            <ul>
+                <li>Does not show variability within categories.</li>
+                <li>Can become cluttered with too many categories.</li>
+                <li>Less effective for visualizing trends over time.</li>
+            </ul>
+    <h4> Barplot </h4>
+    <p>Imagine you have different fertilizers A, B, C and D and you would like to see the average growth of a set
+    of plants using a barplot based on the different fertilizers used.
+    <strong> Please note, this is dummy data! </strong> </p>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ barplot_html|safe }}
+    </div>
+
+    <h4>Stacked Area Chart</h4>
+    <p>Visualizes the cumulative composition of different groups over time.</p>
+    <p> <strong>Example:</strong> racking the proportion of different plankton species in a lake ecosystem across seasons. </p>
+    <p><strong>Key Components:</strong></p>
+            <ul>
+                <li><strong>X-Axis:</strong> Represents time or sequential data (e.g., seasons like Spring, Summer, Autumn).</li>
+                <li><strong>Y-Axis:</strong> Represents cumulative values (e.g., total plankton population in percentages).</li>
+                <li><strong>Areas:</strong> Each group is represented as a distinct colored layer, showing its contribution to the total.</li>
+                <li><strong>Stacking:</strong> Groups are stacked to show the cumulative effect while maintaining individual group visibility.</li>
+            </ul>
+        <p><strong>Advantages:</strong></p>
+            <ul>
+                <li>Effective for showing both individual group trends and overall totals.</li>
+                <li>Visually impactful for highlighting proportional changes over time.</li>
+                <li>Ideal for datasets that evolve sequentially or seasonally.</li>
+            </ul>
+            <p><strong>Disadvantages:</strong></p>
+            <ul>
+                <li>Can be challenging to interpret when many groups overlap.</li>
+                <li>Smaller groups may be overshadowed by larger ones.</li>
+                <li>Does not show within-group variability.</li>
+            </ul>
+    <h4> Plot </h4>
+    <p>On the other hand, if you would like to see how each of them compare relative to each other, you can use a Stacked Area Chart.</p>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ filled_plot_html|safe }}
+    </div>
 </section>
+
 
 <section class="white-box">
     <h3>Distribution Graphs</h3>
     <p>These graphs show how data is distributed, making it easier to identify patterns, outliers, and variability.</p>
+
+    <h4>Histogram</h4>
+    <p>Displays the frequency distribution of data.</p>
+    <p><strong>Example:</strong> Showing the distribution of leaf sizes in a population of oak trees.</p>
+    <p><strong>Key Components:</strong></p>
     <ul>
-        <li>
-            <strong>Histogram:</strong> Displays the frequency distribution of data.
-            <br><strong>Example:</strong> Showing the distribution of leaf sizes in a population of oak trees.
-        </li>
-        <li>
-            <strong>Box Plot:</strong> Summarizes data distribution and identifies outliers.
-            <br><strong>Example:</strong> Displaying the range of enzyme activity in a sample of bacterial cultures under varying pH levels.
-        </li>
-        <li>
-            <strong>Violin Plot:</strong> Combines box plot and density plot to show the distribution of data.
-            <br><strong>Example:</strong> Comparing the spread of protein concentrations across multiple cell types.
-        </li>
+        <li><strong>X-Axis:</strong> Represents the bins or intervals of data (e.g., ranges of leaf sizes).</li>
+        <li><strong>Y-Axis:</strong> Represents the frequency or count of data points within each bin.</li>
+        <li><strong>Bars:</strong> Rectangular bars where the height indicates the number of data points in each interval.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Simple and effective for visualizing the distribution of data.</li>
+        <li>Highlights patterns such as skewness or modality (e.g., unimodal, bimodal).</li>
+        <li>Helps identify outliers or unusual data points.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>The choice of bin width can significantly affect interpretation.</li>
+        <li>Not suitable for small datasets due to limited frequency counts.</li>
+        <li>Does not show exact data values, only their distribution across intervals.</li>
+    </ul>
+
+    <h4>Box Plot</h4>
+    <p>Summarizes data distribution and identifies outliers.</p>
+    <p><strong>Example:</strong> Displaying the range of enzyme activity in a sample of bacterial cultures under varying pH levels.</p>
+    <p><strong>Key Components:</strong></p>
+    <ul>
+        <li><strong>Box:</strong> Represents the interquartile range (IQR), showing the middle 50% of data.</li>
+        <li><strong>Line (Median):</strong> A horizontal line inside the box indicates the median value.</li>
+        <li><strong>Whiskers:</strong> Extend from the box to show the range of data within 1.5 times the IQR.</li>
+        <li><strong>Outliers:</strong> Points outside the whiskers represent data points that are unusually high or low.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Provides a compact summary of data distribution.</li>
+        <li>Highlights median, variability, and outliers at a glance.</li>
+        <li>Effective for comparing multiple groups side-by-side.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Does not show the full distribution or density of data.</li>
+        <li>Can be less intuitive for audiences unfamiliar with statistical terms like IQR.</li>
+        <li>Outliers can dominate the visualization, overshadowing the main data.</li>
+    </ul>
+
+    <h4>Violin Plot</h4>
+    <p>Combines box plot and density plot to show the distribution of data.</p>
+    <p><strong>Example:</strong> Comparing the spread of protein concentrations across multiple cell types.</p>
+    <p><strong>Key Components:</strong></p>
+    <ul>
+        <li><strong>Density Curve:</strong> Represents the probability density of data on both sides of the axis.</li>
+        <li><strong>Box Plot (Optional):</strong> Embedded within the violin to show summary statistics like median and IQR.</li>
+        <li><strong>Symmetry:</strong> The mirrored density curve makes patterns easier to interpret.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Shows both distribution shape and summary statistics in one graph.</li>
+        <li>Highlights nuances like multimodal distributions (multiple peaks).</li>
+        <li>Ideal for comparing distributions across multiple groups.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Requires larger datasets for meaningful density representation.</li>
+        <li>Can be visually complex for simple comparisons.</li>
+        <li>Harder to interpret than simpler plots like histograms or box plots.</li>
     </ul>
 </section>
+
 
 <section class="white-box">
     <h3>Proportional Graphs</h3>
-    <p>These graphs are used to represent parts of a whole or proportions within datasets.</p>
+    <p>These graphs are used to represent parts of a whole or proportions within datasets. They are useful for showing how individual categories contribute to the total.</p>
+
+    <h4>Pie Chart</h4>
+    <p>Represents proportions within a whole.</p>
+    <p><strong>Example:</strong> Illustrating the proportion of different blood types in a study group.</p>
+    <p><strong>Key Components:</strong></p>
     <ul>
-        <li>
-            <strong>Pie Chart:</strong> Represents proportions within a whole.
-            <br><strong>Example:</strong> Illustrating the proportion of different blood types in a study group.
-        </li>
+        <li><strong>Slices:</strong> Each slice represents a category, with the size proportional to its value relative to the whole.</li>
+        <li><strong>Colors:</strong> Different colors or patterns distinguish between slices for clarity.</li>
+        <li><strong>Labels:</strong> Each slice can include a label or percentage to indicate the category and its contribution.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Visually intuitive for showing proportions within a dataset.</li>
+        <li>Effective for highlighting the dominance of specific categories.</li>
+        <li>Simple and widely recognized, making it accessible to most audiences.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Limited to a small number of categories; too many slices can make it cluttered.</li>
+        <li>Difficult to compare precise values between slices, especially when differences are small.</li>
+        <li>Not ideal for showing trends or relationships between categories.</li>
     </ul>
 </section>
+
 
 <section class="white-box">
     <h3>Relational Graphs</h3>
-    <p>Relational graphs show relationships or correlations between variables in a dataset.</p>
+    <p>Relational graphs show relationships or correlations between variables in a dataset. They are ideal for exploring connections and dependencies between data points.</p>
+
+    <h4>Scatter Plot</h4>
+    <p>Displays relationships between two numerical variables.</p>
+    <p><strong>Example:</strong> Examining the correlation between nutrient concentration and plant growth rate.</p>
+    <p><strong>Key Components:</strong></p>
     <ul>
-        <li>
-            <strong>Scatter Plot:</strong> Displays relationships between two numerical variables.
-            <br><strong>Example:</strong> Examining the correlation between nutrient concentration and plant growth rate.
-        </li>
-        <li>
-            <strong>Bubble Chart:</strong> An extension of the scatter plot, where the size of the bubbles represents a third variable.
-            <br><strong>Example:</strong> Exploring relationships between animal species' body size, population density, and habitat area.
-        </li>
-        <li>
-            <strong>Network Graph:</strong> Displays relationships or interactions between entities.
-            <br><strong>Example:</strong> Mapping protein-protein interactions in a biological pathway.
-        </li>
+        <li><strong>X-Axis:</strong> Represents one variable (e.g., nutrient concentration).</li>
+        <li><strong>Y-Axis:</strong> Represents the second variable (e.g., plant growth rate).</li>
+        <li><strong>Points:</strong> Each point represents an observation, with its position determined by the values of the two variables.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Simple and effective for visualizing relationships between two variables.</li>
+        <li>Highlights correlations (positive, negative, or none) at a glance.</li>
+        <li>Can reveal patterns, clusters, or outliers in the data.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Limited to two variables (or three if color or size is added).</li>
+        <li>Does not provide statistical measures of the relationship (e.g., correlation coefficient).</li>
+        <li>Can become cluttered with large datasets.</li>
+    </ul>
+
+    <h4>Bubble Chart</h4>
+    <p>An extension of the scatter plot, where the size of the bubbles represents a third variable.</p>
+    <p><strong>Example:</strong> Exploring relationships between animal species' body size, population density, and habitat area.</p>
+    <p><strong>Key Components:</strong></p>
+    <ul>
+        <li><strong>X-Axis:</strong> Represents one variable (e.g., body size).</li>
+        <li><strong>Y-Axis:</strong> Represents a second variable (e.g., population density).</li>
+        <li><strong>Bubble Size:</strong> Represents a third variable (e.g., habitat area).</li>
+        <li><strong>Bubble Color:</strong> Optionally used to represent a categorical variable (e.g., species type).</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Visualizes relationships between three variables simultaneously.</li>
+        <li>Highlights the magnitude of a third variable effectively.</li>
+        <li>Customizable with colors or labels for additional context.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Can be challenging to interpret if bubbles overlap.</li>
+        <li>Size differences can be misleading if not scaled properly.</li>
+        <li>Less effective for datasets with many data points.</li>
+    </ul>
+
+    <h4>Network Graph</h4>
+    <p>Displays relationships or interactions between entities.</p>
+    <p><strong>Example:</strong> Mapping protein-protein interactions in a biological pathway.</p>
+    <p><strong>Key Components:</strong></p>
+    <ul>
+        <li><strong>Nodes:</strong> Represent entities (e.g., proteins).</li>
+        <li><strong>Edges:</strong> Represent relationships or interactions between nodes (e.g., interactions between proteins).</li>
+        <li><strong>Node Size/Color:</strong> Optionally indicates additional attributes (e.g., importance or classification of proteins).</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Ideal for visualizing complex relationships in a dataset.</li>
+        <li>Can represent large networks with numerous connections.</li>
+        <li>Customizable with attributes like edge weight or node size to convey more information.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Can become visually overwhelming with dense networks.</li>
+        <li>Requires specialized tools for creating and analyzing large graphs.</li>
+        <li>Harder to interpret without prior knowledge of the dataset.</li>
     </ul>
 </section>
+
 
 <section class="white-box">
     <h3>Temporal Graphs</h3>
-    <p>These graphs are designed to show changes or trends over time.</p>
+    <p>These graphs are designed to show changes or trends over time, making them ideal for visualizing data that evolves sequentially or continuously.</p>
+
+    <h4>Line Graph</h4>
+    <p>Shows trends over time or continuous data.</p>
+    <p><strong>Example:</strong> Monitoring changes in population size of a species over several months.</p>
+    <p><strong>Key Components:</strong></p>
     <ul>
-        <li>
-            <strong>Line Graph:</strong> Shows trends over time or continuous data.
-            <br><strong>Example:</strong> Monitoring changes in population size of a species over several months.
-        </li>
+        <li><strong>X-Axis:</strong> Represents time or a sequential variable (e.g., months, days, years).</li>
+        <li><strong>Y-Axis:</strong> Represents the variable being measured (e.g., population size).</li>
+        <li><strong>Line:</strong> A continuous line connects data points to indicate trends or changes over time.</li>
+        <li><strong>Data Points:</strong> Individual points on the graph represent specific observations.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Effective for visualizing trends, patterns, and changes over time.</li>
+        <li>Can display multiple lines for comparing trends across different groups or categories.</li>
+        <li>Works well for both continuous and discrete time data.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Can become cluttered if too many lines are included.</li>
+        <li>Does not show distribution or variability within data points.</li>
+        <li>May require careful scaling and labeling for accurate interpretation.</li>
     </ul>
 </section>
 
+
 <section class="white-box">
     <h3>Pattern and Density Graphs</h3>
-    <p>Graphs in this category highlight patterns, clusters, or variations in datasets.</p>
+    <p>Graphs in this category highlight patterns, clusters, or variations in datasets, making them ideal for identifying correlations or visualizing complex relationships.</p>
+
+    <h4>Heatmap</h4>
+    <p>Represents data values as colors, often used to show patterns or correlations.</p>
+    <p><strong>Example:</strong> Visualizing gene expression levels across different samples in a study.</p>
+    <p><strong>Key Components:</strong></p>
     <ul>
-        <li>
-            <strong>Heatmap:</strong> Represents data values as colors, often used to show patterns or correlations.
-            <br><strong>Example:</strong> Visualizing gene expression levels across different samples in a study.
-        </li>
+        <li><strong>Rows and Columns:</strong> Represent the variables or categories being compared (e.g., genes vs. samples).</li>
+        <li><strong>Color Scale:</strong> Represents the magnitude of data values, with colors transitioning from one hue to another (e.g., blue for low expression, red for high expression).</li>
+        <li><strong>Cells:</strong> Each cell represents the intersection of a row and column, with its color indicating the data value for that pair.</li>
+        <li><strong>Annotations (Optional):</strong> Labels or numerical values can be added to cells for clarity.</li>
+    </ul>
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>Excellent for visualizing large datasets with many variables.</li>
+        <li>Highlights patterns, clusters, and correlations at a glance.</li>
+        <li>Customizable with different color schemes and hierarchical clustering for enhanced insights.</li>
+    </ul>
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>Can be overwhelming with very large datasets or too many categories.</li>
+        <li>Interpretation heavily depends on an appropriate color scale.</li>
+        <li>Not suitable for small datasets due to limited granularity.</li>
     </ul>
 </section>
+
 
 <section class="dark-blue-box">
     <h3>Playground</h3>
