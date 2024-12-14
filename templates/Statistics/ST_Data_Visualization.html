@@ -40,10 +40,13 @@
                 <li>Can become cluttered with too many categories.</li>
                 <li>Less effective for visualizing trends over time.</li>
             </ul>
-    <h4> Barplot </h4>
-    <p>Imagine you have different fertilizers A, B, C and D and you would like to see the average growth of a set
-    of plants using a barplot based on the different fertilizers used.
-    <strong> Please note, this is dummy data! </strong> </p>
+    <h4> Plot </h4>
+    <p> Imagine you have different fertilizers A, B, C, and D, and you would like to visualize the plant growth data using various charts.
+    Below, we demonstrate different types of plots to analyze and compare the effects of fertilizers.
+    <strong>Please note, this is dummy data!</strong> </p>
+    <p>
+    This bar plot shows the <strong>average growth</strong> of plants for each fertilizer. Each bar represents the average plant height for fertilizers A, B, C, and D.
+    </p>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <div class="plot-container">
         {{ barplot_html|safe }}
@@ -72,7 +75,9 @@
                 <li>Does not show within-group variability.</li>
             </ul>
     <h4> Plot </h4>
-    <p>On the other hand, if you would like to see how each of them compare relative to each other, you can use a Stacked Area Chart.</p>
+    <p>
+    The stacked area chart provides a <strong>visual representation of growth trends</strong> over time. Each area corresponds to a fertilizer, allowing you to compare their contributions to overall growth.
+    </p>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <div class="plot-container">
         {{ filled_plot_html|safe }}
@@ -105,6 +110,15 @@
         <li>Not suitable for small datasets due to limited frequency counts.</li>
         <li>Does not show exact data values, only their distribution across intervals.</li>
     </ul>
+    <h4>Plot</h4>
+    <p>
+    This histogram displays the <strong>distribution of plant heights</strong> for each fertilizer.
+    It highlights the range of heights achieved and the frequency of observations within each range, allowing you to see variability and consistency.
+    </p>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ histogram_html|safe }}
+    </div>
 
     <h4>Box Plot</h4>
     <p>Summarizes data distribution and identifies outliers.</p>
@@ -128,6 +142,15 @@
         <li>Can be less intuitive for audiences unfamiliar with statistical terms like IQR.</li>
         <li>Outliers can dominate the visualization, overshadowing the main data.</li>
     </ul>
+        <h4>Plot</h4>
+    <p>
+    The box plot shows the <strong>spread of plant heights</strong> for each fertilizer, including key statistical
+        measures such as the median, quartiles, and outliers. It helps compare the variability and central tendencies between fertilizers.
+    </p>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ box_html|safe }}
+    </div>
 
     <h4>Violin Plot</h4>
     <p>Combines box plot and density plot to show the distribution of data.</p>
@@ -150,7 +173,17 @@
         <li>Can be visually complex for simple comparisons.</li>
         <li>Harder to interpret than simpler plots like histograms or box plots.</li>
     </ul>
+    <h4>Plot</h4>
+    <p>
+    The violin plot combines the box plot with a <strong>density plot</strong>, providing a detailed view of the
+        <strong>distribution of plant heights</strong> for each fertilizer. It shows both the spread and the shape of the data distribution.
+    </p>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div class="plot-container">
+        {{ violin_html|safe }}
+    </div>
 </section>
+
 
 
 <section class="white-box">

@@ -3,6 +3,8 @@
 import sys
 import os
 
+from .my_statistics.data_visualization import box_plot
+
 # Add project directory to sys.path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))  # This is needed so other packages are recognized
 # __file__: This is a special variable in Python that holds the full path of the script being executed.
@@ -21,7 +23,7 @@ from django.core.paginator import Paginator
 from my_statistics.p_value import visualize_flips, flips, probability, experiments, observed  # Import functions
 from my_statistics.linear_reagression import interactive_plot, add_points, generate_plot, clear_points, data_points
 from my_statistics.descriptive_statistics import numerical, calculate_descriptions, premade
-from my_statistics.data_visualization import generate_fertilizer_growth_data, bar_plot, filled_plot
+from my_statistics.data_visualization import generate_fertilizer, bar_plot, filled_plot, histogram_plot, violin, box_plot
 
 
 
@@ -229,10 +231,17 @@ def st_data_visualization(request):
     article = get_object_or_404(Article, title='Data Visualization')
     barplot_html = bar_plot()
     filled_plot_html = filled_plot()
+    histogram_html = histogram_plot()
+    box_html = box_plot()
+    violin_html = violin()
+
     return render(request, "Statistics/ST_Data_Visualization.html", {
         'article': article,
         "barplot_html": barplot_html,
-        "filled_plot_html": filled_plot_html
+        "filled_plot_html": filled_plot_html,
+        "histogram_html": histogram_html,
+        "box_html":box_html,
+        "violin_html": violin_html
         })
 
 
